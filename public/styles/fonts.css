@@ -1,0 +1,127 @@
+/* 1. Import optimized typefaces */
+@font-face {
+  font-family: 'montserrat_regular';
+  src: url('../fonts/montserrat_regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'montserrat_bold';
+  src: url('../fonts/montserrat_bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: bold;
+}
+
+
+/* 2. Add typefaces to selectors */
+a {
+  text-decoration: none;
+  font-family: 'montserrat_regular';
+}
+
+body { font-family: 'montserrat_regular', sans-serif; }
+
+h1, h2, h3, h4, h5, h6 { font-family: 'montserrat_bold', sans-serif; }
+
+
+/* 3. Define variables with sizes, line-spacings and indents */
+:root {
+  --smallest_font_size: 14px;
+  --smallest_line_height: 20px;
+
+  --smaller_font_size: 16px;
+  --smaller_line_height: 24px;
+
+  --regular_font_size: 18px;
+  --regular_line_height: 28px;
+
+  --subtitle_font_size: 22px;
+  --subtitle_line_height: 28px;
+
+  --h2_font_size: 30px;
+  --h2_h6_line_height: 36px;
+
+  --h1_font_size: 44px;
+  --h1_line_height: 56px;
+
+  --padding_between_paragraphs: 20px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --smallest_font_size: 12px;
+    --smallest_line_height: 16px;
+  
+    --smaller_font_size: 16px;
+    --smaller_line_height: 24px;
+  
+    --regular_font_size: 16px;
+    --regular_line_height: 24px;
+  
+    --subtitle_font_size: 19px;
+    --subtitle_line_height: 24px;
+  
+    --h2_font_size: 22px;
+    --h2_h6_line_height: 28px;
+  
+    --h1_font_size: 29px;
+    --h1_line_height: 36px;
+
+    --padding_between_paragraphs: 16px;
+  }
+}
+
+
+/* 4. Define classes with fonts sizes only */
+.smallest_font_size { font-size: var(--smallest_font_size); }
+.smaller_font_size { font-size: var(--smaller_font_size); }
+.regular_font_size { font-size: var(--regular_font_size); }
+
+.subtitle_font_size {
+  font-family: 'montserrat_bold', sans-serif;
+  font-size: var(--subtitle_font_size);
+}
+
+.h2_font_size { font-size: var(--h2_font_size); }
+.h1_font_size { font-size: var(--h1_font_size); }
+
+
+/* 5. Define classes with fonts sizes and line-spacings */
+.smallest_font_style {
+  font-size: var(--smallest_font_size);
+  line-height: var(--smallest_line_height);
+}
+.smallest_font_style:not(:last-child) { padding-bottom: var(--padding_between_paragraphs) }
+
+.smaller_font_style {
+  font-size: var(--smaller_font_size);
+  line-height: var(--smaller_line_height);
+}
+.smaller_font_style:not(:last-child) { padding-bottom: var(--padding_between_paragraphs); }
+
+.regular_font_style {
+  font-size: var(--regular_font_size);
+  line-height: var(--regular_line_height);
+}
+.regular_font_style:not(:last-child) { padding-bottom: var(--padding_between_paragraphs); }
+
+.subtitle_font_style {
+  font-family: 'montserrat_bold', sans-serif;
+  font-size: var(--subtitle_font_size);
+  line-height: var(--subtitle_line_height);
+  padding-bottom: var(--padding_between_paragraphs);
+}
+.subtitle_font_style:not(:last-child) { padding-bottom: var(--padding_between_paragraphs); }
+
+.h2_font_style {
+  font-size: var(--h2_font_size);
+  line-height: var(--h2_h6_line_height);
+  padding-bottom: var(--padding_between_paragraphs);
+}
+
+.h1_font_style {
+  font-size: var(--h1_font_size);
+  line-height: var(--h1_line_height);
+  padding-bottom: var(--padding_between_paragraphs);
+}
