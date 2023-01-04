@@ -1,5 +1,10 @@
+import { Text } from '@/components/generic'
+
+
 export default function Home() {
   return (
-    <p>Hello, world!</p>
+    <Text size='subtitle'>
+      Hello, world!
+    </Text>
   )
 }
