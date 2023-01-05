@@ -1,0 +1,5 @@
+:root {
+  --indent: 4px;
+  --inner_radius: var(var(--indent));
+  --outer_radius: calc(var(var(--indent)) * 2);
+}

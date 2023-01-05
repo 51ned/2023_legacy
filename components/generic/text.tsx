@@ -16,9 +16,7 @@ const SizeEnum = {
 } as const
 
 type BackgroundEnum = typeof BackgroundEnum[keyof typeof BackgroundEnum]
-
 type ColorEnum = typeof ColorEnum[keyof typeof ColorEnum]
-
 type SizeEnum = typeof SizeEnum[keyof typeof SizeEnum]
 
 
@@ -40,6 +38,7 @@ export function Text({
   style = SizeEnum.Regular,
   tag: Tag = 'p'
 }: TextProps) {
+  
   const textColor = `${color}_${bg}_bg`
   const textStyle = size ? `${size}_font_size` : `${style}_font_style`
 
