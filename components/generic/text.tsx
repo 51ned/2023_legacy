@@ -24,9 +24,9 @@ interface TextProps {
   bg?: BackgroundEnum,
   children: React.ReactNode,
   color?: ColorEnum,
-  size?: SizeEnum,
-  style?: SizeEnum,
   tag?: keyof JSX.IntrinsicElements,
+  withSize?: SizeEnum,
+  withStyle?: SizeEnum
 }
 
 
@@ -34,13 +34,13 @@ export function Text({
   bg = BackgroundEnum.Light,
   children,
   color = ColorEnum.Primary,
-  size,
-  style = SizeEnum.Regular,
-  tag: Tag = 'p'
+  tag: Tag = 'p',
+  withSize,
+  withStyle = SizeEnum.Regular
 }: TextProps) {
   
   const textColor = `${color}_${bg}_bg`
-  const textStyle = size ? `${size}_font_size` : `${style}_font_style`
+  const textStyle = withSize ? `${withSize}_font_size` : `${withStyle}_font_style`
 
   return (
     <Tag className={`${textColor} ${textStyle}`}>
