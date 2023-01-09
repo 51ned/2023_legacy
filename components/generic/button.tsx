@@ -13,10 +13,10 @@ type StyleEnum = typeof StyleEnum[keyof typeof StyleEnum]
 
 
 interface ButtonProps {
-  buttonId: string,
-  children: React.ReactNode,
-  controlledEl: string,
-  // handleClick: () => void,
+  buttonID: string,
+  title: React.ReactNode,
+  controlledID: string,
+  handleClick: () => void,
   isActive: boolean,
   isExpandable?: boolean,
   withStyle?: StyleEnum
@@ -24,10 +24,10 @@ interface ButtonProps {
 
 
 export function Button({
-  buttonId,
-  children,
-  controlledEl,
-  // handleClick,
+  buttonID,
+  title,
+  controlledID,
+  handleClick,
   isActive,
   isExpandable = true,
   withStyle = StyleEnum.Regular
@@ -37,29 +37,33 @@ export function Button({
 
   let buttonOpts = {}
 
+  
   if (withStyle === 'inactive') {
-    buttonOpts['disabled'] = 'disabled'
+    // @ts-ignore
+    buttonOpts['disabled'] = 'disabled' 
   }
   
   if (withStyle === 'tab') {
+    // @ts-ignore
     buttonOpts['aria-selected'] = isActive ? 'true' : 'false'
   }
   
   if (isExpandable) {
+    // @ts-ignore
     buttonOpts['aria-expanded'] = isActive ? 'true' : 'false'
   }
 
   return (
     <button
-      aria-controls={controlledEl}
-      id={buttonId}
+      aria-controls={controlledID}
+      id={buttonID}
       className={style[buttonStyle]}
-      // onClick={handleClick}
+      onClick={handleClick}
       role={withStyle === 'tab' ? 'tab' : 'button'}
       tabIndex={isActive ? -1 : 0}
       {...buttonOpts}
     >
-      { children }
+      { title }
     </button>
   )
 }

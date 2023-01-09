@@ -1,4 +1,4 @@
-import { Button, Text } from '@/components/generic'
+import { Accordion, Text } from '@/components/generic'
 
 
 export default function Home() {
@@ -8,15 +8,7 @@ export default function Home() {
         Hello, world!
       </Text>
 
-      <Button
-        buttonId='button-id'
-        controlledEl='card-id'
-        isActive={true}
-        isExpandable={false}
-        withStyle='regular'
-      >
-        Tab button example
-      </Button>
+      <Accordion />
     </>
   )
 }
