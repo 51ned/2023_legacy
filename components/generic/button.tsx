@@ -14,7 +14,7 @@ type StyleEnum = typeof StyleEnum[keyof typeof StyleEnum]
 
 interface ButtonProps {
   buttonID: string,
-  title: React.ReactNode,
+  buttonTitle: React.ReactNode,
   controlledID: string,
   handleClick: () => void,
   isActive: boolean,
@@ -25,7 +25,7 @@ interface ButtonProps {
 
 export function Button({
   buttonID,
-  title,
+  buttonTitle,
   controlledID,
   handleClick,
   isActive,
@@ -56,14 +56,14 @@ export function Button({
   return (
     <button
       aria-controls={controlledID}
-      id={buttonID}
       className={style[buttonStyle]}
+      id={buttonID}
       onClick={handleClick}
       role={withStyle === 'tab' ? 'tab' : 'button'}
       tabIndex={isActive ? -1 : 0}
       {...buttonOpts}
     >
-      { title }
+      { buttonTitle }
     </button>
   )
 }
