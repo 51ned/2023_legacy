@@ -1,5 +1,6 @@
 export * from './accordion'
 export * from './button'
 export * from './card'
+export * from './head'
 export * from './tabs'
 export * from './text'

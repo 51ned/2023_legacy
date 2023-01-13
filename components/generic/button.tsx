@@ -19,6 +19,7 @@ interface ButtonProps {
   handleClick: () => void,
   isActive: boolean,
   isExpandable?: boolean,
+  tabIndex: number,
   withStyle?: StyleEnum
 }
 
@@ -30,13 +31,13 @@ export function Button({
   handleClick,
   isActive,
   isExpandable = true,
+  tabIndex,
   withStyle = StyleEnum.Regular
 }: ButtonProps) {
 
-  const buttonStyle = `${withStyle}_style`
+  const buttonStyle = isActive ? `${withStyle}_style_active` : `${withStyle}_style`
 
   let buttonOpts = {}
-
   
   if (withStyle === 'inactive') {
     // @ts-ignore
@@ -60,7 +61,7 @@ export function Button({
       id={buttonID}
       onClick={handleClick}
       role={withStyle === 'tab' ? 'tab' : 'button'}
-      tabIndex={isActive ? -1 : 0}
+      tabIndex={tabIndex}
       {...buttonOpts}
     >
       { buttonTitle }

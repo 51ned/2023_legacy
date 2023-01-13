@@ -1,44 +1,48 @@
+import { useState } from 'react'
+
 import { Button, Card } from './'
 
 
-interface AccordionProps {
-  activeIndex: number | null,
-  actualIndex: number,
+interface AccordionItemProps {
   buttonID: string,
   buttonTitle: string,
-  content: string,
-  contentID: string,
-  handleClick: () => void
+  content: string | React.ReactNode,
+  contentID: string
+}
+interface AccordionProps {
+  data: AccordionItemProps[]
 }
 
 
-export function Accordion({
-  activeIndex,
-  actualIndex,
-  buttonID,
-  buttonTitle,
-  content,
-  contentID,
-  handleClick
-}: AccordionProps) {
-
+export function Accordion(pr: AccordionProps) {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null)
+  const handleClick = (index: number) => {
+    index === activeIndex ? setActiveIndex(null) : setActiveIndex(index)
+  }
+  
   return (
-    <div>
-      <Button
-        buttonID={buttonID}
-        buttonTitle={buttonTitle}
-        controlledID={contentID}
-        handleClick={handleClick}
-        isActive={actualIndex === activeIndex}
-        isExpandable
-        withStyle='accordion'
-      />
-      <Card
-        content={content}
-        contentID={contentID}
-        controllingID={buttonID}
-        isActive={actualIndex === activeIndex}
-      />
-    </div>
+    <>
+      {(pr.data).map((item, index) => (
+        <div key={index}>
+          <Button
+            buttonID={item.buttonID}
+            buttonTitle={item.buttonTitle}
+            controlledID={item.contentID}
+            handleClick={() => handleClick(index)}
+            isActive={index === activeIndex}
+            isExpandable
+            tabIndex={0}
+            withStyle='accordion'
+          />
+          
+          <Card
+            content={item.content}
+            contentID={item.contentID}
+            controllingID={item.buttonID}
+            isActive={index === activeIndex}
+          />
+        </div>  
+      ))}
+    </>
   )
 }
