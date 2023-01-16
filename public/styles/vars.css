@@ -1,5 +1,9 @@
 :root {
   --indent: 4px;
-  --inner_radius: var(var(--indent));
-  --outer_radius: calc(var(var(--indent)) * 2);
+
+  --inner_radius: var(--indent);
+  --outer_radius: calc(var(--indent) * 2);
+
+  --big_pad: calc(var(--indent) * 9);
+  --small_pad: calc(var(--indent) * 6);
 }

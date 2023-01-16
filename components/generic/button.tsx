@@ -14,6 +14,7 @@ type StyleEnum = typeof StyleEnum[keyof typeof StyleEnum]
 
 interface ButtonProps {
   buttonID: string,
+  buttonTag?: keyof JSX.IntrinsicElements,
   buttonTitle: React.ReactNode,
   controlledID: string,
   handleClick: () => void,
@@ -25,46 +26,37 @@ interface ButtonProps {
 
 
 export function Button({
-  buttonID,
-  buttonTitle,
-  controlledID,
-  handleClick,
-  isActive,
   isExpandable = true,
-  tabIndex,
-  withStyle = StyleEnum.Regular
+  buttonTag: Tag = 'button',
+  withStyle = StyleEnum.Regular,
+  ...pr
 }: ButtonProps) {
 
-  const buttonStyle = isActive ? `${withStyle}_style_active` : `${withStyle}_style`
+  const buttonStyle = pr.isActive ? `${withStyle}_style_active` : `${withStyle}_style`
 
-  let buttonOpts = {}
+  let buttonOpts: {[key: string]: string} = {} 
   
   if (withStyle === 'inactive') {
-    // @ts-ignore
     buttonOpts['disabled'] = 'disabled' 
-  }
-  
-  if (withStyle === 'tab') {
-    // @ts-ignore
-    buttonOpts['aria-selected'] = isActive ? 'true' : 'false'
+  } else if (withStyle === 'tab') {
+    buttonOpts['aria-selected'] = pr.isActive ? 'true' : 'false'
   }
   
   if (isExpandable) {
-    // @ts-ignore
-    buttonOpts['aria-expanded'] = isActive ? 'true' : 'false'
+    buttonOpts['aria-expanded'] = pr.isActive ? 'true' : 'false'
   }
-
+  
   return (
-    <button
-      aria-controls={controlledID}
-      className={style[buttonStyle]}
-      id={buttonID}
-      onClick={handleClick}
+    <Tag
+      aria-controls={pr.controlledID}
+      className={`${style.common_style} ${style[buttonStyle]}`}
+      id={pr.buttonID}
+      onClick={pr.handleClick}
       role={withStyle === 'tab' ? 'tab' : 'button'}
-      tabIndex={tabIndex}
+      tabIndex={pr.tabIndex}
       {...buttonOpts}
     >
-      { buttonTitle }
-    </button>
+      { pr.buttonTitle }
+    </Tag>
   )
 }

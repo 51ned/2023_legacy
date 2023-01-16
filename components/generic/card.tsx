@@ -1,29 +1,40 @@
 import style from './card.module.css'
 
 
+const StyleEnum = {
+  Expanding: 'expanding',
+  Regular: 'regular'
+} as const
+
+type StyleEnum = typeof StyleEnum[keyof typeof StyleEnum]
+
+
 interface CardProps {
   content: React.ReactNode,
   contentID: string,
+  contentTag?: keyof JSX.IntrinsicElements,
   controllingID?: string
-  isActive?: boolean
+  isActive?: boolean,
+  withStyle: StyleEnum
 }
 
 
 export function Card({
-  content,
-  contentID,
-  controllingID,
-  isActive
+  contentTag: Tag = 'div',
+  withStyle = StyleEnum.Regular,
+  ...pr
 }: CardProps) {
 
+  const cardStyle = `${withStyle}_style`
+
   return (
-    <div
-      aria-labelledby={controllingID}
-      className={isActive ? '' : 'visually_hidden'}
-      id={contentID}
+    <Tag
+      aria-labelledby={pr.controllingID}
+      className={pr.isActive ? style[cardStyle] : 'visually_hidden'}
+      id={pr.contentID}
       role='region'
     >
-      { content }
-    </div>
+      { pr.content }
+    </Tag>
   )
 }

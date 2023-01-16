@@ -1,3 +1,10 @@
+.common_style {
+  cursor: pointer;
+  font-size: var(--smaller_font_size);
+  padding: var(--small_pad);
+  width: 100%;
+}
+
 .accordion_style {}
 
 .accordion_style_active {}
