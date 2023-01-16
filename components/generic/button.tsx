@@ -1,3 +1,5 @@
+import React from 'react'
+
 import style from './button.module.css'
 
 
@@ -14,8 +16,8 @@ type StyleEnum = typeof StyleEnum[keyof typeof StyleEnum]
 
 interface ButtonProps {
   buttonID: string,
-  buttonTag?: keyof JSX.IntrinsicElements,
   buttonTitle: React.ReactNode,
+  buttonWrap?: keyof JSX.IntrinsicElements,
   controlledID: string,
   handleClick: () => void,
   isActive: boolean,
@@ -26,11 +28,11 @@ interface ButtonProps {
 
 export function Button({
   isExpandable = true,
-  buttonTag: Tag = 'button',
   withStyle = StyleEnum.Regular,
   ...pr
 }: ButtonProps) {
 
+  const Tag = pr.buttonWrap ?? React.Fragment
   const buttonStyle = pr.isActive ? `${withStyle}_style_active` : `${withStyle}_style`
 
   let buttonOpts: {[key: string]: string} = {} 
@@ -47,14 +49,16 @@ export function Button({
   }
   
   return (
-    <Tag
-      aria-controls={pr.controlledID}
-      className={`${style.common_style} ${style[buttonStyle]}`}
-      id={pr.buttonID}
-      onClick={pr.handleClick}
-      {...buttonOpts}
-    >
-      { pr.buttonTitle }
+    <Tag>
+      <button
+        aria-controls={pr.controlledID}
+        className={`${style.common_style} ${style[buttonStyle]}`}
+        id={pr.buttonID}
+        onClick={pr.handleClick}
+        {...buttonOpts}
+      >
+        { pr.buttonTitle }
+      </button>
     </Tag>
   )
 }

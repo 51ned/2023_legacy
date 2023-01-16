@@ -11,10 +11,10 @@ interface AccordionItemProps {
 }
 
 interface AccordionProps {
+  buttonWrap?: keyof JSX.IntrinsicElements,
   containerTag?: keyof JSX.IntrinsicElements,
   contentTag?: keyof JSX.IntrinsicElements,
-  data: AccordionItemProps[],
-  buttonTag?: keyof JSX.IntrinsicElements,
+  data: AccordionItemProps[]
 }
 
 
@@ -32,7 +32,7 @@ export function Accordion(pr: AccordionProps) {
         <Tag key={index}>
           <Button
             buttonID={item.buttonID}
-            buttonTag={pr.buttonTag}
+            buttonWrap={pr.buttonWrap}
             buttonTitle={item.buttonTitle}
             controlledID={item.contentID}
             handleClick={() => handleClick(index)}

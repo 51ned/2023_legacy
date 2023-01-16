@@ -22,7 +22,7 @@ export default function Home() {
             </Text>
 
             <Accordion
-              buttonTag='h1'
+              buttonWrap='h2'
               containerTag='article'
               data={data}
             />
@@ -37,11 +37,21 @@ export default function Home() {
             
             <dl>
               <Accordion
-                buttonTag='dt'
+                buttonWrap='dt'
                 contentTag='dd'
                 data={data}
               />
             </dl>
+          </div>
+
+          <div className={style.accordion_wrap}>
+            <Head level='2' text='Default Accordion' />
+
+            <Text withStyle='regular'>
+              Some text, which explain, what accordion below about.
+            </Text>
+            
+            <Accordion contentTag='p' data={data} />
           </div>
         </main>
       </div>
