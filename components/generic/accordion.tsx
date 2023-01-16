@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { Button, Card } from './'
 
@@ -18,11 +18,9 @@ interface AccordionProps {
 }
 
 
-export function Accordion({
-  containerTag: Tag = 'div',
-  ...pr
-}: AccordionProps) {
-  
+export function Accordion(pr: AccordionProps) {
+  const Tag = pr.containerTag ?? React.Fragment
+
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const handleClick = (index: number) => {
     index === activeIndex ? setActiveIndex(null) : setActiveIndex(index)
@@ -40,7 +38,6 @@ export function Accordion({
             handleClick={() => handleClick(index)}
             isActive={index === activeIndex}
             isExpandable
-            tabIndex={0}
             withStyle='accordion'
           />
           

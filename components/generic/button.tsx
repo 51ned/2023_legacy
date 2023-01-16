@@ -20,7 +20,6 @@ interface ButtonProps {
   handleClick: () => void,
   isActive: boolean,
   isExpandable?: boolean,
-  tabIndex: number,
   withStyle?: StyleEnum
 }
 
@@ -40,6 +39,7 @@ export function Button({
     buttonOpts['disabled'] = 'disabled' 
   } else if (withStyle === 'tab') {
     buttonOpts['aria-selected'] = pr.isActive ? 'true' : 'false'
+    buttonOpts['role'] = 'tab'
   }
   
   if (isExpandable) {
@@ -52,8 +52,6 @@ export function Button({
       className={`${style.common_style} ${style[buttonStyle]}`}
       id={pr.buttonID}
       onClick={pr.handleClick}
-      role={withStyle === 'tab' ? 'tab' : 'button'}
-      tabIndex={pr.tabIndex}
       {...buttonOpts}
     >
       { pr.buttonTitle }
