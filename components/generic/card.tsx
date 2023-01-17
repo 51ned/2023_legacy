@@ -13,28 +13,29 @@ interface CardProps {
   content: React.ReactNode,
   contentID: string,
   contentTag?: keyof JSX.IntrinsicElements,
-  controllingID?: string
+  controllingID?: string,
   isActive?: boolean,
   withStyle: StyleEnum
 }
 
 
 export function Card({
+  content,
+  contentID,
   contentTag: Tag = 'div',
-  withStyle = StyleEnum.Regular,
-  ...pr
+  controllingID,
+  isActive,
+  withStyle = StyleEnum.Regular
 }: CardProps) {
-
   const cardStyle = `${withStyle}_style`
 
   return (
     <Tag
-      aria-labelledby={pr.controllingID}
-      className={pr.isActive ? style[cardStyle] : 'visually_hidden'}
-      id={pr.contentID}
-      role='region'
+      aria-labelledby={controllingID}
+      className={isActive ? style[cardStyle] : 'visually_hidden'}
+      id={contentID}
     >
-      { pr.content }
+      { content }
     </Tag>
   )
 }

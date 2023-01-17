@@ -12,12 +12,15 @@ interface HeadingProps {
 }
 
 
-export function Head(pr: HeadingProps) {
-  const Tag: keyof JSX.IntrinsicElements = `h${pr.level}`
+export function Head({
+  level,
+  text
+}: HeadingProps) {
+  const Tag: keyof JSX.IntrinsicElements = `h${level}`
 
   return (
-    <Tag className={`h${pr.level}_font_style`}>
-      { pr.text }
+    <Tag className={`h${level}_font_style`}>
+      { text }
     </Tag>
   )
 }

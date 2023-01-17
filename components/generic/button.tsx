@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Plus } from './'
+
 import style from './button.module.css'
 
 
@@ -27,37 +29,44 @@ interface ButtonProps {
 
 
 export function Button({
+  buttonID,
+  buttonTitle,
+  buttonWrap,
+  controlledID,
+  handleClick,
+  isActive,
   isExpandable = true,
-  withStyle = StyleEnum.Regular,
-  ...pr
+  withStyle = StyleEnum.Regular
 }: ButtonProps) {
-
-  const Tag = pr.buttonWrap ?? React.Fragment
-  const buttonStyle = pr.isActive ? `${withStyle}_style_active` : `${withStyle}_style`
+  const Tag = buttonWrap ?? React.Fragment
+  
+  const buttonStyle = isActive ? `${withStyle}_style_active` : `${withStyle}_style`
 
   let buttonOpts: {[key: string]: string} = {} 
   
   if (withStyle === 'inactive') {
     buttonOpts['disabled'] = 'disabled' 
   } else if (withStyle === 'tab') {
-    buttonOpts['aria-selected'] = pr.isActive ? 'true' : 'false'
+    buttonOpts['aria-selected'] = isActive ? 'true' : 'false'
     buttonOpts['role'] = 'tab'
   }
   
   if (isExpandable) {
-    buttonOpts['aria-expanded'] = pr.isActive ? 'true' : 'false'
+    buttonOpts['aria-expanded'] = isActive ? 'true' : 'false'
   }
   
   return (
     <Tag>
       <button
-        aria-controls={pr.controlledID}
+        aria-controls={controlledID}
         className={`${style.common_style} ${style[buttonStyle]}`}
-        id={pr.buttonID}
-        onClick={pr.handleClick}
+        id={buttonID}
+        onClick={handleClick}
         {...buttonOpts}
       >
-        { pr.buttonTitle }
+        { buttonTitle }
+        
+        { withStyle === StyleEnum.Accordion && <Plus /> }
       </button>
     </Tag>
   )

@@ -38,7 +38,6 @@ export function Text({
   withSize,
   withStyle = SizeEnum.Regular
 }: TextProps) {
-  
   const textColor = `${color}_${bg}_bg`
   const textStyle = withSize ? `${withSize}_font_size` : `${withStyle}_font_style`
 

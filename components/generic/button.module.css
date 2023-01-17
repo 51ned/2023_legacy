@@ -1,13 +1,17 @@
 .common_style {
-  cursor: pointer;
   font-size: var(--smaller_font_size);
-  padding: var(--small_pad);
   width: 100%;
 }
 
-.accordion_style {}
+.accordion_style,
+.accordion_style_active {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: var(--small_pad) 0;
+  position: relative;
+}
 
-.accordion_style_active {}
 
 .inactive_style {}
 

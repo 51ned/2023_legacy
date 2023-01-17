@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 import { Button, Card } from './'
 
+import style from './accordion.module.css'
+
 
 interface AccordionItemProps {
   buttonID: string,
@@ -18,9 +20,14 @@ interface AccordionProps {
 }
 
 
-export function Accordion(pr: AccordionProps) {
-  const Tag = pr.containerTag ?? React.Fragment
-
+export function Accordion({
+  buttonWrap,
+  containerTag,
+  contentTag,
+  data
+}: AccordionProps) {
+  const Tag = containerTag ?? React.Fragment
+  
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const handleClick = (index: number) => {
     index === activeIndex ? setActiveIndex(null) : setActiveIndex(index)
@@ -28,12 +35,12 @@ export function Accordion(pr: AccordionProps) {
   
   return (
     <>
-      {(pr.data).map((item, index) => (
+      {(data).map((item, index) => (
         <Tag key={index}>
           <Button
             buttonID={item.buttonID}
-            buttonWrap={pr.buttonWrap}
             buttonTitle={item.buttonTitle}
+            buttonWrap={buttonWrap}
             controlledID={item.contentID}
             handleClick={() => handleClick(index)}
             isActive={index === activeIndex}
@@ -44,7 +51,7 @@ export function Accordion(pr: AccordionProps) {
           <Card
             content={item.content}
             contentID={item.contentID}
-            contentTag={pr.contentTag}
+            contentTag={contentTag}
             controllingID={item.buttonID}
             isActive={index === activeIndex}
             withStyle='expanding'

@@ -24,6 +24,7 @@ export default function Home() {
             <Accordion
               buttonWrap='h2'
               containerTag='article'
+              contentTag='p'
               data={data}
             />
           </article>
