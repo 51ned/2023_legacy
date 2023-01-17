@@ -13,7 +13,7 @@ interface AccordionItemProps {
 }
 
 interface AccordionProps {
-  buttonWrap?: keyof JSX.IntrinsicElements,
+  buttonContainer?: keyof JSX.IntrinsicElements,
   containerTag?: keyof JSX.IntrinsicElements,
   contentTag?: keyof JSX.IntrinsicElements,
   data: AccordionItemProps[]
@@ -21,12 +21,12 @@ interface AccordionProps {
 
 
 export function Accordion({
-  buttonWrap,
+  buttonContainer,
   containerTag,
   contentTag,
   data
 }: AccordionProps) {
-  const Tag = containerTag ?? React.Fragment
+  let Tag = containerTag ?? React.Fragment
   
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const handleClick = (index: number) => {
@@ -34,13 +34,13 @@ export function Accordion({
   }
   
   return (
-    <>
+    <div className={style.wrap}>
       {(data).map((item, index) => (
-        <Tag key={index}>
+        <Tag key={index} className={style.container}>
           <Button
             buttonID={item.buttonID}
             buttonTitle={item.buttonTitle}
-            buttonWrap={buttonWrap}
+            buttonContainer={buttonContainer}
             controlledID={item.contentID}
             handleClick={() => handleClick(index)}
             isActive={index === activeIndex}
@@ -58,6 +58,6 @@ export function Accordion({
           />
         </Tag>  
       ))}
-    </>
+    </div>
   )
 }

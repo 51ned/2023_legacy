@@ -1,4 +1,4 @@
-import { Accordion, Head, Text } from '@/components/generic'
+import { Accordion, Button, Head, Text } from '@/components/generic'
 
 import style from './temp.module.css'
 
@@ -22,7 +22,7 @@ export default function Home() {
             </Text>
 
             <Accordion
-              buttonWrap='h2'
+              buttonContainer='h2'
               containerTag='article'
               contentTag='p'
               data={data}
@@ -38,7 +38,7 @@ export default function Home() {
             
             <dl>
               <Accordion
-                buttonWrap='dt'
+                buttonContainer='dt'
                 contentTag='dd'
                 data={data}
               />

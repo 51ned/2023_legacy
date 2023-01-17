@@ -1,3 +1,7 @@
+.container:not(:first-child) {
+  border-top: 2px solid;
+}
+
 .common_style {
   font-size: var(--smaller_font_size);
   width: 100%;
