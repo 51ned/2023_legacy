@@ -14,46 +14,27 @@ export default function Home() {
         </header>
 
         <main>
-          <article className={style.accordion_wrap}>
-            <Head level='2' text='Accordion for article' />
+          <Head level='2' text='Accordion for article' />
 
-            <Text withStyle='regular'>
-              Some text, which explain, what accordion below about.
-            </Text>
+          <Accordion
+            accContainerTag='article'
+            buttonWrapTag='h2'
+            contentWrapTag='p'
+            data={data}
+          />
 
-            <Accordion
-              buttonContainer='h2'
-              containerTag='article'
-              contentTag='p'
-              data={data}
-            />
-          </article>
+          <Head level='2' text='Accordion for FAQ' />
 
-          <div className={style.accordion_wrap}>
-            <Head level='2' text='Accordion for FAQ' />
+          <Accordion
+            accWrapTag='dl'
+            buttonWrapTag='dt'
+            contentWrapTag='dd'
+            data={data}
+          />
 
-            <Text withStyle='regular'>
-              Some text, which explain, what accordion below about.
-            </Text>
-            
-            <dl>
-              <Accordion
-                buttonContainer='dt'
-                contentTag='dd'
-                data={data}
-              />
-            </dl>
-          </div>
+          <Head level='2' text='Basic accordion' />
 
-          <div className={style.accordion_wrap}>
-            <Head level='2' text='Default Accordion' />
-
-            <Text withStyle='regular'>
-              Some text, which explain, what accordion below about.
-            </Text>
-            
-            <Accordion contentTag='p' data={data} />
-          </div>
+          <Accordion data={data} />
         </main>
       </div>
 

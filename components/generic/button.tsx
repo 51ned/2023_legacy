@@ -17,7 +17,7 @@ type StyleEnum = typeof StyleEnum[keyof typeof StyleEnum]
 
 
 interface ButtonProps {
-  buttonContainer?: keyof JSX.IntrinsicElements,
+  buttonWrapTag?: keyof JSX.IntrinsicElements,
   buttonID: string,
   buttonTitle: React.ReactNode,
   controlledID: string,
@@ -29,16 +29,15 @@ interface ButtonProps {
 
 
 export function Button({
-  buttonContainer,
+  buttonWrapTag,
   buttonID,
   buttonTitle,
   controlledID,
   handleClick,
   isActive,
   isExpandable = true,
-  withStyle = StyleEnum.Regular
-}: ButtonProps) {
-  const Tag = buttonContainer ?? 'div'
+  withStyle = StyleEnum.Regular}: ButtonProps) {
+  const ButtonWrapTag = buttonWrapTag ?? 'div'
   
   const buttonStyle = isActive ? `${withStyle}_style_active` : `${withStyle}_style`
 
@@ -56,7 +55,7 @@ export function Button({
   }
   
   return (
-    <Tag className={style.container}>
+    <ButtonWrapTag className={style.container}>
       <button
         aria-controls={controlledID}
         className={`${style.common_style} ${style[buttonStyle]}`}
@@ -68,6 +67,6 @@ export function Button({
         
         { withStyle === StyleEnum.Accordion && <Plus /> }
       </button>
-    </Tag>
+    </ButtonWrapTag>
   )
 }

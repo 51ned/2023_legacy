@@ -14,8 +14,7 @@ interface HeadingProps {
 
 export function Head({
   level,
-  text
-}: HeadingProps) {
+  text}: HeadingProps) {
   const Tag: keyof JSX.IntrinsicElements = `h${level}`
 
   return (

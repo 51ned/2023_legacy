@@ -1,3 +1,8 @@
+// accWrapTag: тэг, стили
+// accContainer?: тэг
+// buttonWrapTag: тэг, стили
+// cardWrap: ...
+
 import React, { useState } from 'react'
 
 import { Button, Card } from './'
@@ -13,20 +18,27 @@ interface AccordionItemProps {
 }
 
 interface AccordionProps {
-  buttonContainer?: keyof JSX.IntrinsicElements,
-  containerTag?: keyof JSX.IntrinsicElements,
-  contentTag?: keyof JSX.IntrinsicElements,
+  accContainerTag?: keyof JSX.IntrinsicElements,
+  accWrapTag?: keyof JSX.IntrinsicElements,
+  buttonWrapTag?: keyof JSX.IntrinsicElements,
+  contentWrapTag?: keyof JSX.IntrinsicElements,
   data: AccordionItemProps[]
 }
 
 
 export function Accordion({
-  buttonContainer,
-  containerTag,
-  contentTag,
-  data
-}: AccordionProps) {
-  let Tag = containerTag ?? React.Fragment
+  accContainerTag,
+  accWrapTag: AccWrapTag = 'div',
+  buttonWrapTag,
+  contentWrapTag,
+  data}: AccordionProps) {
+  const AccContainerTag = accContainerTag ?? React.Fragment
+
+  let accStyleOpts: {[key: string]: string} = {}
+
+  if (accContainerTag) {
+    accStyleOpts['className'] = `${style.container}`
+  }
   
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const handleClick = (index: number) => {
@@ -34,13 +46,13 @@ export function Accordion({
   }
   
   return (
-    <div className={style.wrap}>
+    <AccWrapTag className={style.wrap}>
       {(data).map((item, index) => (
-        <Tag key={index} className={style.container}>
+        <AccContainerTag key={index} {...accStyleOpts}>
           <Button
             buttonID={item.buttonID}
             buttonTitle={item.buttonTitle}
-            buttonContainer={buttonContainer}
+            buttonWrapTag={buttonWrapTag}
             controlledID={item.contentID}
             handleClick={() => handleClick(index)}
             isActive={index === activeIndex}
@@ -51,13 +63,13 @@ export function Accordion({
           <Card
             content={item.content}
             contentID={item.contentID}
-            contentTag={contentTag}
+            contentWrapTag={contentWrapTag}
             controllingID={item.buttonID}
             isActive={index === activeIndex}
             withStyle='expanding'
           />
-        </Tag>  
+        </AccContainerTag>  
       ))}
-    </div>
+    </AccWrapTag>
   )
 }
