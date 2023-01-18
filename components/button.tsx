@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { Plus } from './'
 
 import style from './button.module.css'
@@ -15,10 +17,10 @@ type StyleEnum = typeof StyleEnum[keyof typeof StyleEnum]
 
 
 interface ButtonProps {
+  buttonID?: string,
   buttonWrapTag?: keyof JSX.IntrinsicElements,
-  buttonID: string,
-  buttonTitle: React.ReactNode,
-  controlledID: string,
+  controlledID?: string,
+  children: React.ReactNode,
   handleClick: () => void,
   isActive?: boolean,
   isExpandable?: boolean,
@@ -27,21 +29,27 @@ interface ButtonProps {
 
 
 export function Button({
-  buttonWrapTag,
   buttonID,
-  buttonTitle,
+  buttonWrapTag,
   controlledID,
+  children,
   handleClick,
   isActive,
   isExpandable = true,
   withStyle = StyleEnum.Regular}: ButtonProps) {
     
-  const ButtonWrapTag = buttonWrapTag ?? 'div'
+  const ButtonWrapTag = buttonWrapTag ?? React.Fragment
+
+  let buttonWrapOpts: {[key: string]: string} = {}
+
+  if (buttonWrapTag) {
+    buttonWrapOpts['className'] = `${style.container}`
+  }
   
   const buttonStyle = isActive ? `${withStyle}_style_active` : `${withStyle}_style`
 
-  let buttonOpts: {[key: string]: string} = {} 
-  
+  let buttonOpts: {[key: string]: string} = {}
+
   if (withStyle === 'inactive') {
     buttonOpts['disabled'] = 'disabled' 
   } else if (withStyle === 'tab') {
@@ -54,7 +62,7 @@ export function Button({
   }
   
   return (
-    <ButtonWrapTag className={style.container}>
+    <ButtonWrapTag {...buttonWrapOpts}>
       <button
         aria-controls={controlledID}
         className={`${style.common_style} ${style[buttonStyle]}`}
@@ -62,7 +70,7 @@ export function Button({
         onClick={handleClick}
         {...buttonOpts}
       >
-        { buttonTitle }
+        { children }
 
         { withStyle === StyleEnum.Accordion && <Plus /> }
       </button>

@@ -30,10 +30,10 @@ export function Accordion({
     
   const AccContainerTag = accContainerTag ?? React.Fragment
 
-  let accStyleOpts: {[key: string]: string} = {}
+  let accContainerOpts: {[key: string]: string} = {}
 
   if (accContainerTag) {
-    accStyleOpts['className'] = `${style.container}`
+    accContainerOpts['className'] = `${style.container}`
   }
   
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
@@ -44,26 +44,28 @@ export function Accordion({
   return (
     <AccWrapTag className={style.wrap}>
       {(data).map((item, index) => (
-        <AccContainerTag key={index} {...accStyleOpts}>
+        <AccContainerTag key={index} {...accContainerOpts}>
           <Button
             buttonID={item.buttonID}
-            buttonTitle={item.buttonTitle}
             buttonWrapTag={buttonWrapTag}
             controlledID={item.contentID}
             handleClick={() => handleClick(index)}
             isActive={index === activeIndex}
             isExpandable
             withStyle='accordion'
-          />
+          >
+            { item.buttonTitle }
+          </Button>
           
           <Card
-            content={item.content}
             contentID={item.contentID}
             contentWrapTag={contentWrapTag}
             controllingID={item.buttonID}
             isActive={index === activeIndex}
             withStyle='expanding'
-          />
+          >
+            { item.content }
+          </Card>
         </AccContainerTag>  
       ))}
     </AccWrapTag>

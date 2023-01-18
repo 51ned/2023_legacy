@@ -1,20 +1,21 @@
-const HeadLevelEnum = {
+const TextHeadLevelEnum = {
   1: '1',
   2: '2'
 } as const
 
-type HeadLevelEnum = typeof HeadLevelEnum[keyof typeof HeadLevelEnum]
+type HeadLevelEnum = typeof TextHeadLevelEnum[keyof typeof TextHeadLevelEnum]
 
 
-interface HeadingProps {
+interface TextHeadingProps {
   level: HeadLevelEnum,
   text: string
 }
 
 
-export function Head({
+export function TextHead({
   level,
-  text}: HeadingProps) {
+  text}: TextHeadingProps) {
+    
   const Tag: keyof JSX.IntrinsicElements = `h${level}`
 
   return (

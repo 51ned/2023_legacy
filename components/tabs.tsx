@@ -46,7 +46,6 @@ export function Tabs({data}: TabsProps) {
             <Card
               content={item.content}
               contentID={item.contentID}
-              contentWrapTag='section'
               controllingID={item.buttonID}
               isActive={index === activeIndex}
               withStyle='expanding'

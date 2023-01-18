@@ -10,8 +10,8 @@ type StyleEnum = typeof StyleEnum[keyof typeof StyleEnum]
 
 
 interface CardProps {
-  content: React.ReactNode,
-  contentID: string,
+  children: React.ReactNode,
+  contentID?: string,
   contentWrapTag?: keyof JSX.IntrinsicElements,
   controllingID?: string,
   isActive?: boolean,
@@ -20,12 +20,18 @@ interface CardProps {
 
 
 export function Card({
-  content,
+  children,
   contentID,
   contentWrapTag: ContentWrapTag = 'div',
   controllingID,
   isActive,
   withStyle = StyleEnum.Regular}: CardProps) {
+
+  let contentWrapOpts: {[key: string]: string} = {}
+
+  if (ContentWrapTag === 'dialog') {
+    contentWrapOpts['open'] = `${isActive}`
+  }  
     
   const cardStyle = `${withStyle}_style`
 
@@ -34,8 +40,9 @@ export function Card({
       aria-labelledby={controllingID}
       className={isActive ? style[cardStyle] : 'visually_hidden'}
       id={contentID}
+      {...contentWrapOpts}
     >
-      { content }
+      { children }
     </ContentWrapTag>
   )
 }

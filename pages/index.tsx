@@ -1,6 +1,4 @@
-import { Accordion, Button, Head, Tabs, Text } from '@/components/generic'
-
-import style from './temp.module.css'
+import { Accordion, Button, Modal, Tabs, Text, TextHead } from '@/components/.'
 
 import { data } from '@/lib/data'
 
@@ -10,11 +8,11 @@ export default function Home() {
     <>
       <div>
         <header>
-          <Head level='1' text='Hello, world!' />
+          <TextHead level='1' text='Hello, world!' />
         </header>
 
         <main>
-          <Head level='2' text='Accordion for article' />
+          <TextHead level='2' text='Accordion for article' />
 
           <Accordion
             accContainerTag='article'
@@ -23,7 +21,7 @@ export default function Home() {
             data={data}
           />
 
-          <Head level='2' text='Accordion for FAQ' />
+          <TextHead level='2' text='Accordion for FAQ' />
 
           <Accordion
             accWrapTag='dl'
@@ -32,11 +30,23 @@ export default function Home() {
             data={data}
           />
 
-          <Head level='2' text='Basic accordion' />
+          <TextHead level='2' text='Basic accordion' />
 
-          <Accordion data={data} />
+          <Accordion buttonWrapTag='div' data={data} />
 
           <Tabs data={data} />
+
+          <Button
+            buttonID=''
+            controlledID=''
+            handleClick={() => {}}
+          >
+            Regular button
+          </Button>
+
+          <Modal modalHeadText='i am the modal'>
+            blah-blah
+          </Modal>
         </main>
       </div>
 
