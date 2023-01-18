@@ -31,7 +31,6 @@ export function Tabs({data}: TabsProps) {
             <Button
               buttonID={item.buttonID}
               buttonTitle={item.buttonTitle}
-              buttonWrapTag='h2'
               controlledID={item.contentID}
               handleClick={() => handleClick(index)}
               isActive={index === activeIndex}
@@ -47,7 +46,7 @@ export function Tabs({data}: TabsProps) {
             <Card
               content={item.content}
               contentID={item.contentID}
-              contentWrapTag='article'
+              contentWrapTag='section'
               controllingID={item.buttonID}
               isActive={index === activeIndex}
               withStyle='expanding'
