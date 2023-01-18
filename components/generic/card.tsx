@@ -26,6 +26,7 @@ export function Card({
   controllingID,
   isActive,
   withStyle = StyleEnum.Regular}: CardProps) {
+    
   const cardStyle = `${withStyle}_style`
 
   return (

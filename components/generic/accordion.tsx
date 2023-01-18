@@ -1,8 +1,3 @@
-// accWrapTag: тэг, стили
-// accContainer?: тэг
-// buttonWrapTag: тэг, стили
-// cardWrap: ...
-
 import React, { useState } from 'react'
 
 import { Button, Card } from './'
@@ -32,6 +27,7 @@ export function Accordion({
   buttonWrapTag,
   contentWrapTag,
   data}: AccordionProps) {
+    
   const AccContainerTag = accContainerTag ?? React.Fragment
 
   let accStyleOpts: {[key: string]: string} = {}

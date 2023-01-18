@@ -1,4 +1,4 @@
-import { Accordion, Button, Head, Text } from '@/components/generic'
+import { Accordion, Button, Head, Tabs, Text } from '@/components/generic'
 
 import style from './temp.module.css'
 
@@ -35,6 +35,8 @@ export default function Home() {
           <Head level='2' text='Basic accordion' />
 
           <Accordion data={data} />
+
+          <Tabs data={data} />
         </main>
       </div>
 

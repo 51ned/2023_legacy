@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Plus } from './'
 
 import style from './button.module.css'
@@ -37,6 +35,7 @@ export function Button({
   isActive,
   isExpandable = true,
   withStyle = StyleEnum.Regular}: ButtonProps) {
+    
   const ButtonWrapTag = buttonWrapTag ?? 'div'
   
   const buttonStyle = isActive ? `${withStyle}_style_active` : `${withStyle}_style`
@@ -64,7 +63,7 @@ export function Button({
         {...buttonOpts}
       >
         { buttonTitle }
-        
+
         { withStyle === StyleEnum.Accordion && <Plus /> }
       </button>
     </ButtonWrapTag>
