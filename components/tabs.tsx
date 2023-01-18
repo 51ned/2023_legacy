@@ -30,12 +30,13 @@ export function Tabs({data}: TabsProps) {
           <li key={index} role='presentation'>
             <Button
               buttonID={item.buttonID}
-              buttonTitle={item.buttonTitle}
               controlledID={item.contentID}
               handleClick={() => handleClick(index)}
               isActive={index === activeIndex}
               withStyle='tab'
-            />
+            >
+              { item.buttonTitle }
+            </Button>
           </li>
         ))}
       </ul>
@@ -44,12 +45,13 @@ export function Tabs({data}: TabsProps) {
         {(data).map((item, index) => (
           <React.Fragment key={index}>
             <Card
-              content={item.content}
               contentID={item.contentID}
               controllingID={item.buttonID}
               isActive={index === activeIndex}
               withStyle='expanding'
-            />
+            >
+              { item.content }
+            </Card>
           </React.Fragment>
         ))}
       </>
