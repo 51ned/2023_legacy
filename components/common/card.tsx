@@ -2,8 +2,10 @@ import style from './card.module.css'
 
 
 const StyleEnum = {
-  Expanding: 'expanding',
-  Regular: 'regular'
+  Accordion: 'accordion',
+  Dialog: 'dialog',
+  Regular: 'regular',
+  Tabs: 'tabs'
 } as const
 
 type StyleEnum = typeof StyleEnum[keyof typeof StyleEnum]
@@ -27,18 +29,18 @@ export function Card({
   isActive,
   withStyle = StyleEnum.Regular}: CardProps) {
 
-  let contentWrapOpts: {[key: string]: string} = {}
+  let contentWrapOpts: {[key: string]: boolean | undefined} = {}
 
-  if (ContentWrapTag === 'dialog') {
-    contentWrapOpts['open'] = `${isActive}`
-  }  
-    
-  const cardStyle = `${withStyle}_style`
+  if (['accordion', 'tabs'].includes(withStyle)) {
+    contentWrapOpts['hidden'] = !isActive
+  }
+
+  withStyle === 'dialog' && (contentWrapOpts['open'] = isActive)
 
   return (
     <ContentWrapTag
       aria-labelledby={controllingID}
-      className={isActive ? style[cardStyle] : 'visually_hidden'}
+      className={style[`${withStyle}_style`]}
       id={contentID}
       {...contentWrapOpts}
     >

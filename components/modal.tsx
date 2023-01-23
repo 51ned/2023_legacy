@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Button, Card, Text, TextHead } from './'
+import { Button, Card, TextHead } from '@/components/common/.'
 
 import style from './modal.module.css'
 
@@ -17,6 +17,12 @@ export function Modal({
 
   const [isActive, setActive] = useState(false)
 
+  let dialogOpts: {[key: string]: boolean} = {}
+
+  if (isActive) {
+    dialogOpts['open'] = false
+  }
+
   return (
     <>
       <Button
@@ -28,7 +34,8 @@ export function Modal({
       <Card
         contentWrapTag='dialog'
         isActive={isActive}
-        withStyle='regular'
+        withStyle='dialog'
+        {...dialogOpts}
       >
         <header className={style.header}>
           <TextHead level='2' text={modalHeadText} />

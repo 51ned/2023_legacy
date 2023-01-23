@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Button, Card } from './'
+import { Button, Card } from '@/components/common/.'
 
 import style from './accordion.module.css'
 
@@ -62,7 +62,7 @@ export function Accordion({
             contentWrapTag={contentWrapTag}
             controllingID={item.buttonID}
             isActive={index === activeIndex}
-            withStyle='expanding'
+            withStyle='accordion'
           >
             { item.content }
           </Card>

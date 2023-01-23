@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Button, Card } from './'
+import { Button, Card } from '@/components/common/.'
 
 import style from './tabs.module.css'
 
@@ -48,7 +48,7 @@ export function Tabs({data}: TabsProps) {
               contentID={item.contentID}
               controllingID={item.buttonID}
               isActive={index === activeIndex}
-              withStyle='expanding'
+              withStyle='tabs'
             >
               { item.content }
             </Card>

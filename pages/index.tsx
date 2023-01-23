@@ -1,4 +1,5 @@
-import { Accordion, Button, Modal, Tabs, Text, TextHead } from '@/components/.'
+import { Accordion, Modal, Tabs, } from '@/components/.'
+import { Button, Card, Text, TextHead } from '@/components/common/.'
 
 import { data } from '@/lib/data'
 

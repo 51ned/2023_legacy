@@ -1,13 +1,12 @@
 import React from 'react'
 
-import { Plus } from './'
+import { Plus } from '@/components/icons/.'
 
 import style from './button.module.css'
 
 
 const StyleEnum = {
   Accordion: 'accordion',
-  Inactive: 'inactive',
   Regular: 'regular',
   Stripped: 'stripped',
   Tab: 'tab'
@@ -45,14 +44,10 @@ export function Button({
   if (buttonWrapTag) {
     buttonWrapOpts['className'] = `${style.container}`
   }
-  
-  const buttonStyle = isActive ? `${withStyle}_style_active` : `${withStyle}_style`
 
   let buttonOpts: {[key: string]: string} = {}
 
-  if (withStyle === 'inactive') {
-    buttonOpts['disabled'] = 'disabled' 
-  } else if (withStyle === 'tab') {
+  if (withStyle === 'tab') {
     buttonOpts['aria-selected'] = isActive ? 'true' : 'false'
     buttonOpts['role'] = 'tab'
   }
@@ -65,7 +60,7 @@ export function Button({
     <ButtonWrapTag {...buttonWrapOpts}>
       <button
         aria-controls={controlledID}
-        className={`${style.common_style} ${style[buttonStyle]}`}
+        className={style[`${withStyle}_style`]}
         id={buttonID}
         onClick={handleClick}
         {...buttonOpts}
