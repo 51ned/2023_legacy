@@ -23,11 +23,12 @@ interface AccordionProps {
 
 export function Accordion({
   accContainerTag,
-  accWrapTag: AccWrapTag = 'div',
+  accWrapTag,
   buttonWrapTag,
   contentWrapTag,
   data}: AccordionProps) {
-    
+  
+  const AccWrapTag = accWrapTag ?? 'div'
   const AccContainerTag = accContainerTag ?? React.Fragment
 
   let accContainerOpts: {[key: string]: string} = {}
@@ -37,13 +38,14 @@ export function Accordion({
   }
   
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
+  
   const handleClick = (index: number) => {
     index === activeIndex ? setActiveIndex(null) : setActiveIndex(index)
   }
   
   return (
     <AccWrapTag className={style.wrap}>
-      {(data).map((item, index) => (
+      {data.map((item, index) => (
         <AccContainerTag key={index} {...accContainerOpts}>
           <Button
             buttonID={item.buttonID}

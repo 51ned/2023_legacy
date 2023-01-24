@@ -5,7 +5,7 @@ const StyleEnum = {
   Accordion: 'accordion',
   Dialog: 'dialog',
   Regular: 'regular',
-  Tabs: 'tabs'
+  Tab: 'tab'
 } as const
 
 type StyleEnum = typeof StyleEnum[keyof typeof StyleEnum]
@@ -24,18 +24,20 @@ interface CardProps {
 export function Card({
   children,
   contentID,
-  contentWrapTag: ContentWrapTag = 'div',
+  contentWrapTag,
   controllingID,
   isActive,
-  withStyle = StyleEnum.Regular}: CardProps) {
+  withStyle}: CardProps) {
+
+  const ContentWrapTag = contentWrapTag ?? 'div'  
 
   let contentWrapOpts: {[key: string]: boolean | undefined} = {}
 
-  if (['accordion', 'tabs'].includes(withStyle)) {
+  if (['accordion', 'tab'].includes(withStyle)) {
     contentWrapOpts['hidden'] = !isActive
+  } else if (withStyle === 'dialog') {
+    contentWrapOpts['open'] = isActive
   }
-
-  withStyle === 'dialog' && (contentWrapOpts['open'] = isActive)
 
   return (
     <ContentWrapTag

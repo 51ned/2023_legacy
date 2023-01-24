@@ -15,16 +15,16 @@ type TextHeadSizeEnum = typeof TextHeadSizeEnum[keyof typeof TextHeadSizeEnum]
 
 
 interface TextHeadingProps {
+  children: React.ReactNode,
   level: TextHeadLevelEnum,
   size?: TextHeadSizeEnum,
-  text: string
 }
 
 
 export function TextHead({
+  children,
   level,
-  size,
-  text}: TextHeadingProps) {
+  size}: TextHeadingProps) {
     
   const Tag: keyof JSX.IntrinsicElements = `h${level}`
 
@@ -34,7 +34,7 @@ export function TextHead({
 
   return (
     <Tag className={textHeadStyle}>
-      { text }
+      { children }
     </Tag>
   )
 }

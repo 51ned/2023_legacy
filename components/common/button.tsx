@@ -35,7 +35,7 @@ export function Button({
   handleClick,
   isActive,
   isExpandable = true,
-  withStyle = StyleEnum.Regular}: ButtonProps) {
+  withStyle}: ButtonProps) {
     
   const ButtonWrapTag = buttonWrapTag ?? React.Fragment
 
@@ -45,16 +45,18 @@ export function Button({
     buttonWrapOpts['className'] = `${style.container}`
   }
 
-  let buttonOpts: {[key: string]: string} = {}
+  let buttonOpts: {[key: string]: boolean | string | undefined} = {}
 
   if (withStyle === 'tab') {
-    buttonOpts['aria-selected'] = isActive ? 'true' : 'false'
+    buttonOpts['aria-selected'] = isActive
     buttonOpts['role'] = 'tab'
   }
   
   if (isExpandable) {
-    buttonOpts['aria-expanded'] = isActive ? 'true' : 'false'
+    buttonOpts['aria-expanded'] = isActive
   }
+
+  const icon = withStyle === StyleEnum.Accordion && <Plus />
   
   return (
     <ButtonWrapTag {...buttonWrapOpts}>
@@ -66,8 +68,7 @@ export function Button({
         {...buttonOpts}
       >
         { children }
-
-        { withStyle === StyleEnum.Accordion && <Plus /> }
+        { icon }
       </button>
     </ButtonWrapTag>
   )

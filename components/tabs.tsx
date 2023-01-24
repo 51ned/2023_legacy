@@ -8,7 +8,7 @@ import style from './tabs.module.css'
 interface TabsItemProps {
   buttonID: string,
   buttonTitle: string,
-  content: string | React.ReactNode,
+  content: string,
   contentID: string,
 }
 
@@ -19,6 +19,7 @@ interface TabsProps {
 
 export function Tabs({data}: TabsProps) {
   const [activeIndex, setActiveIndex] = useState(0)
+  
   const handleClick = (index: number) => {
     setActiveIndex(index)
   }
@@ -26,7 +27,7 @@ export function Tabs({data}: TabsProps) {
   return (
     <article className={style.wrap}>
       <ul role='tablist'>
-        {(data).map((item, index) => (
+        {data.map((item, index) => (
           <li key={index} role='presentation'>
             <Button
               buttonID={item.buttonID}
@@ -42,13 +43,13 @@ export function Tabs({data}: TabsProps) {
       </ul>
 
       <>
-        {(data).map((item, index) => (
+        {data.map((item, index) => (
           <React.Fragment key={index}>
             <Card
               contentID={item.contentID}
               controllingID={item.buttonID}
               isActive={index === activeIndex}
-              withStyle='tabs'
+              withStyle='tab'
             >
               { item.content }
             </Card>

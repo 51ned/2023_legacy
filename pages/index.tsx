@@ -1,7 +1,7 @@
 import { Accordion, Modal, Tabs, } from '@/components/.'
-import { Button, Card, Text, TextHead } from '@/components/common/.'
+import { Text, TextHead } from '@/components/common/.'
 
-import { data } from '@/lib/data'
+import { data, tabData } from '@/lib/data'
 
 
 export default function Home() {
@@ -9,11 +9,15 @@ export default function Home() {
     <>
       <div>
         <header>
-          <TextHead level='1' text='Hello, world!' />
+          <TextHead level='2'>
+            Hello, world
+          </TextHead>
         </header>
 
         <main>
-          <TextHead level='2' text='Accordion for article' />
+          <TextHead level='2'>
+            Accordion for article
+          </TextHead>
 
           <Accordion
             accContainerTag='article'
@@ -22,7 +26,9 @@ export default function Home() {
             data={data}
           />
 
-          <TextHead level='2' text='Accordion for FAQ' />
+          <TextHead level='2'>
+            Accordion for FAQ
+          </TextHead>
 
           <Accordion
             accWrapTag='dl'
@@ -31,19 +37,13 @@ export default function Home() {
             data={data}
           />
 
-          <TextHead level='2' text='Basic accordion' />
+          <TextHead level='2'>
+            Basic accordion
+          </TextHead>
 
           <Accordion buttonWrapTag='div' data={data} />
 
-          <Tabs data={data} />
-
-          <Button
-            buttonID=''
-            controlledID=''
-            handleClick={() => {}}
-          >
-            Regular button
-          </Button>
+          <Tabs data={tabData} />
 
           <Modal modalHeadText='i am the modal'>
             blah-blah
