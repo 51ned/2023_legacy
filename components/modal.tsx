@@ -38,8 +38,9 @@ export function Modal({
         {...dialogOpts}
       >
         <header className={style.header}>
-          <TextHead level='2' text={modalHeadText} />
-
+          <TextHead level='2'>
+            Main menu
+          </TextHead>
           <Button
             handleClick={() => setActive(false)}
             withStyle='stripped'

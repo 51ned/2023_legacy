@@ -8,7 +8,7 @@ import style from './tabs.module.css'
 interface TabsItemProps {
   buttonID: string,
   buttonTitle: string,
-  content: string,
+  content: React.ReactNode | string,
   contentID: string,
 }
 
