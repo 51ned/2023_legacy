@@ -26,22 +26,23 @@ export function Tabs({data}: TabsProps) {
 
   return (
     <article className={style.wrap}>
-      <ul role='tablist'>
-        {data.map((item, index) => (
-          <li key={index} role='presentation'>
-            <Button
-              buttonID={item.buttonID}
-              controlledID={item.contentID}
-              handleClick={() => handleClick(index)}
-              isActive={index === activeIndex}
-              withStyle='tab'
-            >
-              { item.buttonTitle }
-            </Button>
-          </li>
-        ))}
-      </ul>
-
+      <div className={style.list_container}>
+        <ul className={style.list} role='tablist'>
+          {data.map((item, index) => (
+            <li key={index} role='presentation'>
+              <Button
+                buttonID={item.buttonID}
+                controlledID={item.contentID}
+                handleClick={() => handleClick(index)}
+                isActive={index === activeIndex}
+                withStyle='tabs'
+              >
+                { item.buttonTitle }
+              </Button>
+            </li>
+          ))}
+        </ul>
+      </div>    
       <>
         {data.map((item, index) => (
           <React.Fragment key={index}>
@@ -49,7 +50,7 @@ export function Tabs({data}: TabsProps) {
               contentID={item.contentID}
               controllingID={item.buttonID}
               isActive={index === activeIndex}
-              withStyle='tab'
+              withStyle='tabs'
             >
               { item.content }
             </Card>

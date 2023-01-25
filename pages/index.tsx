@@ -9,13 +9,15 @@ export default function Home() {
     <>
       <div>
         <header>
-          <TextHead level='2'>
+          <TextHead level='1'>
             Hello, world
           </TextHead>
         </header>
 
         <main>
-          <TextHead level='2'>
+          <Tabs data={tabData} />
+
+          {/* <TextHead level='2'>
             Accordion for article
           </TextHead>
 
@@ -41,13 +43,10 @@ export default function Home() {
             Basic accordion
           </TextHead>
 
-          <Accordion buttonWrapTag='div' data={data} />
-
-          <Tabs data={tabData} />
-
-          <Modal modalHeadText='i am the modal'>
+          <Accordion buttonWrapTag='div' data={data} /> */}
+          {/* <Modal modalHeadText='i am the modal'>
             blah-blah
-          </Modal>
+          </Modal> */}
         </main>
       </div>
 

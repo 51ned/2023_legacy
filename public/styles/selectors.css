@@ -4,10 +4,7 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-  touch-action: manipulation;
-}
+body { background-color: #e5e5e5; } /* temp */
 
 button, input, select, textarea {
   font-family: inherit;
@@ -18,3 +15,15 @@ button {
   border: none;
   cursor: pointer;
 }
+
+html {
+  scroll-behavior: smooth;
+  touch-action: manipulation;
+}
+
+li { list-style-type: none; } /* temp */
+
+main {
+  margin: 0 auto;
+  width: 1360px;
+} /* temp */

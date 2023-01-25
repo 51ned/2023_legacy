@@ -2,10 +2,14 @@
 
 .accordion_style,
 .regular_style,
-.tab_style {
+.tabs_style {
   font-size: var(--smaller_font_size);
   width: 100%;
 }
+
+
+/* Accordion */
+
 
 .accordion_style {
   align-items: center;
@@ -17,4 +21,32 @@
 
 .accordion_style[aria-expanded=true] {}
 
-.tab_style[aria-expanded=true] {}
+
+/* Tabs */
+
+
+.tabs_style {
+  background-color: #fff; /* temp */
+  color: #666; /* temp */
+  padding: var(--small_padding);
+  position: relative;
+}
+
+li:first-child > button.tabs_style { border-top-left-radius: var(--outer_radius); }
+
+li:last-child > button.tabs_style { border-bottom-left-radius: var(--outer_radius); }
+
+li:not(:last-child) > button.tabs_style::after {
+  background-color: #e5e5e5; /* temp */
+  bottom: 0;
+  content: '';
+  height: 1px;
+  left: 0;
+  margin-left: var(--small_padding);
+  position: absolute;
+  width: calc(100% - calc(var(--small_padding) * 2));
+}
+
+.tabs_style[aria-expanded=true] {
+  color: #000; /* temp */
+}

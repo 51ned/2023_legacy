@@ -1,0 +1,18 @@
+.wrap {
+  display: grid;
+  grid-template-areas: 'tabs cards';
+  grid-template-columns: max-content auto;
+}
+
+.list_container {
+  background-color: #fff; /* temp */
+  border-bottom-left-radius: var(--outer_radius);
+  border-top-left-radius: var(--outer_radius);
+  height: 100%;
+}
+
+.list {
+  grid-area: tabs;
+  position: sticky;
+  top: 0;
+}

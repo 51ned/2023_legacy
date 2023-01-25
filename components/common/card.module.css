@@ -2,6 +2,17 @@
 
 .dialog_style {}
 
+.regular_style,
+.tabs_style { padding: var(--regular_card_padding); }
+
+.tabs_style {
+  background-color: #fff; /* temp */
+  border-left: 2px solid #e5e5e5; /* temp */
+  border-bottom-right-radius: var(--outer_radius);
+  border-top-right-radius: var(--outer_radius);
+}
+
+
 .regular_style {}
 
 .tabs_style {}

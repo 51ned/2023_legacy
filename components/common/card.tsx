@@ -5,7 +5,7 @@ const StyleEnum = {
   Accordion: 'accordion',
   Dialog: 'dialog',
   Regular: 'regular',
-  Tab: 'tab'
+  Tab: 'tabs'
 } as const
 
 type StyleEnum = typeof StyleEnum[keyof typeof StyleEnum]
@@ -33,7 +33,7 @@ export function Card({
 
   let contentWrapOpts: {[key: string]: boolean | undefined} = {}
 
-  if (['accordion', 'tab'].includes(withStyle)) {
+  if (['accordion', 'tabs'].includes(withStyle)) {
     contentWrapOpts['hidden'] = !isActive
   } else if (withStyle === 'dialog') {
     contentWrapOpts['open'] = isActive

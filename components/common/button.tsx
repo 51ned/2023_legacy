@@ -9,7 +9,7 @@ const StyleEnum = {
   Accordion: 'accordion',
   Regular: 'regular',
   Stripped: 'stripped',
-  Tab: 'tab'
+  Tab: 'tabs'
 } as const
 
 type StyleEnum = typeof StyleEnum[keyof typeof StyleEnum]
@@ -47,7 +47,7 @@ export function Button({
 
   let buttonOpts: {[key: string]: boolean | string | undefined} = {}
 
-  if (withStyle === 'tab') {
+  if (withStyle === 'tabs') {
     buttonOpts['aria-selected'] = isActive
     buttonOpts['role'] = 'tab'
   }

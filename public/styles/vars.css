@@ -4,6 +4,8 @@
   --inner_radius: var(--indent);
   --outer_radius: calc(var(--indent) * 2);
 
-  --big_pad: calc(var(--indent) * 9);
-  --small_pad: calc(var(--indent) * 6);
+  --big_padding: calc(var(--indent) * 9);
+  --small_padding: calc(var(--indent) * 6);
+
+  --regular_card_padding: var(--small_padding) var(--big_padding) var(--big_padding) var(--small_padding);
 }
