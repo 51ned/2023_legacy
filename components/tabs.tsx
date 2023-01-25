@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Button, Card } from '@/components/common/.'
+import { Button, Card, TextHead } from '@/components/common/.'
 
 import style from './tabs.module.css'
 
@@ -25,7 +25,7 @@ export function Tabs({data}: TabsProps) {
   }
 
   return (
-    <article className={style.wrap}>
+    <div className={style.wrap}>
       <div className={style.list_container}>
         <ul className={style.list} role='tablist'>
           {data.map((item, index) => (
@@ -42,21 +42,27 @@ export function Tabs({data}: TabsProps) {
             </li>
           ))}
         </ul>
-      </div>    
+      </div>
+
       <>
         {data.map((item, index) => (
           <React.Fragment key={index}>
             <Card
               contentID={item.contentID}
+              contentWrapTag='article'
               controllingID={item.buttonID}
               isActive={index === activeIndex}
               withStyle='tabs'
             >
+              <TextHead level='2'>
+                { item.buttonTitle }
+              </TextHead>
+
               { item.content }
             </Card>
           </React.Fragment>
         ))}
       </>
-    </article>
+    </div>
   )
 }
