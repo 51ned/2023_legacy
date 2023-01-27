@@ -4,6 +4,10 @@
   min-height: 100vh;
 }
 
+.paragraph:not(:last-child) {
+  padding-bottom: 20px;
+}
+
 .visually_hidden {
   border: 0;
   clip: rect(0 0 0 0);

@@ -10,6 +10,7 @@
   border-left: 2px solid #e5e5e5; /* temp */
   border-bottom-right-radius: var(--outer_radius);
   border-top-right-radius: var(--outer_radius);
+  grid-area: cards;
 }
 
 

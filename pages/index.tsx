@@ -16,7 +16,7 @@ export default function Home() {
 
         <main>
           <Tabs data={tabData} />
-
+          
           {/* <TextHead level='2'>
             Accordion for article
           </TextHead>

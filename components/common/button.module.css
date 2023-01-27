@@ -30,17 +30,18 @@
   color: #666; /* temp */
   padding: var(--small_padding);
   position: relative;
+  text-align: left;
 }
 
 li:first-child > button.tabs_style { border-top-left-radius: var(--outer_radius); }
 
 li:last-child > button.tabs_style { border-bottom-left-radius: var(--outer_radius); }
 
-li:not(:last-child) > button.tabs_style::after {
+.tabs_style::after {
   background-color: #e5e5e5; /* temp */
   bottom: 0;
   content: '';
-  height: 1px;
+  height: 2px;
   left: 0;
   margin-left: var(--small_padding);
   position: absolute;
