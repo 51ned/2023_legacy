@@ -1,10 +1,15 @@
-import { Accordion, Modal, Tabs, } from '@/components/.'
+import { Accordion, List, Modal, Tabs, } from '@/components/.'
 import { Text, TextHead } from '@/components/common/.'
 
 import { data, tabData } from '@/lib/data'
 
 
 export default function Home() {
+  const listData = {
+    title: 'List title',
+    items: ['First list item', 'Second list item', 'Third list item']
+  }
+
   return (
     <>
       <div>
@@ -13,9 +18,27 @@ export default function Home() {
             Hello, world
           </TextHead>
         </header>
-
+        
         <main>
           <Tabs data={tabData} />
+
+          <List
+            items={listData.items}
+            withTitle={listData.title}
+            withType='unordered'
+          />
+
+          <List
+            items={listData.items}
+            withTitle={listData.title}
+            withType='ordered'
+          />
+
+          <List
+            items={listData.items}
+            withTitle={listData.title}
+            withType='unmarked'
+          />
           
           {/* <TextHead level='2'>
             Accordion for article

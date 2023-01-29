@@ -26,7 +26,7 @@ export function Tabs({data}: TabsProps) {
 
   return (
     <div className={style.wrap}>
-      <div className={style.list_container}>
+      <div className={style.container}>
         <ul className={style.list} role='tablist'>
           {data.map((item, index) => (
             <li key={index} role='presentation'>
@@ -44,25 +44,23 @@ export function Tabs({data}: TabsProps) {
         </ul>
       </div>
 
-      <>
-        {data.map((item, index) => (
-          <React.Fragment key={index}>
-            <Card
-              contentID={item.contentID}
-              contentWrapTag='article'
-              controllingID={item.buttonID}
-              isActive={index === activeIndex}
-              withStyle='tabs'
-            >
-              <TextHead level='2'>
-                { item.buttonTitle }
-              </TextHead>
+      {data.map((item, index) => (
+        <React.Fragment key={index}>
+          <Card
+            contentID={item.contentID}
+            contentWrapTag='article'
+            controllingID={item.buttonID}
+            isActive={index === activeIndex}
+            withStyle='tabs'
+          >
+            <TextHead level='2'>
+              { item.buttonTitle }
+            </TextHead>
 
-              { item.content }
-            </Card>
-          </React.Fragment>
-        ))}
-      </>
+            { item.content }
+          </Card>
+        </React.Fragment>
+      ))}
     </div>
   )
 }

@@ -4,7 +4,7 @@
   grid-template-columns: calc(100% / 12 * 3) auto;
 }
 
-.list_container {
+.container {
   background-color: #fff; /* temp */
   border-bottom-left-radius: var(--outer_radius);
   border-top-left-radius: var(--outer_radius);
@@ -16,3 +16,5 @@
   position: sticky;
   top: 0;
 }
+
+.list > li { list-style-type: none; }

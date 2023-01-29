@@ -1,0 +1,38 @@
+.list > li:not(:last-child) { margin-bottom: calc(var(--indent) * 3); }
+
+
+/* Ordered */
+.list.ordered {
+  counter-reset: num;
+}
+
+.list.ordered > li {
+  padding-left: calc(var(--indent) * 7);
+  position: relative;
+}
+
+.list.ordered > li::after {
+  content: counter(num) '.'; 
+	counter-increment: num;
+  left: 0;
+	position: absolute;
+}
+
+
+/* Unordered */
+.list.unordered > li {
+  padding-left: calc(var(--indent) * 7);
+  position: relative;
+}
+
+.list.unordered > li::after {
+  background-color: var(--regular_color);
+  border-radius: 50%;
+  height: var(--indent);
+  content: '';
+  left: 0;
+  position: absolute;
+  top: 50%;
+  width: var(--indent);
+}
+

@@ -1,31 +1,30 @@
 /* 1. Import optimized typefaces */
 @font-face {
-  font-family: 'montserrat_regular';
-  src: url('../fonts/montserrat_regular.woff2') format('woff2');
-  font-weight: 400;
+  font-family: 'Montserrat';
   font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat'),
+       url('../fonts/montserrat_regular.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'montserrat_bold';
-  src: url('../fonts/montserrat_bold.woff2') format('woff2');
-  font-weight: 700;
+  font-family: 'Montserrat';
   font-style: bold;
+  font-weight: 700;
+  src: local('Montserrat'),
+       url('../fonts/montserrat_bold.woff2') format('woff2');
 }
 
 
 /* 2. Add typefaces to selectors */
-a {
-  text-decoration: none;
-  font-family: 'montserrat_regular';
-}
-
-body { font-family: 'montserrat_regular', sans-serif; }
-
-h1, h2, h3, h4, h5, h6 { font-family: 'montserrat_bold', sans-serif; }
+* { font-family: 'Montserrat', sans-serif; }
 
 
-/* 3. Define variables with sizes, line-spacings and indents */
+/* 3. Add styles to selectors */
+a { text-decoration: none; }
+
+
+/* 4. Define variables with sizes, line-spacings and paddings */
 :root {
   --smallest_font_size: 14px;
   --smallest_line_height: 20px;
@@ -73,7 +72,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'montserrat_bold', sans-serif; }
 }
 
 
-/* 4. Define classes with fonts sizes only */
+/* 5. Define classes with fonts sizes only */
 .smallest_font_size { font-size: var(--smallest_font_size); }
 .smaller_font_size { font-size: var(--smaller_font_size); }
 .regular_font_size { font-size: var(--regular_font_size); }
@@ -87,7 +86,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'montserrat_bold', sans-serif; }
 .h1_font_size { font-size: var(--h1_font_size); }
 
 
-/* 5. Define classes with fonts sizes and line-spacings */
+/* 6. Define classes with fonts sizes and line-spacings */
 .smallest_font_style {
   font-size: var(--smallest_font_size);
   line-height: var(--smallest_line_height);
@@ -125,3 +124,22 @@ h1, h2, h3, h4, h5, h6 { font-family: 'montserrat_bold', sans-serif; }
   line-height: var(--h1_line_height);
   padding-bottom: var(--padding_between_paragraphs);
 }
+
+
+/* 7. Define variables with colors */
+:root {
+  --interactive_color: hsl(213, 100%, 35%);
+  --muted_color: hsl(240, 2%, 47%);
+  --primary_color: hsl(0, 0%, 0%);
+  --regular_color: hsl(0, 0%, 20%);
+}
+
+
+/* 8. Define styles with colors & all others */
+.interactive_color { color: var(--interactive_color) }
+
+.muted_color { color: var(--muted_color) }
+
+.primary_color { color: var(--primary_color) }
+
+.regular_color { color: var(--regular_color) }
