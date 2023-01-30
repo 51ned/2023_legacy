@@ -24,7 +24,6 @@ type SizeEnum = typeof SizeEnum[keyof typeof SizeEnum]
 interface TextProps {
   children: React.ReactNode,
   tag?: keyof JSX.IntrinsicElements,
-  withBG?: BackgroundEnum,
   withColor?: ColorEnum,
   withPadding?: boolean,
   withSize?: SizeEnum,
@@ -35,13 +34,12 @@ interface TextProps {
 export function Text({
   children,
   tag: Tag = 'p',
-  withBG = BackgroundEnum.Light,
   withColor = ColorEnum.Primary,
   withPadding,
   withSize,
   withStyle = SizeEnum.Regular}: TextProps) {
     
-  const textColor = `${withColor}_color_on_${withBG}_bg`
+  const textColor = `${withColor}_color`
   const textPadding = withPadding ? 'paragraph' : ''
   const textStyle = withSize ? `${withSize}_font_size` : `${withStyle}_font_style`
 

@@ -14,6 +14,9 @@
 }
 
 
-.regular_style {}
+.regular_style {
+  background-color: #fff; /* temp */
+  border-radius: var(--outer_radius);
+}
 
 .tabs_style {}

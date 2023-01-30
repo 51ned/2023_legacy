@@ -1,5 +1,4 @@
 .wrap {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  gap: var(--gap);
 }

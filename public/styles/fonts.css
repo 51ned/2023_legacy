@@ -136,6 +136,8 @@ a { text-decoration: none; }
 
 
 /* 8. Define styles with colors & all others */
+a { text-decoration: none; }
+
 .interactive_color { color: var(--interactive_color) }
 
 .muted_color { color: var(--muted_color) }

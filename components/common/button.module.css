@@ -15,11 +15,9 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: var(--small_pad) 0;
+  padding: var(--small_padding) 0;
   position: relative;
 }
-
-.accordion_style[aria-expanded=true] {}
 
 
 /* Tabs */

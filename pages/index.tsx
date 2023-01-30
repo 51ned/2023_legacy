@@ -1,5 +1,5 @@
-import { Accordion, List, Modal, Tabs, } from '@/components/.'
-import { Text, TextHead } from '@/components/common/.'
+import { Accordion, CardList, List, Modal, Tabs, } from '@/components/.'
+import { Card, Text, TextHead } from '@/components/common/.'
 
 import { data, tabData } from '@/lib/data'
 
@@ -10,6 +10,7 @@ export default function Home() {
     items: ['First list item', 'Second list item', 'Third list item']
   }
 
+  const cardListData = ['one', 'two', 'three', 'four',]
   return (
     <>
       <div>
@@ -22,51 +23,60 @@ export default function Home() {
         <main>
           <Tabs data={tabData} />
 
-          <List
-            items={listData.items}
-            withTitle={listData.title}
-            withType='unordered'
-          />
+          <CardList>
+            <Card>
+              <List
+                items={listData.items}
+                withTitle={listData.title}
+                withType='unordered'
+              />
+            </Card>
 
-          <List
-            items={listData.items}
-            withTitle={listData.title}
-            withType='ordered'
-          />
+            <Card>
+              <List
+                items={listData.items}
+                withTitle={listData.title}
+                withType='ordered'
+              />
+            </Card>
 
-          <List
-            items={listData.items}
-            withTitle={listData.title}
-            withType='unmarked'
-          />
+            <Card>
+              <List
+                items={listData.items}
+                withTitle={listData.title}
+                withType='unmarked'
+              />
+            </Card>
+          </CardList>
+
+          <CardList>
+            <Card>
+              <TextHead level='2'>
+                Accordion for article
+              </TextHead>
+
+              <Accordion
+                accContainerTag='article'
+                buttonWrapTag='h2'
+                contentWrapTag='p'
+                data={data}
+              />
+            </Card>
+
+            <Card>
+              <TextHead level='2'>
+                Accordion for FAQ
+              </TextHead>
+              
+              <Accordion
+                accWrapTag='dl'
+                buttonWrapTag='dt'
+                contentWrapTag='dd'
+                data={data}
+              />
+            </Card>
+          </CardList>
           
-          {/* <TextHead level='2'>
-            Accordion for article
-          </TextHead>
-
-          <Accordion
-            accContainerTag='article'
-            buttonWrapTag='h2'
-            contentWrapTag='p'
-            data={data}
-          />
-
-          <TextHead level='2'>
-            Accordion for FAQ
-          </TextHead>
-
-          <Accordion
-            accWrapTag='dl'
-            buttonWrapTag='dt'
-            contentWrapTag='dd'
-            data={data}
-          />
-
-          <TextHead level='2'>
-            Basic accordion
-          </TextHead>
-
-          <Accordion buttonWrapTag='div' data={data} /> */}
           {/* <Modal modalHeadText='i am the modal'>
             blah-blah
           </Modal> */}

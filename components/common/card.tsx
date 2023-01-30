@@ -1,14 +1,14 @@
 import style from './card.module.css'
 
 
-const StyleEnum = {
+const CardStyleEnum = {
   Accordion: 'accordion',
   Dialog: 'dialog',
   Regular: 'regular',
   Tab: 'tabs'
 } as const
 
-type StyleEnum = typeof StyleEnum[keyof typeof StyleEnum]
+export type CardStyleEnum = typeof CardStyleEnum[keyof typeof CardStyleEnum]
 
 
 interface CardProps {
@@ -17,7 +17,7 @@ interface CardProps {
   contentWrapTag?: keyof JSX.IntrinsicElements,
   controllingID?: string,
   isActive?: boolean,
-  withStyle: StyleEnum
+  withStyle?: CardStyleEnum
 }
 
 
@@ -27,7 +27,7 @@ export function Card({
   contentWrapTag,
   controllingID,
   isActive,
-  withStyle}: CardProps) {
+  withStyle = 'regular'}: CardProps) {
 
   const ContentWrapTag = contentWrapTag ?? 'div'  
 
