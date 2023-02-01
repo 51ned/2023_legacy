@@ -58,7 +58,7 @@ export default function Home() {
               <Accordion
                 accContainerTag='article'
                 buttonWrapTag='h2'
-                contentWrapTag='p'
+                cardWrapTag='p'
                 data={data}
               />
             </Card>
@@ -71,7 +71,7 @@ export default function Home() {
               <Accordion
                 accWrapTag='dl'
                 buttonWrapTag='dt'
-                contentWrapTag='dd'
+                cardWrapTag='dd'
                 data={data}
               />
             </Card>
