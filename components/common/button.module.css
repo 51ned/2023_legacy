@@ -1,8 +1,8 @@
 .container:not(:first-child) { border-top: 2px solid; }
 
-.accordion_style,
-.regular_style,
-.tabs_style {
+.accordion,
+.regular,
+.tab {
   font-size: var(--smaller_font_size);
   width: 100%;
 }
@@ -11,7 +11,7 @@
 /* Accordion */
 
 
-.accordion_style {
+.accordion {
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -20,10 +20,10 @@
 }
 
 
-/* Tabs */
+/* tab */
 
 
-.tabs_style {
+.tab {
   background-color: #fff; /* temp */
   color: #666; /* temp */
   padding: var(--small_padding);
@@ -31,11 +31,11 @@
   text-align: left;
 }
 
-li:first-child > button.tabs_style { border-top-left-radius: var(--outer_radius); }
+li:first-child > button.tab { border-top-left-radius: var(--outer_radius); }
 
-li:last-child > button.tabs_style { border-bottom-left-radius: var(--outer_radius); }
+li:last-child > button.tab { border-bottom-left-radius: var(--outer_radius); }
 
-.tabs_style::after {
+.tab::after {
   background-color: #e5e5e5; /* temp */
   bottom: 0;
   content: '';
@@ -46,6 +46,6 @@ li:last-child > button.tabs_style { border-bottom-left-radius: var(--outer_radiu
   width: calc(100% - calc(var(--small_padding) * 2));
 }
 
-.tabs_style[aria-expanded=true] {
+.tab[aria-expanded=true] {
   color: #000; /* temp */
 }

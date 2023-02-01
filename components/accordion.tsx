@@ -9,14 +9,14 @@ interface AccordionItemProps {
   buttonID: string,
   buttonTitle: string,
   content: string | React.ReactNode,
-  contentID: string,
+  cardID: string,
 }
 
 interface AccordionProps {
   accContainerTag?: keyof JSX.IntrinsicElements,
   accWrapTag?: keyof JSX.IntrinsicElements,
   buttonWrapTag?: keyof JSX.IntrinsicElements,
-  contentWrapTag?: keyof JSX.IntrinsicElements,
+  cardWrapTag?: keyof JSX.IntrinsicElements,
   data: AccordionItemProps[]
 }
 
@@ -25,7 +25,7 @@ export function Accordion({
   accContainerTag,
   accWrapTag,
   buttonWrapTag,
-  contentWrapTag,
+  cardWrapTag,
   data}: AccordionProps) {
   
   const AccWrapTag = accWrapTag ?? 'div'
@@ -50,7 +50,7 @@ export function Accordion({
           <Button
             buttonID={item.buttonID}
             buttonWrapTag={buttonWrapTag}
-            controlledID={item.contentID}
+            controlledID={item.cardID}
             handleClick={() => handleClick(index)}
             isActive={index === activeIndex}
             isExpandable
@@ -60,8 +60,8 @@ export function Accordion({
           </Button>
           
           <Card
-            contentID={item.contentID}
-            contentWrapTag={contentWrapTag}
+            cardID={item.cardID}
+            cardWrapTag={cardWrapTag}
             controllingID={item.buttonID}
             isActive={index === activeIndex}
             withStyle='accordion'

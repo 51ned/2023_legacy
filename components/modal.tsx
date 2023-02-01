@@ -32,7 +32,7 @@ export function Modal({
       </Button>
 
       <Card
-        contentWrapTag='dialog'
+        cardWrapTag='dialog'
         isActive={isActive}
         withStyle='dialog'
         {...dialogOpts}

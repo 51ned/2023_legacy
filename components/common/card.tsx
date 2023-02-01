@@ -5,48 +5,62 @@ const CardStyleEnum = {
   Accordion: 'accordion',
   Dialog: 'dialog',
   Regular: 'regular',
-  Tab: 'tabs'
+  tab: 'tab'
 } as const
 
-export type CardStyleEnum = typeof CardStyleEnum[keyof typeof CardStyleEnum]
+type CardStyleEnum = typeof CardStyleEnum[keyof typeof CardStyleEnum]
 
 
 interface CardProps {
+  cardID?: string,
   children: React.ReactNode,
-  contentID?: string,
-  contentWrapTag?: keyof JSX.IntrinsicElements,
+  cardWrapTag?: keyof JSX.IntrinsicElements,
   controllingID?: string,
+  direction?: string,
   isActive?: boolean,
   withStyle?: CardStyleEnum
 }
 
 
 export function Card({
+  cardID,
   children,
-  contentID,
-  contentWrapTag,
+  cardWrapTag,
   controllingID,
+  direction,
   isActive,
   withStyle = 'regular'}: CardProps) {
 
-  const ContentWrapTag = contentWrapTag ?? 'div'  
+  const CardWrapTag = cardWrapTag ?? 'div'  
 
-  let contentWrapOpts: {[key: string]: boolean | undefined} = {}
+  let otherCardOpts: {[key: string]: boolean | undefined} = {}
 
-  if (['accordion', 'tabs'].includes(withStyle)) {
-    contentWrapOpts['hidden'] = !isActive
-  } else if (withStyle === 'dialog') {
-    contentWrapOpts['open'] = isActive
+  if (['accordion', 'tab'].includes(withStyle)) {
+    otherCardOpts['hidden'] = !isActive
   }
+  
+  if (withStyle === 'dialog') {
+    otherCardOpts['open'] = isActive
+  }
+  
+  const getClasses = () => {
+    let classes = `${style[withStyle]}`
 
+    if (isActive && direction) {
+      classes += ` ${style[`slide_${direction}`]}`
+    }
+    
+    return classes
+  }
+  
   return (
-    <ContentWrapTag
+    <CardWrapTag
       aria-labelledby={controllingID}
-      className={style[`${withStyle}_style`]}
-      id={contentID}
-      {...contentWrapOpts}
+      className={getClasses()}
+      id={cardID}
+      {...otherCardOpts}
     >
       { children }
-    </ContentWrapTag>
+    </CardWrapTag>
   )
 }

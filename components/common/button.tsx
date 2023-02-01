@@ -9,7 +9,7 @@ const StyleEnum = {
   Accordion: 'accordion',
   Regular: 'regular',
   Stripped: 'stripped',
-  Tab: 'tabs'
+  Tab: 'tab'
 } as const
 
 type StyleEnum = typeof StyleEnum[keyof typeof StyleEnum]
@@ -47,7 +47,7 @@ export function Button({
 
   let buttonOpts: {[key: string]: boolean | string | undefined} = {}
 
-  if (withStyle === 'tabs') {
+  if (withStyle === 'tab') {
     buttonOpts['aria-selected'] = isActive
     buttonOpts['role'] = 'tab'
   }
@@ -62,7 +62,7 @@ export function Button({
     <ButtonWrapTag {...buttonWrapOpts}>
       <button
         aria-controls={controlledID}
-        className={style[`${withStyle}_style`]}
+        className={style[`${withStyle}`]}
         id={buttonID}
         onClick={handleClick}
         {...buttonOpts}

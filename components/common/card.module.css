@@ -1,11 +1,11 @@
-.accordion_style {}
+.accordion {}
 
-.dialog_style {}
+.dialog {}
 
-.regular_style,
-.tabs_style { padding: var(--regular_card_padding); }
+.regular,
+.tab { padding: var(--regular_card_padding); }
 
-.tabs_style {
+.tab {
   background-color: #fff; /* temp */
   border-left: 2px solid #e5e5e5; /* temp */
   border-bottom-right-radius: var(--outer_radius);
@@ -13,10 +13,13 @@
   grid-area: cards;
 }
 
+.tab.slide_downn {}
 
-.regular_style {
+.tab.slide_up {}
+
+.regular {
   background-color: #fff; /* temp */
   border-radius: var(--outer_radius);
 }
 
-.tabs_style {}
+.tab {}

@@ -9,7 +9,7 @@ interface TabsItemProps {
   buttonID: string,
   buttonTitle: string,
   content: React.ReactNode | string,
-  contentID: string,
+  cardID: string,
 }
 
 interface TabsProps {
@@ -18,12 +18,18 @@ interface TabsProps {
 
 
 export function Tabs({data}: TabsProps) {
-  const [activeIndex, setActiveIndex] = useState(0)
-  
-  const handleClick = (index: number) => {
-    setActiveIndex(index)
-  }
+  const [state, setState] = useState({
+    activeIndex: 0,
+    clickDirection: '',
+  })
 
+  const handleClick = (index: number) => {
+    setState({
+      activeIndex: index,
+      clickDirection: index > state.activeIndex ? 'down' : 'up'
+    })
+  }
+  
   return (
     <div className={style.wrap}>
       <div className={style.container}>
@@ -32,10 +38,10 @@ export function Tabs({data}: TabsProps) {
             <li key={index} role='presentation'>
               <Button
                 buttonID={item.buttonID}
-                controlledID={item.contentID}
+                controlledID={item.cardID}
                 handleClick={() => handleClick(index)}
-                isActive={index === activeIndex}
-                withStyle='tabs'
+                isActive={index === state.activeIndex}
+                withStyle='tab'
               >
                 { item.buttonTitle }
               </Button>
@@ -47,11 +53,12 @@ export function Tabs({data}: TabsProps) {
       {data.map((item, index) => (
         <React.Fragment key={index}>
           <Card
-            contentID={item.contentID}
-            contentWrapTag='article'
+            cardID={item.cardID}
+            cardWrapTag='article'
             controllingID={item.buttonID}
-            isActive={index === activeIndex}
-            withStyle='tabs'
+            direction={state.clickDirection}
+            isActive={index === state.activeIndex}
+            withStyle='tab'
           >
             <TextHead level='2'>
               { item.buttonTitle }
