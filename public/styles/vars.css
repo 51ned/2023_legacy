@@ -1,7 +1,8 @@
 :root {
   --indent: 4px;
 
-  --gap: calc(var(--indent) * 9);
+  --gap_between_sections: calc(var(--indent) * 18);
+  --gap_inside_section: calc(var(--indent) * 9);
 
   --big_padding: calc(var(--indent) * 9);
   --small_padding: calc(var(--indent) * 6);

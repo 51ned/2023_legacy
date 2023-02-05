@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Button, Card, TextHead } from '@/components/common/.'
+import { Button, Card, TextHead } from '@/components/ui/.'
 
 import style from './modal.module.css'
 

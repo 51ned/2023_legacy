@@ -23,7 +23,7 @@ interface ButtonProps {
   handleClick: () => void,
   isActive?: boolean,
   isExpandable?: boolean,
-  withStyle?: StyleEnum
+  withStyle: StyleEnum
 }
 
 
@@ -37,6 +37,7 @@ export function Button({
   isExpandable = true,
   withStyle}: ButtonProps) {
     
+  // Define Button's wrap tag & optional arguments  
   const ButtonWrapTag = buttonWrapTag ?? React.Fragment
 
   let buttonWrapOpts: {[key: string]: string} = {}
@@ -45,7 +46,8 @@ export function Button({
     buttonWrapOpts['className'] = `${style.container}`
   }
 
-  let buttonOpts: {[key: string]: boolean | string | undefined} = {}
+  // Define Button's optional arguments 
+  let buttonOpts: {[key: string]: boolean | number | string | undefined} = {}
 
   if (withStyle === 'tab') {
     buttonOpts['aria-selected'] = isActive
@@ -56,7 +58,8 @@ export function Button({
     buttonOpts['aria-expanded'] = isActive
   }
 
-  const icon = withStyle === StyleEnum.Accordion && <Plus />
+  // Define Button's icons 
+  const icon = withStyle === 'accordion' && <Plus />
   
   return (
     <ButtonWrapTag {...buttonWrapOpts}>

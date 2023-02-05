@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Button, Card, TextHead } from '@/components/common/.'
+import { Button, Card, TextHead } from '@/components/ui/.'
 
 import style from './tabs.module.css'
 
@@ -22,16 +22,29 @@ export function Tabs({data}: TabsProps) {
     activeIndex: 0,
     clickDirection: '',
   })
-
+  
   const handleClick = (index: number) => {
+    let direction = ''
+
+    if (index > state.activeIndex) {
+      direction += 'down'
+    } else if (index < state.activeIndex) {
+      direction += 'up'
+    } else {
+      return
+    }
+    
     setState({
       activeIndex: index,
-      clickDirection: index > state.activeIndex ? 'down' : 'up'
+      clickDirection: direction
     })
   }
   
   return (
-    <div className={style.wrap}>
+    <div
+      className={style.wrap}
+      tabIndex={0}
+    >
       <div className={style.container}>
         <ul className={style.list} role='tablist'>
           {data.map((item, index) => (
@@ -63,7 +76,7 @@ export function Tabs({data}: TabsProps) {
             <TextHead level='2'>
               { item.buttonTitle }
             </TextHead>
-
+            
             { item.content }
           </Card>
         </React.Fragment>

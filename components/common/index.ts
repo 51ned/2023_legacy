@@ -1,4 +1,2 @@
-export * from './button'
-export * from './card'
-export * from './head'
-export * from './text'
+export * from './footer'
+export * from './navbar'

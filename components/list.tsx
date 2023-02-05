@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Text } from '@/components/common/.'
+import { Text } from '@/components/ui/.'
 
 import style from './list.module.css'
 

@@ -1,9 +1,16 @@
 .accordion {}
 
+.accordion:not([hidden]) {}
+
 .dialog {}
 
 .regular,
 .tab { padding: var(--regular_card_padding); }
+
+.regular {
+  background-color: #fff; /* temp */
+  border-radius: var(--outer_radius);
+}
 
 .tab {
   background-color: #fff; /* temp */
@@ -13,13 +20,8 @@
   grid-area: cards;
 }
 
-.tab.slide_downn {}
+.tab:not([hidden]) {}
 
-.tab.slide_up {}
+.tab:not([hidden]).slide_down > * {}
 
-.regular {
-  background-color: #fff; /* temp */
-  border-radius: var(--outer_radius);
-}
-
-.tab {}
+.tab:not([hidden]).slide_up > * {}

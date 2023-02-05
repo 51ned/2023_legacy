@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Button, Card } from '@/components/common/.'
+import { Button, Card } from '@/components/ui/.'
 
 import style from './accordion.module.css'
 

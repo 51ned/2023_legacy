@@ -33,10 +33,14 @@ export function Card({
 
   const CardWrapTag = cardWrapTag ?? 'div'  
 
-  let otherCardOpts: {[key: string]: boolean | undefined} = {}
+  let otherCardOpts: {[key: string]: boolean | string | undefined} = {}
 
   if (['accordion', 'tab'].includes(withStyle)) {
     otherCardOpts['hidden'] = !isActive
+  }
+
+  if (withStyle === 'tab') {
+    otherCardOpts['role'] = 'tabpanel'
   }
   
   if (withStyle === 'dialog') {
@@ -46,10 +50,10 @@ export function Card({
   const getClasses = () => {
     let classes = `${style[withStyle]}`
 
-    if (isActive && direction) {
+    if (isActive && direction && direction.length > 0) {
       classes += ` ${style[`slide_${direction}`]}`
     }
-    
+
     return classes
   }
   

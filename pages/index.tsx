@@ -1,5 +1,7 @@
+import { Global as GlobalLayout } from '@/layouts/.'
+
 import { Accordion, CardList, List, Modal, Tabs, } from '@/components/.'
-import { Card, Text, TextHead } from '@/components/common/.'
+import { Card, Text, TextHead } from '@/components/ui/.'
 
 import { data, tabData } from '@/lib/data'
 
@@ -10,9 +12,8 @@ export default function Home() {
     items: ['First list item', 'Second list item', 'Third list item']
   }
 
-  const cardListData = ['one', 'two', 'three', 'four',]
   return (
-    <>
+    <GlobalLayout>
       <div>
         <header>
           <TextHead level='1'>
@@ -76,18 +77,8 @@ export default function Home() {
               />
             </Card>
           </CardList>
-          
-          {/* <Modal modalHeadText='i am the modal'>
-            blah-blah
-          </Modal> */}
         </main>
       </div>
-
-      <footer>
-        <Text withStyle='smaller'>
-          Component, you&#39;re be a footer. Soon.
-        </Text>
-      </footer>
-    </>
+    </GlobalLayout>
   )
 }

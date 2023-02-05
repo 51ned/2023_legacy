@@ -35,7 +35,7 @@ li:first-child > button.tab { border-top-left-radius: var(--outer_radius); }
 
 li:last-child > button.tab { border-bottom-left-radius: var(--outer_radius); }
 
-.tab::after {
+li:not(:last-child) > .tab::after {
   background-color: #e5e5e5; /* temp */
   bottom: 0;
   content: '';

@@ -1,4 +1,4 @@
 .wrap {
   display: grid;
-  gap: var(--gap);
+  gap: var(--gap_inside_section);
 }
