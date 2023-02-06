@@ -1,1 +1,2 @@
-export * from './global'
+export * from './inner'
+export * from './outer'

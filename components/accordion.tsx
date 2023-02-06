@@ -54,6 +54,7 @@ export function Accordion({
             handleClick={() => handleClick(index)}
             isActive={index === activeIndex}
             isExpandable
+            withIcon='plus'
             withStyle='accordion'
           >
             { item.buttonTitle }

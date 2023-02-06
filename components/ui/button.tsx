@@ -1,9 +1,13 @@
 import React from 'react'
 
-import { Plus } from '@/components/icons/.'
+import { Burger, Plus } from '@/components/icons/.'
 
 import style from './button.module.css'
 
+const IconEnum = {
+  Burger: 'burger',
+  Plus: 'plus'
+} as const
 
 const StyleEnum = {
   Accordion: 'accordion',
@@ -12,6 +16,7 @@ const StyleEnum = {
   Tab: 'tab'
 } as const
 
+type IconEnum = typeof IconEnum[keyof typeof IconEnum]
 type StyleEnum = typeof StyleEnum[keyof typeof StyleEnum]
 
 
@@ -19,10 +24,11 @@ interface ButtonProps {
   buttonID?: string,
   buttonWrapTag?: keyof JSX.IntrinsicElements,
   controlledID?: string,
-  children: React.ReactNode,
+  children?: React.ReactNode,
   handleClick: () => void,
   isActive?: boolean,
   isExpandable?: boolean,
+  withIcon?: IconEnum,
   withStyle: StyleEnum
 }
 
@@ -35,6 +41,7 @@ export function Button({
   handleClick,
   isActive,
   isExpandable = true,
+  withIcon,
   withStyle}: ButtonProps) {
     
   // Define Button's wrap tag & optional arguments  
@@ -59,7 +66,13 @@ export function Button({
   }
 
   // Define Button's icons 
-  const icon = withStyle === 'accordion' && <Plus />
+  let icon
+  
+  if (withIcon === 'burger') {
+    icon = <Burger />
+  } else if (withIcon === 'plus') {
+    icon = <Plus />
+  }
   
   return (
     <ButtonWrapTag {...buttonWrapOpts}>

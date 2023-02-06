@@ -1,0 +1,4 @@
+.icon {
+  height: calc(var(--indent) * 5);
+  width: calc(var(--indent) * 6);
+}

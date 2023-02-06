@@ -4,7 +4,7 @@ import style from './plus.module.css'
 export function Plus() {
   return (
     <svg
-      aria-hidden='true'
+      aria-hidden
       className={style.icon}
       focusable='false'
       viewBox='0 0 10 10'

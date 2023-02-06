@@ -1,0 +1,16 @@
+.container {
+  max-width: calc(var(--indent) * 320);
+  width: 100%;
+}
+
+.wrap {
+  display: grid;
+  justify-items: center;
+  padding: 0 calc(var(--indent) * 4);
+}
+
+.navbar {
+  background-color: #fff; /* temp */
+  position: sticky;
+  top: 0;
+}

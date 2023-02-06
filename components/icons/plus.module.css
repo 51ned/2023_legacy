@@ -1,6 +1,6 @@
 .icon { height: 1em; }
 
-button:focus .icon { outline: 2px solid; }
+button:focus > .icon { outline: 2px solid; }
 
 [aria-expanded='true'] .vertical_line { display: none; }
 

@@ -27,6 +27,7 @@ export function Modal({
     <>
       <Button
         handleClick={() => setActive(true)}
+        withStyle='stripped'
       >
         Open modal
       </Button>

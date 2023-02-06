@@ -1,4 +1,4 @@
-import { Global as GlobalLayout } from '@/layouts/.'
+import {OuterLayout, InnerLayout } from '@/layouts/.'
 
 import { Accordion, CardList, List, Modal, Tabs, } from '@/components/.'
 import { Card, Text, TextHead } from '@/components/ui/.'
@@ -13,72 +13,64 @@ export default function Home() {
   }
 
   return (
-    <GlobalLayout>
-      <div>
-        <header>
-          <TextHead level='1'>
-            Hello, world
-          </TextHead>
-        </header>
+    <OuterLayout>
+      <InnerLayout>
+        <Tabs data={tabData} />
         
-        <main>
-          <Tabs data={tabData} />
+        <CardList>
+          <Card>
+            <List
+              items={listData.items}
+              withTitle={listData.title}
+              withType='unordered'
+            />
+          </Card>
 
-          <CardList>
-            <Card>
-              <List
-                items={listData.items}
-                withTitle={listData.title}
-                withType='unordered'
-              />
-            </Card>
+          <Card>
+            <List
+              items={listData.items}
+              withTitle={listData.title}
+              withType='ordered'
+            />
+          </Card>
 
-            <Card>
-              <List
-                items={listData.items}
-                withTitle={listData.title}
-                withType='ordered'
-              />
-            </Card>
+          <Card>
+            <List
+              items={listData.items}
+              withTitle={listData.title}
+              withType='unmarked'
+            />
+          </Card>
+        </CardList>
 
-            <Card>
-              <List
-                items={listData.items}
-                withTitle={listData.title}
-                withType='unmarked'
-              />
-            </Card>
-          </CardList>
+        <CardList>
+          <Card>
+            <TextHead level='2'>
+              Accordion for article
+            </TextHead>
 
-          <CardList>
-            <Card>
-              <TextHead level='2'>
-                Accordion for article
-              </TextHead>
+            <Accordion
+              accContainerTag='article'
+              buttonWrapTag='h2'
+              cardWrapTag='p'
+              data={data}
+            />
+          </Card>
 
-              <Accordion
-                accContainerTag='article'
-                buttonWrapTag='h2'
-                cardWrapTag='p'
-                data={data}
-              />
-            </Card>
-
-            <Card>
-              <TextHead level='2'>
-                Accordion for FAQ
-              </TextHead>
-              
-              <Accordion
-                accWrapTag='dl'
-                buttonWrapTag='dt'
-                cardWrapTag='dd'
-                data={data}
-              />
-            </Card>
-          </CardList>
-        </main>
-      </div>
-    </GlobalLayout>
+          <Card>
+            <TextHead level='2'>
+              Accordion for FAQ
+            </TextHead>
+            
+            <Accordion
+              accWrapTag='dl'
+              buttonWrapTag='dt'
+              cardWrapTag='dd'
+              data={data}
+            />
+          </Card>
+        </CardList>
+      </InnerLayout>
+    </OuterLayout>
   )
 }
