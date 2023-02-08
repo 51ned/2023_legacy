@@ -1,12 +1,12 @@
-import { Button, Division } from '@/components/ui/.'
+import { Box, Button } from '@/components/ui/.'
 
 import style from './navbar.module.css'
 
 
 export function Navbar() {
   return (
-    <Division withRole='wrap' withStyle='navbar' withTag='div'>
-      <Division withRole='container' withTag='div'>
+    <Box withRole='wrap' withStyle='navbar' withTag='div'>
+      <Box withRole='container' withTag='div'>
         <Button 
           handleClick={() => {}}
           withIcon='burger'
@@ -14,7 +14,7 @@ export function Navbar() {
         />
 
         <ul></ul>
-      </Division>
-    </Division>
+      </Box>
+    </Box>
   )
 }

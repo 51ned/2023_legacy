@@ -4,6 +4,7 @@ import { Accordion, CardList, List, Modal, Tabs, } from '@/components/.'
 import { Card, Text, TextHead } from '@/components/ui/.'
 
 import { data, tabData } from '@/lib/data'
+import { articleData } from '@/lib/article-data'
 
 
 export default function Home() {

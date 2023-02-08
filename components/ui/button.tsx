@@ -78,7 +78,7 @@ export function Button({
     <ButtonWrapTag {...buttonWrapOpts}>
       <button
         aria-controls={controlledID}
-        className={style[`${withStyle}`]}
+        className={style[withStyle]}
         id={buttonID}
         onClick={handleClick}
         {...buttonOpts}

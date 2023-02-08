@@ -1,4 +1,4 @@
-import { Division } from '@/components/ui/.'
+import { Box } from '@/components/ui/.'
 
 
 interface InnerLayoutProps {
@@ -11,10 +11,10 @@ export function InnerLayout({
 }: InnerLayoutProps) {
   
   return (
-    <Division withRole='wrap' withTag='div'>
-      <Division withRole='container' withTag='main'>
+    <Box withRole='wrap' withTag='div'>
+      <Box withRole='container' withTag='main'>
         { children }
-      </Division>
-    </Division>
+      </Box>
+    </Box>
   )
 }

@@ -24,16 +24,11 @@
 
 
 .tab {
-  background-color: #fff; /* temp */
   color: #666; /* temp */
   padding: var(--small_padding);
   position: relative;
   text-align: left;
 }
-
-li:first-child > button.tab { border-top-left-radius: var(--outer_radius); }
-
-li:last-child > button.tab { border-bottom-left-radius: var(--outer_radius); }
 
 li:not(:last-child) > .tab::after {
   background-color: #e5e5e5; /* temp */

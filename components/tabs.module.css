@@ -1,14 +1,23 @@
 .wrap {
+  background-color: #fff; /* temp */
+  border-radius: var(--outer_radius);
   display: grid;
-  grid-template-areas: 'tabs cards';
+  grid-template-areas: 'head head'
+                       'buttons cards';
   grid-template-columns: calc(100% / 12 * 3) auto;
+  padding-bottom: var(--small_padding);
 }
 
-.container {
+.head {
+  grid-area: head;
+  padding: var(--small_padding);
+}
+
+.buttons {
   background-color: #fff; /* temp */
   border-bottom-left-radius: var(--outer_radius);
   border-top-left-radius: var(--outer_radius);
-  grid-area: tabs;
+  grid-area: buttons;
   height: 100%;
 }
 

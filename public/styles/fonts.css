@@ -43,8 +43,6 @@ a { text-decoration: none; }
 
   --h1_font_size: 44px;
   --h1_line_height: 56px;
-
-  --padding_between_paragraphs: 20px;
 }
 
 @media (max-width: 768px) {
@@ -91,19 +89,16 @@ a { text-decoration: none; }
   font-size: var(--smallest_font_size);
   line-height: var(--smallest_line_height);
 }
-.smallest_font_style:not(:last-child) { padding-bottom: var(--padding_between_paragraphs) }
 
 .smaller_font_style {
   font-size: var(--smaller_font_size);
   line-height: var(--smaller_line_height);
 }
-.smaller_font_style:not(:last-child) { padding-bottom: var(--padding_between_paragraphs); }
 
 .regular_font_style {
   font-size: var(--regular_font_size);
   line-height: var(--regular_line_height);
 }
-.regular_font_style:not(:last-child) { padding-bottom: var(--padding_between_paragraphs); }
 
 .subtitle_font_style {
   font-family: 'montserrat_bold', sans-serif;
@@ -111,18 +106,15 @@ a { text-decoration: none; }
   line-height: var(--subtitle_line_height);
   padding-bottom: var(--padding_between_paragraphs);
 }
-.subtitle_font_style:not(:last-child) { padding-bottom: var(--padding_between_paragraphs); }
 
 .h2_font_style {
   font-size: var(--h2_font_size);
   line-height: var(--h2_h6_line_height);
-  padding-bottom: var(--padding_between_paragraphs);
 }
 
 .h1_font_style {
   font-size: var(--h1_font_size);
   line-height: var(--h1_line_height);
-  padding-bottom: var(--padding_between_paragraphs);
 }
 
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Button, Card, TextHead } from '@/components/ui/.'
+import { Button, Card, Text, TextHead } from '@/components/ui/.'
 
 import style from './tabs.module.css'
 
@@ -39,13 +39,18 @@ export function Tabs({data}: TabsProps) {
       clickDirection: direction
     })
   }
+
+  const keys = Object.keys(data)
   
   return (
-    <div
-      className={style.wrap}
-      tabIndex={0}
-    >
-      <div className={style.container}>
+    <article className={style.wrap}>
+      <div className={style.head}>
+        <TextHead level='2'>
+          Что такое экспертиза почерка
+        </TextHead>
+      </div>
+
+      <div className={style.buttons}>
         <ul className={style.list} role='tablist'>
           {data.map((item, index) => (
             <li key={index} role='presentation'>
@@ -67,20 +72,16 @@ export function Tabs({data}: TabsProps) {
         <React.Fragment key={index}>
           <Card
             cardID={item.cardID}
-            cardWrapTag='article'
+            cardWrapTag='div'
             controllingID={item.buttonID}
             direction={state.clickDirection}
             isActive={index === state.activeIndex}
             withStyle='tab'
           >
-            <TextHead level='2'>
-              { item.buttonTitle }
-            </TextHead>
-            
             { item.content }
           </Card>
         </React.Fragment>
       ))}
-    </div>
+    </article>
   )
 }
