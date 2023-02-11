@@ -1,10 +1,4 @@
-const BackgroundEnum = {
-  Light: 'light',
-  Dark: 'dark'
-} as const
-
 const ColorEnum = {
-  Interactive: 'interactive',
   Primary: 'primary',
   Regular: 'regular'
 } as const
@@ -16,13 +10,13 @@ const SizeEnum = {
   Subtitle: 'subtitle'
 } as const
 
-type BackgroundEnum = typeof BackgroundEnum[keyof typeof BackgroundEnum]
 type ColorEnum = typeof ColorEnum[keyof typeof ColorEnum]
 type SizeEnum = typeof SizeEnum[keyof typeof SizeEnum]
 
 
-interface TextProps {
+export interface TextProps {
   children: React.ReactNode,
+  isBold?: boolean;
   tag?: keyof JSX.IntrinsicElements,
   withColor?: ColorEnum,
   withPadding?: boolean,
@@ -33,18 +27,20 @@ interface TextProps {
 
 export function Text({
   children,
+  isBold,
   tag: Tag = 'p',
-  withColor = ColorEnum.Primary,
+  withColor = 'regular',
   withPadding,
   withSize,
-  withStyle = SizeEnum.Regular}: TextProps) {
+  withStyle = 'regular'}: TextProps) {
     
-  const textColor = `${withColor}_color`
+  const textWeight = isBold ? 'bold' : ''
+  const textColor = `${withColor}-color`
   const textPadding = withPadding ? 'paragraph' : ''
-  const textStyle = withSize ? `${withSize}_font_size` : `${withStyle}_font_style`
+  const textStyle = withSize ? `${withSize}-font-size` : `${withStyle}-font-style`
 
   return (
-    <Tag className={`${textColor} ${textPadding} ${textStyle}`}>
+    <Tag className={`${textColor} ${textPadding} ${textStyle} ${textWeight}`}>
       { children }
     </Tag>
   )  

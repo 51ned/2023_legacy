@@ -1,4 +1,4 @@
 .wrap {
   display: grid;
-  gap: var(--gap_inside_section);
+  gap: var(--indent-40-32);
 }

@@ -4,7 +4,7 @@
   padding: 0;
 }
 
-body { background-color: #e5e5e5; } /* temp */
+body { background-color: var(--bg-gray); }
 
 button, input, select, textarea { font-family: inherit; }
 
@@ -21,8 +21,8 @@ html {
 
 main {
   display: grid;
-  gap: var(--gap_between_sections);
-  margin: var(--gap_between_sections) 0;
+  gap: var(--indent-80-48);
+  margin: var(--indent-80-48) 0;
 }
 
 ul > li,

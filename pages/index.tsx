@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <OuterLayout>
       <InnerLayout>
-        <Tabs data={tabData} />
+        <Tabs data={articleData} />
         
         <CardList>
           <Card>
@@ -46,7 +46,7 @@ export default function Home() {
 
         <CardList>
           <Card>
-            <TextHead level='2'>
+            <TextHead level='2' withPadding>
               Accordion for article
             </TextHead>
 
@@ -59,7 +59,7 @@ export default function Home() {
           </Card>
 
           <Card>
-            <TextHead level='2'>
+            <TextHead level='2' withPadding>
               Accordion for FAQ
             </TextHead>
             

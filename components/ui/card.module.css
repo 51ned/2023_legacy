@@ -4,18 +4,37 @@
 
 .dialog {}
 
-.regular { padding: var(--regular_card_padding); }
+
+/* Regular */
+
 
 .regular {
-  background-color: #fff; /* temp */
-  border-radius: var(--outer_radius);
+  padding:
+    var(--indent-24-16)
+    var(--indent-32-24)
+    var(--indent-32-24)
+    var(--indent-24-16);
+
 }
 
+.regular {
+  background-color: var(--bg-white);
+  border-radius: var(--outer-radius);
+}
+
+
+/* Tab */
+
+
 .tab {
-  background-color: #fff; /* temp */
-  border-left: 2px solid #e5e5e5; /* temp */
+  background-color: var(--bg-white);
+  border-left: 2px solid var(--decor-light-gray);
   grid-area: cards;
-  padding: 18px var(--big_padding) 12px var(--small_padding);
+  padding:
+    var(--indent-12-8)
+    var(--indent-32-24)
+    var(--indent-12-8)
+    var(--indent-24-16);
 }
 
 .tab:not([hidden]) {}

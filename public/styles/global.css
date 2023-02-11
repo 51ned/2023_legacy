@@ -4,9 +4,7 @@
   min-height: 100vh;
 }
 
-.paragraph:not(:last-child) {
-  padding-bottom: 20px;
-}
+.paragraph:not(:last-child) { padding-bottom: var(--indent-20-16); }
 
 .visually_hidden {
   border: 0;

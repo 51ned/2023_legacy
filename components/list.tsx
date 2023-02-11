@@ -16,6 +16,7 @@ type ListTypeEnum = typeof ListTypeEnum[keyof typeof ListTypeEnum]
 
 interface ListProps {
   items: string[],
+  withPadding?: boolean,
   withTitle?: string,
   withType?: ListTypeEnum
 }
@@ -23,6 +24,7 @@ interface ListProps {
 
 export function List({
   items,
+  withPadding,
   withTitle,
   withType
 }: ListProps) {
@@ -32,21 +34,27 @@ export function List({
   const getTitle = () => {
     if (withTitle) {
       return (
-        <Text withPadding withSize='regular'>
+        <Text
+          isBold
+          withColor='primary'
+          withPadding
+          withSize='regular'
+        >
           { withTitle }
         </Text>
       )
     }
   }
 
-  const listItemColor = withType !== 'unmarked' ? 'regular' : 'interactive'
+  const listPadding = withPadding ? 'paragraph' : ''
+  const listItemColor = withType !== 'unmarked' ? 'regular' : 'primary' // !!!
   const listItemSize = withType !== 'unmarked' ? 'regular' : 'smaller'
 
   return (
     <>
       { getTitle() }
     
-      <ListTag className={`${style.list} ${style[`${withType}`]}`}>
+      <ListTag className={`${style.list} ${style[`${withType}`]} ${listPadding}`}>
         {items.map((item, index) => (
           <React.Fragment key={index}>
             <Text

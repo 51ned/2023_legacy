@@ -1,0 +1,22 @@
+{
+  title: '',
+  content: {
+    text: [
+      '',
+      '',
+      {
+        listStyle: 'unordered',
+        listItems: [
+          '',
+          '',
+          ''
+        ]
+      },
+      ''
+    ],
+  },
+  link: {
+    href: '',
+    title: ''
+  }
+}

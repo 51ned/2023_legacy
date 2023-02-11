@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 
-import { Button, Card, Text, TextHead } from '@/components/ui/.'
+import { Button, Card, TextHead } from '@/components/ui/.'
+
+import { renderCard } from '@/utils/render-card'
 
 import style from './tabs.module.css'
 
 
 interface TabsItemProps {
   buttonID: string,
-  buttonTitle: string,
-  content: React.ReactNode | string,
+  buttonText: string,
+  cardData: any, // temp
   cardID: string,
 }
 
@@ -39,8 +41,6 @@ export function Tabs({data}: TabsProps) {
       clickDirection: direction
     })
   }
-
-  const keys = Object.keys(data)
   
   return (
     <article className={style.wrap}>
@@ -61,7 +61,7 @@ export function Tabs({data}: TabsProps) {
                 isActive={index === state.activeIndex}
                 withStyle='tab'
               >
-                { item.buttonTitle }
+                { item.buttonText }
               </Button>
             </li>
           ))}
@@ -78,7 +78,7 @@ export function Tabs({data}: TabsProps) {
             isActive={index === state.activeIndex}
             withStyle='tab'
           >
-            { item.content }
+            { renderCard(item.cardData) }
           </Card>
         </React.Fragment>
       ))}

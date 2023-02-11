@@ -1,9 +1,12 @@
-.container:not(:first-child) { border-top: 2px solid; }
+.container:not(:first-child) { border-top: 2px solid var(--decor-light-gray); }
 
 .accordion,
 .regular,
 .tab {
-  font-size: var(--smaller_font_size);
+  font-size: var(--smaller-font-size);
+  padding:
+    var(--indent-20-16)
+    var(--indent-24-16);
   width: 100%;
 }
 
@@ -15,7 +18,6 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: var(--small_padding) 0;
   position: relative;
 }
 
@@ -24,23 +26,20 @@
 
 
 .tab {
-  color: #666; /* temp */
-  padding: var(--small_padding);
+  color: var(--muted-color);
   position: relative;
   text-align: left;
 }
 
 li:not(:last-child) > .tab::after {
-  background-color: #e5e5e5; /* temp */
+  background-color: var(--decor-light-gray);
   bottom: 0;
   content: '';
   height: 2px;
   left: 0;
-  margin-left: var(--small_padding);
+  margin-left: var(--indent-24-16);
   position: absolute;
-  width: calc(100% - calc(var(--small_padding) * 2));
+  width: calc(100% - calc(var(--indent-24-16) * 2));
 }
 
-.tab[aria-expanded=true] {
-  color: #000; /* temp */
-}
+.tab[aria-expanded=true] { color: var(--primary-color); }

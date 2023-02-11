@@ -1,17 +1,40 @@
 :root {
-  --indent: 4px;
+  --base: 4px;
 
-  --gap_between_sections: calc(var(--indent) * 18);
-  --gap_inside_section: calc(var(--indent) * 9);
+  --indent-80-48: calc(var(--base) * 20);
+  --indent-64-40: calc(var(--base) * 16);
+  --indent-48-32: calc(var(--base) * 12);
+  --indent-40-32: calc(var(--base) * 10);
+  --indent-32-24: calc(var(--base) * 8);
+  --indent-24-16: calc(var(--base) * 6);
+  --indent-20-16: calc(var(--base) * 5);
+  --indent-16-12: calc(var(--base) * 4);
+  --indent-12-8: calc(var(--base) * 3);
+  --indent-8-4: calc(var(--base) * 2);
 
-  --big_padding: calc(var(--indent) * 9);
-  --small_padding: calc(var(--indent) * 6);
+  --inner-radius: var(--base);
+  --outer-radius: calc(var(--base) * 2);
 
-  --inner_radius: var(--indent);
-  --outer_radius: calc(var(--indent) * 2);
+  --bg-black: hsl(0, 0%, 0%);
+  --bg-gray: hsl(240, 11%, 96%);
+  --bg-white: hsl(0, 0%, 100%);
 
-  --regular_card_padding: var(--small_padding)
-                          var(--big_padding)
-                          var(--big_padding)
-                          var(--small_padding);
+  --decor-gray: hsl(240, 7%, 86%);
+  --decor-dark-gray: hsl(225, 2%, 66%);
+  --decor-light-gray: hsl(240, 13%, 91%);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --indent-80-48: calc(var(--base) * 12);
+    --indent-64-40: calc(var(--base) * 10);
+    --indent-48-32: calc(var(--base) * 8);
+    --indent-40-32: calc(var(--base) * 8);
+    --indent-32-24: calc(var(--base) * 6);
+    --indent-24-16: calc(var(--base) * 4);
+    --indent-20-16: calc(var(--base) * 4);
+    --indent-16-12: calc(var(--base) * 3);
+    --indent-12-8: calc(var(--base) * 2);
+    --indent-8-4: calc(var(--base) * 1);
+  }
 }

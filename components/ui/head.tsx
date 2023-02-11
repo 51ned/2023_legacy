@@ -18,22 +18,23 @@ interface TextHeadingProps {
   children: React.ReactNode,
   level: TextHeadLevelEnum,
   size?: TextHeadSizeEnum,
+  withPadding?: boolean
 }
 
 
 export function TextHead({
   children,
   level,
-  size}: TextHeadingProps) {
+  size,
+  withPadding}: TextHeadingProps) {
     
   const Tag: keyof JSX.IntrinsicElements = `h${level}`
 
-  let textHeadStyle
-
-  size ? (textHeadStyle = `${size}_font_style`) : (textHeadStyle = `h${level}_font_style`)
+  const textHeadStyle = size ? `${size}_font_style` : `h${level}_font_style`
+  const textHeadPadding = withPadding ? 'paragraph' : ''
 
   return (
-    <Tag className={textHeadStyle}>
+    <Tag className={`${textHeadStyle} ${textHeadPadding}`}>
       { children }
     </Tag>
   )

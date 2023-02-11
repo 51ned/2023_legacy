@@ -1,13 +1,13 @@
-.list > li:not(:last-child) { margin-bottom: calc(var(--indent) * 3); }
+.list > li:not(:last-child) { margin-bottom: var(--indent-12-8); }
 
 
 /* Ordered */
-.list.ordered {
-  counter-reset: num;
-}
+
+
+.list.ordered { counter-reset: num; }
 
 .list.ordered > li {
-  padding-left: calc(var(--indent) * 7);
+  padding-left: var(--indent-32-24);
   position: relative;
 }
 
@@ -16,23 +16,26 @@
 	counter-increment: num;
   left: 0;
 	position: absolute;
+  top: 0;
 }
 
 
 /* Unordered */
+
+
 .list.unordered > li {
-  padding-left: calc(var(--indent) * 7);
+  padding-left: var(--indent-32-24);
   position: relative;
 }
 
 .list.unordered > li::after {
-  background-color: var(--regular_color);
+  background-color: var(--bg-black);
   border-radius: 50%;
-  height: var(--indent);
+  height: var(--base);
   content: '';
   left: 0;
   position: absolute;
   top: 50%;
-  width: var(--indent);
+  width: var(--base);
 }
 
