@@ -1,21 +1,23 @@
 import React from 'react'
 
-import { Text } from '@/components/ui/.'
+import { Text, CustomLink as Link, LinkProps } from '@/components/ui/.'
 
 import style from './list.module.css'
 
 
 const ListTypeEnum = {
+  Horisontal: 'horisontal',
   Ordered: 'ordered',
   Unmarked: 'unmarked',
   Unordered: 'unordered'
 } as const
 
-type ListTypeEnum = typeof ListTypeEnum[keyof typeof ListTypeEnum]
+export type ListTypeEnum = typeof ListTypeEnum[keyof typeof ListTypeEnum]
 
 
 interface ListProps {
   items: string[],
+  ofLinks?: boolean,
   withPadding?: boolean,
   withTitle?: string,
   withType?: ListTypeEnum
@@ -24,6 +26,7 @@ interface ListProps {
 
 export function List({
   items,
+  ofLinks,
   withPadding,
   withTitle,
   withType
@@ -31,9 +34,14 @@ export function List({
 
   const ListTag = withType === 'ordered' ? 'ol' : 'ul'
 
-  const getTitle = () => {
-    if (withTitle) {
-      return (
+  const listPadding = withPadding ? 'paragraph' : ''
+  const listItemColor = withType !== 'unmarked' ? 'regular' : 'primary' // !!!
+  const listItemSize = withType !== 'unmarked' ? 'regular' : 'smaller'
+
+
+  return (
+    <>
+      {withTitle &&
         <Text
           isBold
           withColor='primary'
@@ -42,17 +50,7 @@ export function List({
         >
           { withTitle }
         </Text>
-      )
-    }
-  }
-
-  const listPadding = withPadding ? 'paragraph' : ''
-  const listItemColor = withType !== 'unmarked' ? 'regular' : 'primary' // !!!
-  const listItemSize = withType !== 'unmarked' ? 'regular' : 'smaller'
-
-  return (
-    <>
-      { getTitle() }
+      }
     
       <ListTag className={`${style.list} ${style[`${withType}`]} ${listPadding}`}>
         {items.map((item, index) => (

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Button, Card, TextHead } from '@/components/ui/.'
+import { Button, Card, TextHeader } from '@/components/ui/.'
 
 import style from './modal.module.css'
 
@@ -39,9 +39,9 @@ export function Modal({
         {...dialogOpts}
       >
         <header className={style.header}>
-          <TextHead level='2'>
+          <TextHeader level='2'>
             Main menu
-          </TextHead>
+          </TextHeader>
           <Button
             handleClick={() => setActive(false)}
             withStyle='stripped'

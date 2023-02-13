@@ -1,6 +1,15 @@
 .list > li:not(:last-child) { margin-bottom: var(--indent-12-8); }
 
 
+/* Horisontal */
+
+
+.list.horisontal {
+  display: flex;
+  gap: var(--indent-20-16);
+}
+
+
 /* Ordered */
 
 

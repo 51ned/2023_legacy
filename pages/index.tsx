@@ -1,7 +1,7 @@
 import {OuterLayout, InnerLayout } from '@/layouts/.'
 
 import { Accordion, CardList, List, Modal, Tabs, } from '@/components/.'
-import { Card, Text, TextHead } from '@/components/ui/.'
+import { Card, Text, TextHeader } from '@/components/ui/.'
 
 import { data, tabData } from '@/lib/data'
 import { articleData } from '@/lib/article-data'
@@ -46,9 +46,9 @@ export default function Home() {
 
         <CardList>
           <Card>
-            <TextHead level='2' withPadding>
+            <TextHeader level='2' withPadding>
               Accordion for article
-            </TextHead>
+            </TextHeader>
 
             <Accordion
               accContainerTag='article'
@@ -59,9 +59,9 @@ export default function Home() {
           </Card>
 
           <Card>
-            <TextHead level='2' withPadding>
+            <TextHeader level='2' withPadding>
               Accordion for FAQ
-            </TextHead>
+            </TextHeader>
             
             <Accordion
               accWrapTag='dl'

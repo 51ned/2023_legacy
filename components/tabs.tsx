@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Button, Card, TextHead } from '@/components/ui/.'
+import { Button, Card, TextHeader } from '@/components/ui/.'
 
 import { renderCard } from '@/utils/render-card'
 
@@ -10,7 +10,9 @@ import style from './tabs.module.css'
 interface TabsItemProps {
   buttonID: string,
   buttonText: string,
-  cardData: any, // temp
+  cardData: {
+    text?: string[]
+  }
   cardID: string,
 }
 
@@ -45,9 +47,9 @@ export function Tabs({data}: TabsProps) {
   return (
     <article className={style.wrap}>
       <div className={style.head}>
-        <TextHead level='2'>
+        <TextHeader level='2'>
           Что такое экспертиза почерка
-        </TextHead>
+        </TextHeader>
       </div>
 
       <div className={style.buttons}>

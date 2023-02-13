@@ -24,10 +24,8 @@ export function Box({
   withTag: BoxTag
 }: BoxProps) {
 
-  const moreStyles = withStyle ? withStyle : ''
-
   return (
-    <BoxTag className={`${style[withRole]} ${style[moreStyles]}`}>
+    <BoxTag className={`${style[withRole]} ${withStyle ?? ''}`}>
       { children }
     </BoxTag>
   )

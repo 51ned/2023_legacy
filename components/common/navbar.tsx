@@ -5,15 +5,21 @@ import style from './navbar.module.css'
 
 export function Navbar() {
   return (
-    <Box withRole='wrap' withStyle='navbar' withTag='div'>
-      <Box withRole='container' withTag='div'>
+    <Box
+      withRole='wrap'
+      withStyle={style.wrap}
+      withTag='div'
+    >
+      <Box
+        withRole='container'
+        withStyle={style.container}
+        withTag='div'
+      >
         <Button 
           handleClick={() => {}}
           withIcon='burger'
           withStyle='stripped'
         />
-
-        <ul></ul>
       </Box>
     </Box>
   )

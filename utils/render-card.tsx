@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { CustomLink as Link, List } from '@/components/.'
-import { Text } from '@/components/ui/.'
+import { List } from '@/components/.'
+import { CustomLink as Link, Text } from '@/components/ui/.'
 
 
 export function renderCard(items: any) {

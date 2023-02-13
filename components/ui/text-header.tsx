@@ -22,7 +22,7 @@ interface TextHeadingProps {
 }
 
 
-export function TextHead({
+export function TextHeader({
   children,
   level,
   size,
