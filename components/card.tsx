@@ -35,16 +35,16 @@ export function Card({
 
   let otherCardOpts: {[key: string]: boolean | string | undefined} = {}
 
-  if (['accordion', 'tab'].includes(withStyle)) {
-    otherCardOpts['hidden'] = !isActive
-  }
-
-  if (withStyle === 'tab') {
-    otherCardOpts['role'] = 'tabpanel'
-  }
-  
-  if (withStyle === 'dialog') {
-    otherCardOpts['open'] = isActive
+  switch (withStyle) {
+    case ('accordion' || 'tab'):
+      otherCardOpts['hidden'] = !isActive
+      break
+    case 'tab':
+      otherCardOpts['role'] = 'tabpanel'
+      break
+    case 'dialog':
+      otherCardOpts['open'] = isActive
+      break
   }
   
   const getClasses = () => {

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Button, Card, TextHeader } from '@/components/ui/.'
+import { Button, Card, TextHeader } from '@/components/.'
 
 import style from './modal.module.css'
 
@@ -28,6 +28,7 @@ export function Modal({
       <Button
         handleClick={() => setActive(true)}
         withStyle='stripped'
+        withTitle=''
       >
         Open modal
       </Button>
@@ -45,6 +46,7 @@ export function Modal({
           <Button
             handleClick={() => setActive(false)}
             withStyle='stripped'
+            withTitle=''
           >
             Close button
           </Button>

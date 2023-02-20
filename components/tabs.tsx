@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Button, Card, TextHeader } from '@/components/ui/.'
+import { Button, Card, TextHeader } from '@/components/.'
 
 import { renderCard } from '@/utils/render-card'
 
@@ -10,6 +10,7 @@ import style from './tabs.module.css'
 interface TabsItemProps {
   buttonID: string,
   buttonText: string,
+  buttonTitle: string,
   cardData: {
     text?: string[]
   }
@@ -46,12 +47,6 @@ export function Tabs({data}: TabsProps) {
   
   return (
     <article className={style.wrap}>
-      <div className={style.head}>
-        <TextHeader level='2'>
-          Что такое экспертиза почерка
-        </TextHeader>
-      </div>
-
       <div className={style.buttons}>
         <ul className={style.list} role='tablist'>
           {data.map((item, index) => (
@@ -62,6 +57,7 @@ export function Tabs({data}: TabsProps) {
                 handleClick={() => handleClick(index)}
                 isActive={index === state.activeIndex}
                 withStyle='tab'
+                withTitle={item.buttonTitle}
               >
                 { item.buttonText }
               </Button>

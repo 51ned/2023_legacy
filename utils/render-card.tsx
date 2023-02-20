@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { List } from '@/components/.'
-import { CustomLink as Link, Text } from '@/components/ui/.'
+import { CustomLink as Link, Text } from '@/components/.'
 
 
 export function renderCard(items: any) {
@@ -23,7 +23,15 @@ export function renderCard(items: any) {
     }
 
     if (item === 'link') {
-      arr.push(<Link href={items[item].href} title={items[item].title} />)
+      arr.push(
+        <Link
+          href={items[item].href}
+          title={items[item].title}
+          withStyle={items[item].withStyle}
+        >
+          { items[item].children }
+        </Link>
+      )
     }
   }
   

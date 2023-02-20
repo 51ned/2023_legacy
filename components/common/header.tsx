@@ -1,4 +1,4 @@
-import { Box, TextHeader } from '@/components/ui/.'
+import { Box, TextHeader } from '@/components/.'
 
 
 interface HeaderProps {}

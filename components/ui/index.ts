@@ -1,6 +1,0 @@
-export * from './box'
-export * from './button'
-export * from './card'
-export * from './text-header'
-export * from './link'
-export * from './text'

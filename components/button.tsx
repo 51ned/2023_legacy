@@ -1,8 +1,9 @@
 import React from 'react'
 
-import { Burger, Plus } from '@/components/icons/.'
+import { Burger, Plus } from '@/components/icons'
 
 import style from './button.module.css'
+
 
 const IconEnum = {
   Burger: 'burger',
@@ -29,7 +30,8 @@ interface ButtonProps {
   isActive?: boolean,
   isExpandable?: boolean,
   withIcon?: IconEnum,
-  withStyle: StyleEnum
+  withStyle: StyleEnum,
+  withTitle: string
 }
 
 
@@ -42,7 +44,8 @@ export function Button({
   isActive,
   isExpandable = true,
   withIcon,
-  withStyle}: ButtonProps) {
+  withStyle,
+  withTitle}: ButtonProps) {
     
   // Define Button's wrap tag & optional arguments  
   const ButtonWrapTag = buttonWrapTag ?? React.Fragment
@@ -81,6 +84,7 @@ export function Button({
         className={style[withStyle]}
         id={buttonID}
         onClick={handleClick}
+        title={withTitle}
         {...buttonOpts}
       >
         { children }

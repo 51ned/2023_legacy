@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Button, Card } from '@/components/ui/.'
+import { Button, Card } from '@/components/.'
 
 import style from './accordion.module.css'
 
@@ -56,6 +56,7 @@ export function Accordion({
             isExpandable
             withIcon='plus'
             withStyle='accordion'
+            withTitle={item.buttonTitle}
           >
             { item.buttonTitle }
           </Button>

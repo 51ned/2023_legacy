@@ -1,4 +1,4 @@
-import { Box, Button } from '@/components/ui/.'
+import { Box, Button } from '@/components/.'
 
 import style from './navbar.module.css'
 
@@ -19,6 +19,7 @@ export function Navbar() {
           handleClick={() => {}}
           withIcon='burger'
           withStyle='stripped'
+          withTitle=''
         />
       </Box>
     </Box>

@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 import { Footer, Header, Navbar } from '@/components/common/.'
-import { Box } from '@/components/ui/.'
+import { Box } from '@/components/.'
 
 
 interface OuterLayoutProps {

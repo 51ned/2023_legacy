@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Text, CustomLink as Link, LinkProps } from '@/components/ui/.'
+import { CustomLink as Link, LinkProps, Text } from '@/components/.'
 
 import style from './list.module.css'
 
@@ -16,55 +16,50 @@ export type ListTypeEnum = typeof ListTypeEnum[keyof typeof ListTypeEnum]
 
 
 interface ListProps {
-  items: string[],
-  ofLinks?: boolean,
+  items: string[] | LinkProps[],
   withPadding?: boolean,
-  withTitle?: string,
-  withType?: ListTypeEnum
+  withType: ListTypeEnum
 }
 
 
 export function List({
   items,
-  ofLinks,
   withPadding,
-  withTitle,
   withType
 }: ListProps) {
 
   const ListTag = withType === 'ordered' ? 'ol' : 'ul'
 
   const listPadding = withPadding ? 'paragraph' : ''
-  const listItemColor = withType !== 'unmarked' ? 'regular' : 'primary' // !!!
-  const listItemSize = withType !== 'unmarked' ? 'regular' : 'smaller'
+  const listStyle = withType === 'unmarked' ? `${style.list}` : `${style.list} ${style[withType]}`
 
-
-  return (
-    <>
-      {withTitle &&
-        <Text
-          isBold
-          withColor='primary'
-          withPadding
-          withSize='regular'
-        >
-          { withTitle }
-        </Text>
-      }
-    
-      <ListTag className={`${style.list} ${style[`${withType}`]} ${listPadding}`}>
-        {items.map((item, index) => (
+  function renderListItems(items: string[] | LinkProps[]) {
+    return items.map((item, index) => {
+      if (typeof item === 'string') {
+        return (
           <React.Fragment key={index}>
-            <Text
-              tag='li'
-              withColor={listItemColor}
-              withSize={listItemSize}
-            >
+            <Text tag='li'>
               { item }
             </Text>
           </React.Fragment>
-        ))}
-      </ListTag>
-    </>
+        )
+      }
+      
+      return (
+        <React.Fragment key={index}>
+          <Text tag='li'>
+            <Link href={item.href} title={item.title} withStyle={item.withStyle}>
+              { item.children }
+            </Link>
+          </Text>
+        </React.Fragment>
+      )
+    })
+  }
+
+  return (
+    <ListTag className={`${listStyle} ${listPadding}`}>
+      { renderListItems(items) }
+    </ListTag>
   )
 }

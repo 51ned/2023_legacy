@@ -80,7 +80,7 @@ a { text-decoration: none; }
 
 .h1-font-size { font-size: var(--h1-font-size); }
 .h2-font-size { font-size: var(--h2-font-size); }
-
+.h3-font-size { font-size: var(--subtitle-font-size); }
 
 /* 6. Define classes with fonts sizes and line-spacings */
 .smallest-font-style {
@@ -118,6 +118,7 @@ a { text-decoration: none; }
 
 /* 7. Define variables with colors */
 :root {
+  --i-clr-hue: 228;
   --muted-color: hsl(240, 2%, 47%);
   --primary-color: hsl(0, 0%, 0%);
   --regular-color: hsl(0, 0%, 20%);
@@ -125,7 +126,10 @@ a { text-decoration: none; }
 
 
 /* 8. Define styles with colors & all others */
-a { text-decoration: none; }
+a {
+  font-size: var(--smaller-font-size);
+  text-decoration: none;
+}
 
 .bold { font-weight: 700; }
 

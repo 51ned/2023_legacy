@@ -1,0 +1,13 @@
+.arrow {}
+
+.nav {}
+
+.regular {
+  border-bottom: 1px solid hsla(var(--i-clr-hue), 100%, 50%, .4);
+  color: hsla(var(--i-clr-hue), 100%, 50%, 1);
+}
+
+.regular:hover {
+  border-bottom: 1px solid hsla(var(--i-clr-hue), 100%, 50%, 1);
+  transition: .5s;
+}
