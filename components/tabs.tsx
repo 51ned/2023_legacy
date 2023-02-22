@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-import { Button, Card, TextHeader } from '@/components/.'
+import { Button, Card } from '@/components/.'
 
-import { renderCard } from '@/utils/render-card'
+import { renderCard, RenderCardProps } from '@/utils/render'
 
 import style from './tabs.module.css'
 
@@ -11,9 +11,7 @@ interface TabsItemProps {
   buttonID: string,
   buttonText: string,
   buttonTitle: string,
-  cardData: {
-    text?: string[]
-  }
+  cardData: RenderCardProps[],
   cardID: string,
 }
 

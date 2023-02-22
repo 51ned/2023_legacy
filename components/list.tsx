@@ -15,7 +15,7 @@ const ListTypeEnum = {
 export type ListTypeEnum = typeof ListTypeEnum[keyof typeof ListTypeEnum]
 
 
-interface ListProps {
+export interface ListProps {
   items: string[] | LinkProps[],
   withPadding?: boolean,
   withType: ListTypeEnum
