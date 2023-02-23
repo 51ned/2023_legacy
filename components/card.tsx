@@ -1,3 +1,12 @@
+import React, { useMemo } from 'react'
+
+import {
+  CustomLink as Link, LinkProps,
+  List, ListProps,
+  Text,
+  TextHeader as Header,
+} from '@/components/.'
+
 import style from './card.module.css'
 
 
@@ -10,10 +19,20 @@ const CardStyleEnum = {
 
 type CardStyleEnum = typeof CardStyleEnum[keyof typeof CardStyleEnum]
 
+interface CardTextProps {
+  list?: ListProps,
+  paragraph?: string
+}
+
+export interface CardDataProps {
+  header?: string,
+  link?: LinkProps,
+  text: CardTextProps[] 
+}
 
 interface CardProps {
+  cardData: CardDataProps,
   cardID?: string,
-  children: React.ReactNode,
   cardWrapTag?: keyof JSX.IntrinsicElements,
   controllingID?: string,
   direction?: string,
@@ -23,48 +42,81 @@ interface CardProps {
 
 
 export function Card({
+  cardData,
   cardID,
-  children,
   cardWrapTag,
   controllingID,
   direction,
   isActive,
   withStyle = 'regular'}: CardProps) {
-
-  const CardWrapTag = cardWrapTag ?? 'div'  
-
+  
+  const CardWrapTag = cardWrapTag ?? 'div'
+  
   let otherCardOpts: {[key: string]: boolean | string | undefined} = {}
 
   switch (withStyle) {
-    case ('accordion' || 'tab'):
+    case ('accordion'):
       otherCardOpts['hidden'] = !isActive
       break
     case 'tab':
+      otherCardOpts['hidden'] = !isActive
       otherCardOpts['role'] = 'tabpanel'
       break
     case 'dialog':
       otherCardOpts['open'] = isActive
       break
   }
-  
-  const getClasses = () => {
-    let classes = `${style[withStyle]}`
 
-    if (isActive && direction && direction.length > 0) {
-      classes += ` ${style[`slide_${direction}`]}`
-    }
+  let cardStyles = `${style[withStyle]}`
 
-    return classes
+  if (isActive && direction) {
+    cardStyles += ` ${style[`slide_${direction}`]}`
   }
+
+  const renderCardData = useMemo(() => {
+    let arr: React.ReactNode[] = []
+
+    for (let key of Object.keys(cardData)) {
+      if (cardData.header && key === 'header') {
+        arr.push(<Header level='3' withPadding>{ cardData.header }</Header>)
+      }
+
+      if (cardData.text && key === 'text') {
+        for (let item of cardData.text) {
+          item.paragraph && arr.push(<Text withPadding>{ item.paragraph }</Text>)
+          item.list && arr.push(<List items={item.list.items} withPadding withType={item.list.withType} />)
+        }
+      }
+      
+      if (cardData.link && key === 'link') {
+        arr.push(
+          <Link
+            href={cardData.link.href}
+            title={cardData.link.title}
+          >
+            { cardData.link.children }
+          </Link>
+        )
+      }
+    }
+    
+    return arr.map((item, index) => {
+      return (
+        <React.Fragment key={index}>
+          { item }
+        </React.Fragment>
+      )
+    })
+  }, [cardData])
   
   return (
     <CardWrapTag
       aria-labelledby={controllingID}
-      className={getClasses()}
+      className={cardStyles}
       id={cardID}
       {...otherCardOpts}
     >
-      { children }
+      { renderCardData }
     </CardWrapTag>
   )
 }

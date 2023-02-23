@@ -33,7 +33,7 @@ export function Modal({
         Open modal
       </Button>
 
-      <Card
+      {/* <Card
         cardWrapTag='dialog'
         isActive={isActive}
         withStyle='dialog'
@@ -55,7 +55,7 @@ export function Modal({
         { children }
 
         <footer className={style.footer}></footer>
-      </Card>
+      </Card> */}
     </>
   )
 }

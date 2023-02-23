@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 
-import { Button, Card } from '@/components/.'
-
-import { renderCard, RenderCardProps } from '@/utils/render'
+import { Button, Card, CardDataProps } from '@/components/.'
 
 import style from './tabs.module.css'
 
@@ -11,8 +9,8 @@ interface TabsItemProps {
   buttonID: string,
   buttonText: string,
   buttonTitle: string,
-  cardData: RenderCardProps[],
-  cardID: string,
+  cardData: CardDataProps,
+  cardID: string
 }
 
 interface TabsProps {
@@ -67,15 +65,14 @@ export function Tabs({data}: TabsProps) {
       {data.map((item, index) => (
         <React.Fragment key={index}>
           <Card
+            cardData={item.cardData}
             cardID={item.cardID}
             cardWrapTag='div'
             controllingID={item.buttonID}
             direction={state.clickDirection}
             isActive={index === state.activeIndex}
             withStyle='tab'
-          >
-            { renderCard(item.cardData) }
-          </Card>
+          />
         </React.Fragment>
       ))}
     </article>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import { CustomLink as Link, LinkProps, Text } from '@/components/.'
 
@@ -18,7 +18,7 @@ export type ListTypeEnum = typeof ListTypeEnum[keyof typeof ListTypeEnum]
 export interface ListProps {
   items: string[] | LinkProps[],
   withPadding?: boolean,
-  withType: ListTypeEnum
+  withType: string | ListTypeEnum
 }
 
 
@@ -33,7 +33,7 @@ export function List({
   const listPadding = withPadding ? 'paragraph' : ''
   const listStyle = withType === 'unmarked' ? `${style.list}` : `${style.list} ${style[withType]}`
 
-  function renderListItems(items: string[] | LinkProps[]) {
+  const renderListItems = useMemo(() => {
     return items.map((item, index) => {
       if (typeof item === 'string') {
         return (
@@ -55,11 +55,11 @@ export function List({
         </React.Fragment>
       )
     })
-  }
+  }, [items])
 
   return (
     <ListTag className={`${listStyle} ${listPadding}`}>
-      { renderListItems(items) }
+      { renderListItems }
     </ListTag>
   )
 }

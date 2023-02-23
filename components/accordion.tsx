@@ -61,15 +61,13 @@ export function Accordion({
             { item.buttonTitle }
           </Button>
           
-          <Card
+          {/* <Card
             cardID={item.cardID}
             cardWrapTag={cardWrapTag}
             controllingID={item.buttonID}
             isActive={index === activeIndex}
             withStyle='accordion'
-          >
-            { item.content }
-          </Card>
+          /> */}
         </AccContainerTag>  
       ))}
     </AccWrapTag>
