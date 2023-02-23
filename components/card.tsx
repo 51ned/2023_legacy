@@ -19,6 +19,7 @@ const CardStyleEnum = {
 
 type CardStyleEnum = typeof CardStyleEnum[keyof typeof CardStyleEnum]
 
+
 interface CardTextProps {
   list?: ListProps,
   paragraph?: string
@@ -31,9 +32,10 @@ export interface CardDataProps {
 }
 
 interface CardProps {
-  cardData: CardDataProps,
+  cardData?: CardDataProps,
   cardID?: string,
   cardWrapTag?: keyof JSX.IntrinsicElements,
+  children?: React.ReactNode
   controllingID?: string,
   direction?: string,
   isActive?: boolean,
@@ -45,6 +47,7 @@ export function Card({
   cardData,
   cardID,
   cardWrapTag,
+  children,
   controllingID,
   direction,
   isActive,
@@ -76,27 +79,29 @@ export function Card({
   const renderCardData = useMemo(() => {
     let arr: React.ReactNode[] = []
 
-    for (let key of Object.keys(cardData)) {
-      if (cardData.header && key === 'header') {
-        arr.push(<Header level='3' withPadding>{ cardData.header }</Header>)
-      }
-
-      if (cardData.text && key === 'text') {
-        for (let item of cardData.text) {
-          item.paragraph && arr.push(<Text withPadding>{ item.paragraph }</Text>)
-          item.list && arr.push(<List items={item.list.items} withPadding withType={item.list.withType} />)
+    if (cardData) {
+      for (let key of Object.keys(cardData)) {
+        if (cardData.header && key === 'header') {
+          arr.push(<Header level='3' withPadding>{ cardData.header }</Header>)
         }
-      }
-      
-      if (cardData.link && key === 'link') {
-        arr.push(
-          <Link
-            href={cardData.link.href}
-            title={cardData.link.title}
-          >
-            { cardData.link.children }
-          </Link>
-        )
+  
+        if (cardData.text && key === 'text') {
+          for (let item of cardData.text) {
+            item.paragraph && arr.push(<Text withPadding>{ item.paragraph }</Text>)
+            item.list && arr.push(<List items={item.list.items} withPadding withType={item.list.withType} />)
+          }
+        }
+        
+        if (cardData.link && key === 'link') {
+          arr.push(
+            <Link
+              href={cardData.link.href}
+              title={cardData.link.title}
+            >
+              { cardData.link.children }
+            </Link>
+          )
+        }
       }
     }
     
@@ -116,7 +121,7 @@ export function Card({
       id={cardID}
       {...otherCardOpts}
     >
-      { renderCardData }
+      { cardData ? renderCardData : children }
     </CardWrapTag>
   )
 }

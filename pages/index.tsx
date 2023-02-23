@@ -1,6 +1,6 @@
 import {OuterLayout, InnerLayout } from '@/layouts/.'
 
-import { Card, CardList, List, Tabs } from '@/components/.'
+import { Card, CardList, List, Tabs, Text } from '@/components/.'
 
 
 export default function Home() {
@@ -109,6 +109,9 @@ export default function Home() {
           <Card cardData={tabsData[0].cardData} />
           <Card cardData={tabsData[1].cardData} />
           <Card cardData={tabsData[2].cardData} />
+          <Card>
+            <Text>А меня заполнили ручками.</Text>
+          </Card>
         </CardList>
       </InnerLayout>
     </OuterLayout>
