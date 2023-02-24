@@ -1,7 +1,6 @@
 import Head from 'next/head'
 
-import { Footer, Header, Navbar } from '@/components/common/.'
-import { Box } from '@/components/.'
+import { Footer } from '@/components/common/'
 
 
 interface OuterLayoutProps {
@@ -15,20 +14,11 @@ export function OuterLayout({
 
   return (
     <>
-      <Head>
-        <meta content='' name='description' />
-        <title></title>
-      </Head>
-
-      <>
-        <Navbar />
-
-        <Header />
-
+      <div>
         { children }
-
-        <Footer />
-      </>
+      </div>
+      
+      <Footer />
     </>
   )
 }

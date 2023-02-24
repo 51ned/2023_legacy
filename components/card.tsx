@@ -14,7 +14,8 @@ const CardStyleEnum = {
   Accordion: 'accordion',
   Dialog: 'dialog',
   Regular: 'regular',
-  tab: 'tab'
+  Stripped: 'stripped',
+  Tab: 'tab'
 } as const
 
 type CardStyleEnum = typeof CardStyleEnum[keyof typeof CardStyleEnum]

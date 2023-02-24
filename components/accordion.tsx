@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Button, Card } from '@/components/.'
+import { Button, Card, CardDataProps } from '@/components/.'
 
 import style from './accordion.module.css'
 
@@ -8,25 +8,25 @@ import style from './accordion.module.css'
 interface AccordionItemProps {
   buttonID: string,
   buttonTitle: string,
-  content: string | React.ReactNode,
+  cardData: CardDataProps,
   cardID: string,
 }
 
 interface AccordionProps {
   accContainerTag?: keyof JSX.IntrinsicElements,
+  accData: AccordionItemProps[],
   accWrapTag?: keyof JSX.IntrinsicElements,
   buttonWrapTag?: keyof JSX.IntrinsicElements,
-  cardWrapTag?: keyof JSX.IntrinsicElements,
-  data: AccordionItemProps[]
+  cardWrapTag?: keyof JSX.IntrinsicElements
 }
 
 
 export function Accordion({
   accContainerTag,
+  accData,
   accWrapTag,
   buttonWrapTag,
-  cardWrapTag,
-  data}: AccordionProps) {
+  cardWrapTag}: AccordionProps) {
   
   const AccWrapTag = accWrapTag ?? 'div'
   const AccContainerTag = accContainerTag ?? React.Fragment
@@ -45,7 +45,7 @@ export function Accordion({
   
   return (
     <AccWrapTag className={style.wrap}>
-      {data.map((item, index) => (
+      {accData.map((item, index) => (
         <AccContainerTag key={index} {...accContainerOpts}>
           <Button
             buttonID={item.buttonID}
@@ -61,13 +61,14 @@ export function Accordion({
             { item.buttonTitle }
           </Button>
           
-          {/* <Card
+          <Card
             cardID={item.cardID}
+            cardData={item.cardData}
             cardWrapTag={cardWrapTag}
             controllingID={item.buttonID}
             isActive={index === activeIndex}
             withStyle='accordion'
-          /> */}
+          />
         </AccContainerTag>  
       ))}
     </AccWrapTag>

@@ -2,3 +2,10 @@
   display: grid;
   gap: var(--indent-40-32);
 }
+
+@media (max-width: 1240px) {
+  .wrap {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+}

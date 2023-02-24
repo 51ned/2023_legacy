@@ -23,6 +23,17 @@
 }
 
 
+/* Stripped */
+
+
+.stripped {
+  background-color: inherit;
+  height: auto;
+  padding: 0;
+  width: auto;
+}
+
+
 /* Tab */
 
 

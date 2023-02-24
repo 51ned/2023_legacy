@@ -105,14 +105,6 @@ export default function Home() {
     <OuterLayout>
       <InnerLayout>
         <Tabs data={tabsData} />
-        <CardList>
-          <Card cardData={tabsData[0].cardData} />
-          <Card cardData={tabsData[1].cardData} />
-          <Card cardData={tabsData[2].cardData} />
-          <Card>
-            <Text>А меня заполнили ручками.</Text>
-          </Card>
-        </CardList>
       </InnerLayout>
     </OuterLayout>
   )

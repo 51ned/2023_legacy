@@ -47,7 +47,7 @@ export function List({
       
       return (
         <React.Fragment key={index}>
-          <Text tag='li'>
+          <Text tag='li' withSize='smaller'>
             <Link href={item.href} title={item.title} withStyle={item.withStyle}>
               { item.children }
             </Link>
