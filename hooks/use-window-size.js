@@ -24,5 +24,11 @@ export function useWindowSize() {
     }
   }, [])
 
-  return windowSize
+  let isDesktop = true
+
+  if (windowSize.width <= 1240) {
+    isDesktop = false
+  }
+
+  return isDesktop
 }

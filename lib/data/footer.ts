@@ -1,12 +1,10 @@
 export const footerData = {
-  header: 'Экспертизы',
   menu: [
     {
       buttonID: 'avto-eksp-ftr-btn',
       buttonText: 'Автотехнические',
       buttonTitle: 'Автотехнические экспертизы',
       cardData: {
-        header: 'Автотехнические',
         text: [
           {
             list: {
@@ -49,7 +47,6 @@ export const footerData = {
       buttonText: 'Криминалистические',
       buttonTitle: 'Криминалистические экспертизы',
       cardData: {
-        header: 'Криминалистические',
         text: [
           {
             list: {
@@ -87,7 +84,6 @@ export const footerData = {
       buttonText: 'Оценка',
       buttonTitle: 'Услуги оценки',
       cardData: {
-        header: 'Оценка',
         text: [
           {
             list: {
@@ -115,7 +111,6 @@ export const footerData = {
       buttonText: 'Прочие',
       buttonTitle: 'Прочие экспертизы',
       cardData: {
-        header: 'Прочие',
         text: [
           {
             list: {

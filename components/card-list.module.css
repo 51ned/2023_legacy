@@ -1,6 +1,7 @@
 .wrap {
-  display: grid;
+  display: flex;
   gap: var(--indent-40-32);
+  justify-content: space-between;
 }
 
 @media (max-width: 1240px) {

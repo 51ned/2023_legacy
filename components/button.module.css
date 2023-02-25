@@ -1,14 +1,12 @@
-.container:not(:first-child) { border-top: 2px solid var(--decor-light-gray); }
-
 .accordion,
 .regular,
 .tab {
   font-size: var(--smaller-font-size);
-  padding:
-    var(--indent-20-16)
-    var(--indent-24-16);
   width: 100%;
 }
+
+.regular,
+.tab { padding: var(--indent-20-16) var(--indent-24-16); }
 
 
 /* Accordion */
@@ -18,6 +16,7 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
+  padding: var(--indent-20-16) 0;
   position: relative;
 }
 

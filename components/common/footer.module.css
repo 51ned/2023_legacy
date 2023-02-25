@@ -1,3 +1,31 @@
-.wrap {
-  background-color: #fff;
+.wrap { background-color: var(--bg-white); }
+
+.a_floor,
+.b_floor {
+  padding: var(--indent-24-16) 0;
+  border-bottom: 2px solid var(--decor-light-gray);
+}
+
+.c_floor,
+.logo_container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.c_floor {
+  flex-wrap: wrap;
+  padding: var(--indent-24-16) 0;
+}
+
+.logo_container {
+  gap: var(--indent-24-16);
+}
+
+.logo {
+  height: calc(var(--base) * 12);
+}
+
+.char {
+  fill: var(--bg-white);
 }

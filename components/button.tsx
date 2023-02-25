@@ -47,7 +47,6 @@ export function Button({
   withStyle,
   withTitle}: ButtonProps) {
     
-  // Define Button's wrap tag & optional arguments  
   const ButtonWrapTag = buttonWrapTag ?? React.Fragment
 
   let buttonWrapOpts: {[key: string]: string} = {}
@@ -56,7 +55,6 @@ export function Button({
     buttonWrapOpts['className'] = `${style.container}`
   }
 
-  // Define Button's optional arguments 
   let buttonOpts: {[key: string]: boolean | number | string | undefined} = {}
 
   if (withStyle === 'tab') {
@@ -68,7 +66,6 @@ export function Button({
     buttonOpts['aria-expanded'] = isActive
   }
 
-  // Define Button's icons 
   let icon
   
   if (withIcon === 'burger') {
