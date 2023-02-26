@@ -1,5 +1,5 @@
 .container {
-  max-width: calc(var(--base) * 320);
+  max-width: calc(var(--base) * 310);
   width: 100%;
 }
 

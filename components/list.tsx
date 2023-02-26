@@ -29,9 +29,7 @@ export function List({
 }: ListProps) {
 
   const ListTag = withType === 'ordered' ? 'ol' : 'ul'
-
   const listPadding = withPadding ? 'paragraph' : ''
-  const listStyle = withType === 'unmarked' ? `${style.list}` : `${style.list} ${style[withType]}`
 
   const renderListItems = useMemo(() => {
     return items.map((item, index) => {
@@ -47,7 +45,7 @@ export function List({
       
       return (
         <React.Fragment key={index}>
-          <Text tag='li' withSize='smaller'>
+          <Text tag='li' withStyle='smaller'>
             <Link href={item.href} title={item.title} withStyle={item.withStyle}>
               { item.children }
             </Link>
@@ -58,7 +56,7 @@ export function List({
   }, [items])
 
   return (
-    <ListTag className={`${listStyle} ${listPadding}`}>
+    <ListTag className={`${style[withType]} ${listPadding}`}>
       { renderListItems }
     </ListTag>
   )

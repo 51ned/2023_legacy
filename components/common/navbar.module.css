@@ -9,5 +9,5 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: var(--indent-24-16)
+  padding: var(--indent-24-16) 0;
 }

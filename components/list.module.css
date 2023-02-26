@@ -1,10 +1,12 @@
-.list > li:not(:last-child) { margin-bottom: var(--indent-12-8); }
+.ordered > li:not(:last-child),
+.unmarked > li:not(:last-child),
+.unordered > li:not(:last-child) { margin-bottom: var(--indent-12-8); }
 
 
 /* Horisontal */
 
 
-.list.horisontal {
+.horisontal {
   display: flex;
   gap: var(--indent-20-16);
 }
@@ -13,14 +15,14 @@
 /* Ordered */
 
 
-.list.ordered { counter-reset: num; }
+.ordered { counter-reset: num; }
 
-.list.ordered > li {
+.ordered > li {
   padding-left: var(--indent-32-24);
   position: relative;
 }
 
-.list.ordered > li::after {
+.ordered > li::after {
   content: counter(num) '.'; 
 	counter-increment: num;
   left: 0;
@@ -32,12 +34,12 @@
 /* Unordered */
 
 
-.list.unordered > li {
+.unordered > li {
   padding-left: var(--indent-32-24);
   position: relative;
 }
 
-.list.unordered > li::after {
+.unordered > li::after {
   background-color: var(--bg-black);
   border-radius: 50%;
   height: var(--base);
