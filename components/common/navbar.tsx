@@ -1,9 +1,15 @@
+import { useContext } from 'react'
+
+import { ModalContext } from '../'
+
 import { Box, Button, List } from '@/components/.'
 
 import style from './navbar.module.css'
 
 
 export function Navbar() {
+  const refObj = useContext(ModalContext)
+
   const listData = {
     items: [
       {
@@ -38,7 +44,14 @@ export function Navbar() {
     <Box withRole='wrap' withStyle={style.wrap} withTag='nav'>
       <Box withRole='container' withStyle={style.container} withTag='div'>
         <Button 
-          handleClick={() => {}}
+          handleClick={() => refObj.test.showModal()}
+          withIcon='burger'
+          withStyle='stripped'
+          withTitle=''
+        />
+
+        <Button 
+          handleClick={() => refObj.test2.show()}
           withIcon='burger'
           withStyle='stripped'
           withTitle=''

@@ -19,6 +19,9 @@ export function OuterLayout({
       <Modal refName='test'>
         i am the rain
       </Modal>
+      <Modal refName='test2'>
+        falling down to cover you
+      </Modal>
       <Footer />
     </>
   )

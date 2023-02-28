@@ -1,19 +1,14 @@
-import { createContext, useState } from 'react'
+import { createContext } from 'react'
 
 
 const ModalContext = createContext()
 
 
 function ModalProvider({children}) {
-  const [isSelected, setSelected] = useState(null)
+  const refsObj = {}
   
-  const closeModal = () => {setSelected(null)}
-  const openModal = (props) => {setSelected(props)}
-
-  const isScrollLocked = isSelected === null ? false : true
-
   return (
-    <ModalContext.Provider value={{closeModal, isScrollLocked, isSelected, openModal}}>
+    <ModalContext.Provider value={{refsObj}}>
       { children }
     </ModalContext.Provider>
   )

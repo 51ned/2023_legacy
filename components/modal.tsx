@@ -1,4 +1,6 @@
-import { useEffect, useRef } from 'react'
+import { useContext, useEffect, useRef } from 'react'
+
+import { ModalContext } from './'
 
 import style from './modal.module.css'
 
@@ -14,20 +16,19 @@ export function Modal({
   refName
 }: ModalProps) {
 
-  let obj: {[key: string]: null} = {}
-
   const ref = useRef(null)
+  const refObj = useContext(ModalContext)
 
   useEffect(() => {
-    obj[refName] = ref.current
-    console.log(obj)
+    refObj[refName] = ref.current
   })
-
+  console.log('fcuck')
   return (
     <dialog
       className={style.off_canvas}
       ref={ref}
     >
+      <button onClick={() => refObj[refName].close()}>Close me</button>
       { children }
     </dialog>
   )
