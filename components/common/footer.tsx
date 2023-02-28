@@ -18,7 +18,7 @@ import style from './footer.module.css'
 
 
 export function Footer() {
-  const isDesktop = useWindowSize();
+  const isDesktop = useWindowSize()
 
   return (
     <Box withRole='wrap' withStyle={style.wrap} withTag='footer'>

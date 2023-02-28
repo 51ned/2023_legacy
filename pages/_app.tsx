@@ -4,6 +4,8 @@ import type { AppProps } from 'next/app'
 import Script from 'next/script'
 import { useRouter } from 'next/router'
 
+import { ModalProvider } from '@/components/.'
+
 import { GTM_ID, pageview } from '@/lib/gtm'
 
 import '@/public/styles/index.css'
@@ -21,7 +23,7 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [router.events])
 
   return (
-    <>
+    <ModalProvider>
       <Script
         id='gtag-base'
         strategy='afterInteractive'
@@ -37,6 +39,6 @@ export default function App({ Component, pageProps }: AppProps) {
       />
 
       <Component {...pageProps} />
-    </>
+    </ModalProvider>
   )
 }

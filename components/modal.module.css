@@ -1,5 +1,10 @@
-.header {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
+.off_canvas {
+  background-color: black;
+  color: white;
+  height: 100vw;
+  width: 25%;
+}
+
+.off_canvas::backdrop {
+  background-color: rebeccapurple;
 }

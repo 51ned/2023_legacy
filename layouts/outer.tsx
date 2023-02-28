@@ -1,4 +1,5 @@
 import { Footer } from '@/components/common/'
+import { Modal, ModalContext } from '@/components/.'
 
 
 interface OuterLayoutProps {
@@ -9,13 +10,15 @@ interface OuterLayoutProps {
 export function OuterLayout({
   children
 }: OuterLayoutProps) {
-
+  
   return (
     <>
       <div>
         { children }
       </div>
-      
+      <Modal refName='test'>
+        i am the rain
+      </Modal>
       <Footer />
     </>
   )
