@@ -1,6 +1,7 @@
 import { useContext, createRef, useEffect } from 'react'
 
-import { Button, ModalContext, TextHeader as Header } from '@/components/.'
+import { Button, ModalContext, Text, TextHeader as Header } from '@/components/.'
+import { CroppedLogo as Logo } from '@/components/icons'
 
 import style from './modal.module.css'
 
@@ -60,14 +61,22 @@ export function Modal({
           
           <Button 
             handleClick={() => closeModal(refsObj[refName])}
-            withIcon='burger'
+            withIcon='close'
             withStyle='stripped'
             withTitle='Закрыть главное меню'
           />
         </div>
         
-
         { children }
+
+        <div className={style.footer}>
+          <Logo />
+            
+          <Text withStyle='smallest'>
+            © 2006-{(new Date()).getFullYear()}, ООО «ЭКЦ «Вектор», <br/>
+            ОГРН: 1067746711647
+          </Text>
+        </div>
       </section>
     </dialog>
   )

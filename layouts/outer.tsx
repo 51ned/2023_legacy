@@ -1,5 +1,5 @@
-import { Footer } from '@/components/common/'
-import { Modal, ModalContext } from '@/components/.'
+import { Footer, Nav } from '@/components/common/'
+import { Modal } from '@/components/.'
 
 
 interface OuterLayoutProps {
@@ -23,7 +23,7 @@ export function OuterLayout({
           withStyle='offcanvas'
           withTitle='Главное меню'
         >
-          i am the rain
+          <Nav />
         </Modal>
       </div>
 

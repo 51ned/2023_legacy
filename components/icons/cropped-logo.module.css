@@ -1,0 +1,3 @@
+.icon { height: calc(var(--base) * 12); }
+
+.char { fill: var(--bg-white); }

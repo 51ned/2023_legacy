@@ -1,12 +1,13 @@
 import React from 'react'
 
-import { Burger, Plus } from '@/components/icons'
+import { Burger, Close, Plus } from '@/components/icons'
 
 import style from './button.module.css'
 
 
 const IconEnum = {
   Burger: 'burger',
+  Close: 'close',
   Plus: 'plus'
 } as const
 
@@ -68,10 +69,16 @@ export function Button({
 
   let icon
   
-  if (withIcon === 'burger') {
-    icon = <Burger />
-  } else if (withIcon === 'plus') {
-    icon = <Plus />
+  switch (withIcon) {
+    case ('burger'):
+      icon = <Burger />
+      break
+    case 'close':
+      icon = <Close />
+      break
+    case 'plus':
+      icon = <Plus />
+      break
   }
   
   return (

@@ -3,17 +3,28 @@
 .wrap::backdrop { background-color: rgba(0, 0, 0, .6); }
 
 .container {
+  display: flex;
+  flex-direction: column;
   height: 100%;
+  justify-content: space-between;
   padding: var(--indent-24-16);
   width: 100%;
 }
 
-.header {
+.header, .footer {
   align-items: center;
-  border-bottom: 2px solid var(--decor-light-gray);
   display: flex;
   justify-content: space-between;
+}
+
+.header {
+  border-bottom: 2px solid var(--decor-light-gray);
   padding-bottom: var(--indent-24-16);
+}
+
+.footer {
+  border-top: 2px solid var(--decor-light-gray);
+  padding-top: var(--indent-24-16);
 }
 
 .offcanvas {

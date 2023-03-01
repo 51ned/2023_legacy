@@ -8,7 +8,7 @@
 
 .horisontal {
   display: flex;
-  gap: var(--indent-20-16);
+  gap: var(--indent-24-16);
 }
 
 

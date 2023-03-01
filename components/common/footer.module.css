@@ -21,11 +21,3 @@
 .logo_container {
   gap: var(--indent-24-16);
 }
-
-.logo {
-  height: calc(var(--base) * 12);
-}
-
-.char {
-  fill: var(--bg-white);
-}

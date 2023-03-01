@@ -1,13 +1,17 @@
 import { useContext } from 'react'
 
-import { Box, Button, List, ModalContext } from '@/components/.'
+import { Box, Button, CustomLink as Link, List, ModalContext } from '@/components/.'
+
+import { useWindowSize } from '@/hooks/.'
 
 import style from './navbar.module.css'
 
 
 export function Navbar() {
   const {openModal, refsObj} = useContext(ModalContext)
+  const isDesktop = useWindowSize()
 
+  // temp
   const listData = {
     items: [
       {
@@ -29,17 +33,13 @@ export function Navbar() {
         children: 'Контакты',
         href: '#',
         title: '...'
-      },
-      {
-        children: '+7 495 507-86-49',
-        href: '#',
-        title: '...'
-      },
+      }
     ],
     withType: 'horisontal'
   }
+
   return (
-    <Box withRole='wrap' withStyle={style.wrap} withTag='nav'>
+    <Box withRole='wrap' withStyle={style.wrap} withTag='div'>
       <Box withRole='container' withStyle={style.container} withTag='div'>
         <Button
           buttonID='main-nav-open-button'
@@ -50,7 +50,13 @@ export function Navbar() {
           withTitle='Навигация по сайту'
         />
 
-        <List items={listData.items} withType={listData.withType} />
+        <div className={style.nav}>
+          {isDesktop &&
+            <List items={listData.items} withType={listData.withType} />
+          }
+
+          <Link href='tel:+7 495 507-86-49' title='Позвонить в ЭКЦ «Вектор»'>+7 495 507-86-49</Link>
+        </div>
       </Box>
     </Box>
   )
