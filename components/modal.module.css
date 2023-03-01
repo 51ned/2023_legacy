@@ -1,10 +1,23 @@
-.off_canvas {
-  background-color: black;
-  color: white;
-  height: 100vw;
-  width: 25%;
+.wrap { border: none; }
+
+.wrap::backdrop { background-color: rgba(0, 0, 0, .6); }
+
+.container {
+  height: 100%;
+  padding: var(--indent-24-16);
+  width: 100%;
 }
 
-.off_canvas::backdrop {
-  background-color: rebeccapurple;
+.header {
+  align-items: center;
+  border-bottom: 2px solid var(--decor-light-gray);
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: var(--indent-24-16);
+}
+
+.offcanvas {
+  height: 100%;
+  min-height: 100vh;
+  width: 25%;
 }

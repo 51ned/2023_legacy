@@ -15,13 +15,18 @@ export function OuterLayout({
     <>
       <div>
         { children }
+
+        <Modal
+          controllingID='main-nav-open-button'
+          dialogID='main-nav-dialog'
+          refName='main_nav'
+          withStyle='offcanvas'
+          withTitle='Главное меню'
+        >
+          i am the rain
+        </Modal>
       </div>
-      <Modal refName='test'>
-        i am the rain
-      </Modal>
-      <Modal refName='test2'>
-        falling down to cover you
-      </Modal>
+
       <Footer />
     </>
   )

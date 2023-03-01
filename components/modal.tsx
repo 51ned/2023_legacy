@@ -1,35 +1,74 @@
-import { useContext, useEffect, useRef } from 'react'
+import { useContext, createRef, useEffect } from 'react'
 
-import { ModalContext } from './'
+import { Button, ModalContext, TextHeader as Header } from '@/components/.'
 
 import style from './modal.module.css'
 
 
+const ModalStyleEnum = {
+  Modal: 'modal',
+  Offcanvas: 'offcanvas'
+} as const
+
+type ModalStyleEnum = typeof ModalStyleEnum[keyof typeof ModalStyleEnum]
+
+
 interface ModalProps {
   children: React.ReactNode,
-  refName: string
+  controllingID: string,
+  dialogID: string
+  refName: string,
+  withStyle: ModalStyleEnum,
+  withTitle: string
 }
 
 
 export function Modal({
   children,
-  refName
+  controllingID,
+  dialogID,
+  refName,
+  withStyle,
+  withTitle
 }: ModalProps) {
+  
+  const {closeModal, refsObj} = useContext(ModalContext)
 
-  const ref = useRef(null)
-  const refObj = useContext(ModalContext)
+  const backDropRef = createRef<HTMLDivElement>()
+  const dialogRef = createRef<HTMLDialogElement>()
 
   useEffect(() => {
-    refObj[refName] = ref.current
+    refsObj[refName] = dialogRef.current
+
+    dialogRef.current?.addEventListener('click', (evt) => {
+      if (evt.target !== backDropRef.current) {
+        closeModal(dialogRef.current)
+      }
+    })
   })
-  console.log('fcuck')
+  
   return (
     <dialog
-      className={style.off_canvas}
-      ref={ref}
+      aria-labelledby={controllingID}
+      className={`${style.wrap} ${style[withStyle]}`}
+      id={dialogID}
+      ref={dialogRef}
     >
-      <button onClick={() => refObj[refName].close()}>Close me</button>
-      { children }
+      <section className={style.container} ref={backDropRef}>
+        <div className={style.header}>
+          <Header level='3'>{withTitle }</Header>
+          
+          <Button 
+            handleClick={() => closeModal(refsObj[refName])}
+            withIcon='burger'
+            withStyle='stripped'
+            withTitle='Закрыть главное меню'
+          />
+        </div>
+        
+
+        { children }
+      </section>
     </dialog>
   )
 }

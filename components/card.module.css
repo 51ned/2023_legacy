@@ -2,24 +2,19 @@
 
 .accordion:not([hidden]) {}
 
-.dialog {}
-
 
 /* Regular */
 
 
 .regular {
+  background-color: var(--bg-white);
+  border-radius: var(--outer-radius);
   padding:
     var(--indent-24-16)
     var(--indent-32-24)
     var(--indent-32-24)
     var(--indent-24-16);
 
-}
-
-.regular {
-  background-color: var(--bg-white);
-  border-radius: var(--outer-radius);
 }
 
 
