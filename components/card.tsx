@@ -96,8 +96,8 @@ export function Card({
         if (cardData.link && key === 'link') {
           arr.push(
             <Link
-              href={cardData.link.href}
               title={cardData.link.title}
+              url={cardData.link.url}
             >
               { cardData.link.children }
             </Link>

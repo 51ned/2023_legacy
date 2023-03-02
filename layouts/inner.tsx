@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 import { Box } from '@/components/.'
-import { Header, Navbar } from '@/components/common/'
+import { Header, Navbar } from '@/components/screens'
 
 
 interface InnerLayoutProps {

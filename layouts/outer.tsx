@@ -1,5 +1,5 @@
-import { Footer, Nav } from '@/components/common/'
-import { Modal } from '@/components/.'
+import { Footer } from '@/components/screens'
+import { Modal, Nav } from '@/components/.'
 
 
 interface OuterLayoutProps {

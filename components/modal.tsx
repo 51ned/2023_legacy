@@ -1,4 +1,4 @@
-import { useContext, createRef, useEffect } from 'react'
+import { useCallback, useContext } from 'react'
 
 import { Button, ModalContext, Text, TextHeader as Header } from '@/components/.'
 import { CroppedLogo as Logo } from '@/components/icons'
@@ -33,20 +33,13 @@ export function Modal({
   withTitle
 }: ModalProps) {
   
-  const {closeModal, refsObj} = useContext(ModalContext)
+  const { closeModal, refsObj } = useContext(ModalContext)
 
-  const backDropRef = createRef<HTMLDivElement>()
-  const dialogRef = createRef<HTMLDialogElement>()
+  const dialogRef = useCallback((node: HTMLDialogElement) => {
+    refsObj[refName] = node
+  }, [refName, refsObj])
 
-  useEffect(() => {
-    refsObj[refName] = dialogRef.current
-
-    dialogRef.current?.addEventListener('click', (evt) => {
-      if (evt.target !== backDropRef.current) {
-        closeModal(dialogRef.current)
-      }
-    })
-  })
+  const backdropRef = useCallback(() => {}, [])
   
   return (
     <dialog
@@ -55,8 +48,8 @@ export function Modal({
       id={dialogID}
       ref={dialogRef}
     >
-      <section className={style.container} ref={backDropRef}>
-        <div className={style.header}>
+      <section className={style.container}>
+        <div className={style.header} ref={backdropRef}>
           <Header level='3'>{withTitle }</Header>
           
           <Button 

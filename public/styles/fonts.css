@@ -20,7 +20,7 @@
 * { font-family: 'Montserrat', sans-serif; }
 
 
-/* 3. Add styles to selectors */
+/* 3. Add styles to tags */
 a { text-decoration: none; }
 
 
@@ -118,7 +118,7 @@ a { text-decoration: none; }
 
 /* 7. Define variables with colors */
 :root {
-  --i-clr-hue: 228;
+  --interactive-color: blue;
   --muted-color: hsl(240, 2%, 47%);
   --primary-color: hsl(0, 0%, 0%);
   --regular-color: hsl(0, 0%, 20%);
@@ -126,12 +126,9 @@ a { text-decoration: none; }
 
 
 /* 8. Define styles with colors & all others */
-a {
-  font-size: var(--smaller-font-size);
-  text-decoration: none;
-}
-
 .bold { font-weight: 700; }
+
+.interactive-color { color: var(--interactive-color) }
 
 .muted-color { color: var(--muted-color) }
 

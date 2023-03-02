@@ -6,15 +6,13 @@
 }
 
 .container, .nav {
+  align-items: center;
   display: flex;
 }
 
 .container {
-  align-items: center;
   justify-content: space-between;
   padding: var(--indent-24-16) 0;
 }
 
-.nav {
-  gap: var(--indent-24-16) 0;
-}
+.nav { gap: var(--indent-24-16); }

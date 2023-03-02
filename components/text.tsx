@@ -1,4 +1,5 @@
 const ColorEnum = {
+  Interactive: 'interactive',
   Primary: 'primary',
   Regular: 'regular'
 } as const
@@ -10,8 +11,8 @@ const SizeEnum = {
   Subtitle: 'subtitle'
 } as const
 
-type ColorEnum = typeof ColorEnum[keyof typeof ColorEnum]
-type SizeEnum = typeof SizeEnum[keyof typeof SizeEnum]
+export type ColorEnum = typeof ColorEnum[keyof typeof ColorEnum]
+export type SizeEnum = typeof SizeEnum[keyof typeof SizeEnum]
 
 
 export interface TextProps {
@@ -34,10 +35,10 @@ export function Text({
   withSize,
   withStyle = 'regular'}: TextProps) {
     
-  const textWeight = isBold ? 'bold' : ''
   const textColor = `${withColor}-color`
   const textPadding = withPadding ? 'paragraph' : ''
   const textStyle = withSize ? `${withSize}-font-size` : `${withStyle}-font-style`
+  const textWeight = isBold ? 'bold' : ''
 
   return (
     <Tag className={`${textColor} ${textPadding} ${textStyle} ${textWeight}`}>

@@ -10,32 +10,32 @@ export const footerData = {
             list: {
               items: [
                 {
-                  href: '/ekspertizy/avtotekhnicheskie/videotekhnicheskaya',
+                  text: 'Видеотехническая',
                   title: 'Видеотехническая экспертиза ДТП',
-                  children: 'Видеотехническая'
+                  url: '/ekspertizy/avtotekhnicheskie/videotekhnicheskaya'
                 },
                 {
-                  href: '/ekspertizy/avtotekhnicheskie/obstoyatelstv-dtp',
+                  text: 'Обстоятельств ДТП',
                   title: 'Экспертиза обстоятельств ДТП',
-                  children: 'Обстоятельств ДТП'
+                  url: '/ekspertizy/avtotekhnicheskie/obstoyatelstv-dtp'
                 },
                 {
-                  href: '/ekspertizy/avtotekhnicheskie/tekhnicheskogo-sostoyaniya',
+                  text: 'Технического состояния',
                   title: 'Экспертиза технического состояния автомобиля',
-                  children: 'Технического состояния'
+                  url: '/ekspertizy/avtotekhnicheskie/tekhnicheskogo-sostoyaniya'
                 },
                 {
-                  href: '/ekspertizy/avtotekhnicheskie/transportno-trasologicheskaya',
+                  text: 'Трасологическая',
                   title: 'Транспортно-трасологическая экспертиза ДТП',
-                  children: 'Трасологическая'
+                  url: '/ekspertizy/avtotekhnicheskie/transportno-trasologicheskaya'
                 },
                 {
-                  href: '/ekspertizy/ekspertizy/avtotekhnicheskie/usсherba-posle-dtp',
+                  text: 'Ущерба после ДТП',
                   title: 'Экспертиза ущерба автомобиля после ДТП',
-                  children: 'Ущерба после ДТП'
+                  url: '/ekspertizy/ekspertizy/avtotekhnicheskie/usсherba-posle-dtp'
                 }
               ],
-              withType: 'unmarked'
+            withType: 'unmarked'
             }
           }
         ]
@@ -52,27 +52,27 @@ export const footerData = {
             list: {
               items: [
                 {
-                  href: '/ekspertizy/kriminalisticheskie/dokumentov',
+                  text: 'Документов',
                   title: 'Технико-криминалистическая экспертиза документов',
-                  children: 'Документов'
+                  url: '/ekspertizy/kriminalisticheskie/dokumentov'
                 },
                 {
-                  href: '/ekspertizy/kriminalisticheskie/pechati',
+                  text: 'Печатей и штампов',
                   title: 'Экспертиза печатей и штампов',
-                  children: 'Печатей и штампов'
+                  url: '/ekspertizy/kriminalisticheskie/pechati'
                 },
                 {
-                  href: '/ekspertizy/kriminalisticheskie/portretnaya',
+                  text: 'Портретная',
                   title: 'Портретная экспертиза',
-                  children: 'Портретная'
+                  url: '/ekspertizy/kriminalisticheskie/portretnaya'
                 },
                 {
-                  href: '/ekspertizy/kriminalisticheskie/pocherka',
+                  text: 'Почерка и подписи',
                   title: 'Экспертиза почерка и подписи',
-                  children: 'Почерка и подписи'
+                  url: '/ekspertizy/kriminalisticheskie/pocherka'
                 },
               ],
-              withType: 'unmarked'
+            withType: 'unmarked'
             }
           }
         ]
@@ -89,17 +89,17 @@ export const footerData = {
             list: {
               items: [
                 {
-                  href: '/uslugi-otsenki/dvizhimogo-imuschestva',
+                  text: 'Движимого имущества',
                   title: 'Оценка движимого имущества',
-                  children: 'Движимого имущества'
+                  url: '/uslugi-otsenki/dvizhimogo-imuschestva'
                 },
-                {
-                  href: '/uslugi-otsenki/nedvizhimosti',
+                {  
+                  text: 'Недвижимости',
                   title: 'Оценка недвижимости',
-                  children: 'Недвижимости'
+                  url: '/uslugi-otsenki/nedvizhimosti',
                 }
               ],
-              withType: 'unmarked'
+            withType: 'unmarked'
             }
           }
         ]
@@ -116,22 +116,22 @@ export const footerData = {
             list: {
               items: [
                 {
-                  href: '/ekspertizy/pozharno-tekhnicheskaya',
+                  text: 'Пожарно-техническая',
                   title: 'Пожарно-техническая экспертиза',
-                  children: 'Пожарно-техническая'
+                  url: '/ekspertizy/pozharno-tekhnicheskaya'
                 },
                 {
-                  href: '/ekspertizy/tovarovedcheskaya',
+                  text: 'Товароведческая',
                   title: 'Товароведческая экспертиза',
-                  children: 'Товароведческая'
+                  url: '/ekspertizy/tovarovedcheskaya'
                 },
                 {
-                  href: '/uscherba-ot-zaliva',
+                  text: 'Ущерба от залива',
                   title: 'Экспертиза ущерба от залива',
-                  children: 'Ущерба от залива'
+                  url: '/uscherba-ot-zaliva'
                 }
               ],
-              withType: 'unmarked'
+            withType: 'unmarked'
             }
           }
         ]

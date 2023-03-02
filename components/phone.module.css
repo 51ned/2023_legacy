@@ -1,3 +1,4 @@
-.nav:hover {
+.number {
   border-bottom: 2px solid var(--primary-color);
+  font-weight: 700;
 }

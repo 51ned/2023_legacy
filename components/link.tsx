@@ -1,35 +1,44 @@
 import Link from 'next/link'
 
+import { ColorEnum, SizeEnum } from '@/components/text'
+
 import style from './link.module.css'
 
 
-const LinkStyleEnum = {
-  Arrow: 'arrow',
-  Nav: 'nav',
-  Regular: 'regular'
-} as const
-
-type LinkStyleEnum = typeof LinkStyleEnum[keyof typeof LinkStyleEnum]
-
-
 export interface LinkProps {
-  children: string,
-  href: string,
+  children?: React.ReactNode,
+  extraStyle?: string
+  text?: React.ReactNode
   title: string,
-  withStyle?: LinkStyleEnum
+  url: string,
+  withColor?: ColorEnum,
+  withSize?: SizeEnum,
 }
 
 
 export function CustomLink ({
   children,
-  href,
+  extraStyle,
   title,
-  withStyle = 'regular'
+  text,
+  url,
+  withColor = 'interactive',
+  withSize = 'smaller'
 }: LinkProps) {
+
+  const linkExtraStyle = extraStyle ? style[extraStyle] : ''
+
+  const linkColor = !linkExtraStyle ? `${withColor}-color` : ''
+  const linkStyle = !linkExtraStyle ? `${withSize}-font-style` : ''
+  
   
   return (
-    <Link href={href} className={style[withStyle]} title={title}>
-      { children }
+    <Link
+      className={`${linkColor} ${linkStyle} ${linkExtraStyle}`}
+      href={url}
+      title={title}
+    >
+      { children ? children : text }
     </Link>
   )
 }

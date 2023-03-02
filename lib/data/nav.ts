@@ -1,19 +1,19 @@
 export const navData = {
   items: [
     {
-      children: 'О компании',
-      href: '/o-kompanii',
-      title: 'О компании ЭКЦ «Вектор»'
+      text: 'О компании',
+      title: 'О компании ЭКЦ «Вектор»',
+      url: '/o-kompanii'
     },
     {
-      children: 'Независимая экспертиза',
-      href: '/nezavisimaya-ekspertiza',
-      title: 'Независимая экспертиза'
+      text: 'Независимая экспертиза',
+      title: 'Независимая экспертиза',
+      url: '/nezavisimaya-ekspertiza'
     },
     {
-      children: 'Услуги оценки',
-      href: '/uslugi-otsenki',
-      title: 'Услуги оценки'
+      text: 'Услуги оценки',
+      title: 'Услуги оценки',
+      url: '/uslugi-otsenki'
     },
   ]
 }

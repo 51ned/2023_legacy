@@ -1,23 +1,23 @@
 import {OuterLayout, InnerLayout } from '@/layouts/.'
 
-import { Card, CardList, List, Tabs, Text } from '@/components/.'
+import { Card, CardList, CustomLink as Link, List, Tabs, Text } from '@/components/.'
 
 
 export default function Home() {
   const listOfStrings = ['String item # 1', 'String item # 2', 'String item # 3']
   const listOfLinks = [
     {
-      children: 'List link item # 1',
+      text: 'List link item # 1',
       href: '#',
       title: 'List link title # 1'
     },
     {
-      children: 'List link item # 2',
+      text: 'List link item # 2',
       href: '#',
       title: 'List link title # 2'
     },
     {
-      children: 'List link item # 3',
+      text: 'List link item # 3',
       href: '#',
       title: 'List link title # 3'
     }
@@ -91,9 +91,9 @@ export default function Home() {
           }
         ],
         link: {
-          href: '#',
+          text: 'I am the rain',
           title: 'test-link-in-card-title',
-          children: 'I am the rain'
+          url: '#'
         }
       },
       cardID: 'test-card-id-3'

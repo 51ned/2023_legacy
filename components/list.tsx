@@ -12,7 +12,7 @@ const ListTypeEnum = {
   Unordered: 'unordered'
 } as const
 
-export type ListTypeEnum = typeof ListTypeEnum[keyof typeof ListTypeEnum]
+type ListTypeEnum = typeof ListTypeEnum[keyof typeof ListTypeEnum]
 
 
 export interface ListProps {
@@ -28,8 +28,8 @@ export function List({
   withType
 }: ListProps) {
 
-  const ListTag = withType === 'ordered' ? 'ol' : 'ul'
   const listPadding = withPadding ? 'paragraph' : ''
+  const ListTag = withType === 'ordered' ? 'ol' : 'ul'
 
   const renderListItems = useMemo(() => {
     return items.map((item, index) => {
@@ -46,9 +46,12 @@ export function List({
       return (
         <React.Fragment key={index}>
           <Text tag='li' withStyle='smaller'>
-            <Link href={item.href} title={item.title} withStyle={item.withStyle}>
-              { item.children }
-            </Link>
+            <Link
+              extraStyle={item.extraStyle}
+              text={item.text}
+              title={item.title}
+              url={item.url}
+            />
           </Text>
         </React.Fragment>
       )

@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 
-import { Box, Button, CustomLink as Link, List, ModalContext } from '@/components/.'
+import { Box, Button, List, ModalContext, Phone } from '@/components/.'
 
 import { useWindowSize } from '@/hooks/.'
 
@@ -15,24 +15,28 @@ export function Navbar() {
   const listData = {
     items: [
       {
-        children: 'Услуга',
-        href: '#',
-        title: '...'
+        extraStyle: 'nav',
+        text: 'Услуга',
+        title: '...',
+        url: '#',
       },
       {
-        children: 'Эксперт',
-        href: '#',
-        title: '...'
+        extraStyle: 'nav',
+        text: 'Эксперт',
+        title: '...',
+        url: '#',
       },
       {
-        children: 'Цены',
-        href: '#',
-        title: '...'
+        extraStyle: 'nav',
+        text: 'Цены',
+        title: '...',
+        url: '#',
       },
       {
-        children: 'Контакты',
-        href: '#',
-        title: '...'
+        extraStyle: 'nav',
+        text: 'Контакты',
+        title: '...',
+        url: '#',
       }
     ],
     withType: 'horisontal'
@@ -55,7 +59,7 @@ export function Navbar() {
             <List items={listData.items} withType={listData.withType} />
           }
 
-          <Link href='tel:+7 495 507-86-49' title='Позвонить в ЭКЦ «Вектор»'>+7 495 507-86-49</Link>
+          <Phone />
         </div>
       </Box>
     </Box>
