@@ -35,21 +35,24 @@ export function Modal({
   
   const { closeModal, refsObj } = useContext(ModalContext)
 
+  const backdropClick = useCallback((currentTarget: { target: object }) => {
+    currentTarget.target === refsObj[refName] && closeModal(refsObj[refName])
+  }, [closeModal, refName, refsObj])
+
   const dialogRef = useCallback((node: HTMLDialogElement) => {
     refsObj[refName] = node
   }, [refName, refsObj])
-
-  const backdropRef = useCallback(() => {}, [])
   
   return (
     <dialog
       aria-labelledby={controllingID}
       className={`${style.wrap} ${style[withStyle]}`}
       id={dialogID}
+      onClick={backdropClick}
       ref={dialogRef}
     >
       <section className={style.container}>
-        <div className={style.header} ref={backdropRef}>
+        <div className={style.header}>
           <Header level='3'>{withTitle }</Header>
           
           <Button 

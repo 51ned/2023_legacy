@@ -6,11 +6,6 @@
 
 .paragraph:not(:last-child) { padding-bottom: var(--indent-20-16); }
 
-.scroll_locked {
-  overflow: hidden;
-  scrollbar-gutter: stable;
-}
-
 .visually_hidden {
   border: 0;
   clip: rect(0 0 0 0);

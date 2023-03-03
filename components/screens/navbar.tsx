@@ -8,7 +8,7 @@ import style from './navbar.module.css'
 
 
 export function Navbar() {
-  const {openModal, refsObj} = useContext(ModalContext)
+  const { openModal, refsObj } = useContext(ModalContext)
   const isDesktop = useWindowSize()
 
   // temp
