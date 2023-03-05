@@ -46,7 +46,7 @@ export function Footer() {
           </CardList>
         }
 
-        {!isDesktop && <Accordion accData={footerData.menu} />}
+        {!isDesktop && <Accordion data={footerData.menu} />}
       </Box>
 
       <Box withRole='container' withStyle={style.b_floor} withTag='div'>

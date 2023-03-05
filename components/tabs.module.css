@@ -1,26 +1,15 @@
 .wrap {
-  background-color: var(--bg-white);
-  border-radius: var(--outer-radius);
   display: grid;
-  grid-template-areas:
-    'head head'
-    'buttons cards';
+  grid-template-areas: 'buttons cards';
   grid-template-columns: calc(100% / 12 * 3) auto;
-  padding-bottom: var(--indent-24-16);
-}
-
-.head {
-  grid-area: head;
-  padding: var(--indent-24-16);
 }
 
 .buttons {
-  background-color: var(--bg-white);
   grid-area: buttons;
   height: 100%;
 }
 
 .list {
   position: sticky;
-  top: 0;
+  top: calc(var(--base) * 24);
 }

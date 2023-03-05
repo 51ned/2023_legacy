@@ -1,28 +1,14 @@
-const ColorEnum = {
-  Interactive: 'interactive',
-  Primary: 'primary',
-  Regular: 'regular'
-} as const
-
-const SizeEnum = {
-  Smallest: 'smallest',
-  Smaller: 'smaller',
-  Regular: 'regular',
-  Subtitle: 'subtitle'
-} as const
-
-export type ColorEnum = typeof ColorEnum[keyof typeof ColorEnum]
-export type SizeEnum = typeof SizeEnum[keyof typeof SizeEnum]
-
+export type TextColorEnum = 'interactive' | 'primary' | 'regular'
+export type TextSizeEnum = 'smallest' | 'smaller' | 'regular' | 'subtitle'
 
 export interface TextProps {
   children: React.ReactNode,
   isBold?: boolean;
   tag?: keyof JSX.IntrinsicElements,
-  withColor?: ColorEnum,
+  withColor?: TextColorEnum,
   withPadding?: boolean,
-  withSize?: SizeEnum,
-  withStyle?: SizeEnum
+  withSize?: TextSizeEnum,
+  withStyle?: TextSizeEnum
 }
 
 

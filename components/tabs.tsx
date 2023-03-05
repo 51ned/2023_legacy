@@ -5,7 +5,7 @@ import { Button, Card, CardDataProps } from '@/components/.'
 import style from './tabs.module.css'
 
 
-interface TabsItemProps {
+interface TabItemProps {
   buttonID: string,
   buttonText: string,
   buttonTitle: string,
@@ -13,9 +13,7 @@ interface TabsItemProps {
   cardID: string
 }
 
-interface TabsProps {
-  data: TabsItemProps[]
-}
+interface TabsProps { data: TabItemProps[] }
 
 
 export function Tabs({data}: TabsProps) {
@@ -42,7 +40,7 @@ export function Tabs({data}: TabsProps) {
   }
   
   return (
-    <article className={style.wrap}>
+    <div className={style.wrap}>
       <div className={style.buttons}>
         <ul className={style.list} role='tablist'>
           {data.map((item, index) => (
@@ -67,7 +65,7 @@ export function Tabs({data}: TabsProps) {
           <Card
             cardData={item.cardData}
             cardID={item.cardID}
-            cardWrapTag='div'
+            cardWrapTag='section'
             controllingID={item.buttonID}
             direction={state.clickDirection}
             isActive={index === state.activeIndex}
@@ -75,6 +73,6 @@ export function Tabs({data}: TabsProps) {
           />
         </React.Fragment>
       ))}
-    </article>
+    </div>
   )
 }

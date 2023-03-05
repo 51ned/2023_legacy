@@ -5,22 +5,8 @@ import { Burger, Close, Plus } from '@/components/icons'
 import style from './button.module.css'
 
 
-const IconEnum = {
-  Burger: 'burger',
-  Close: 'close',
-  Plus: 'plus'
-} as const
-
-const StyleEnum = {
-  Accordion: 'accordion',
-  Regular: 'regular',
-  Stripped: 'stripped',
-  Tab: 'tab'
-} as const
-
-type IconEnum = typeof IconEnum[keyof typeof IconEnum]
-type StyleEnum = typeof StyleEnum[keyof typeof StyleEnum]
-
+type IconEnum = 'burger' | 'close' | 'plus'
+type StyleEnum = 'accordion' | 'regular' | 'stripped' | 'tab'
 
 interface ButtonProps {
   buttonID?: string,

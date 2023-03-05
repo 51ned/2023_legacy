@@ -7,14 +7,15 @@ import style from './accordion.module.css'
 
 interface AccordionItemProps {
   buttonID: string,
+  buttonText: string,
   buttonTitle: string,
   cardData: CardDataProps,
-  cardID: string,
+  cardID: string
 }
 
 interface AccordionProps {
   accContainerTag?: keyof JSX.IntrinsicElements,
-  accData: AccordionItemProps[],
+  data: AccordionItemProps[],
   accWrapTag?: keyof JSX.IntrinsicElements,
   buttonWrapTag?: keyof JSX.IntrinsicElements,
   cardWrapTag?: keyof JSX.IntrinsicElements
@@ -23,7 +24,7 @@ interface AccordionProps {
 
 export function Accordion({
   accContainerTag,
-  accData,
+  data,
   accWrapTag,
   buttonWrapTag,
   cardWrapTag}: AccordionProps) {
@@ -45,7 +46,7 @@ export function Accordion({
   
   return (
     <AccWrapTag className={style.wrap}>
-      {accData.map((item, index) => (
+      {data.map((item, index) => (
         <AccContainerTag key={index} {...accContainerOpts}>
           <Button
             buttonID={item.buttonID}
@@ -58,7 +59,7 @@ export function Accordion({
             withStyle='accordion'
             withTitle={item.buttonTitle}
           >
-            { item.buttonTitle }
+            { item.buttonText }
           </Button>
           
           <Card

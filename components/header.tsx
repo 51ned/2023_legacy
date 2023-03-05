@@ -1,24 +1,12 @@
-const TextHeaderSizeEnum = {
-  Smallest: 'smallest',
-  Smaller: 'smaller',
-  Regular: 'regular',
-  Subtitle: 'subtitle'
-} as const
+import { TextSizeEnum } from '@/components/text'
 
-const TextHeaderLevelEnum = {
-  1: '1',
-  2: '2',
-  3: '3'
-} as const
 
-type TextHeaderLevelEnum = typeof TextHeaderLevelEnum[keyof typeof TextHeaderLevelEnum]
-type TextHeaderSizeEnum = typeof TextHeaderSizeEnum[keyof typeof TextHeaderSizeEnum]
-
+type TextHeaderLevelEnum = '1' | '2' | '3'
 
 interface TextHeaderingProps {
   children: React.ReactNode,
   level: TextHeaderLevelEnum,
-  size?: TextHeaderSizeEnum,
+  size?: TextSizeEnum,
   withPadding?: boolean
 }
 

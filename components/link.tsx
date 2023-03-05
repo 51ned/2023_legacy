@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { ColorEnum, SizeEnum } from '@/components/text'
+import { TextColorEnum, TextSizeEnum } from '@/components/text'
 
 import style from './link.module.css'
 
@@ -11,8 +11,8 @@ export interface LinkProps {
   text?: React.ReactNode
   title: string,
   url: string,
-  withColor?: ColorEnum,
-  withSize?: SizeEnum,
+  withColor?: TextColorEnum,
+  withSize?: TextSizeEnum,
 }
 
 

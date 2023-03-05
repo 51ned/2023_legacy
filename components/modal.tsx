@@ -6,13 +6,7 @@ import { CroppedLogo as Logo } from '@/components/icons'
 import style from './modal.module.css'
 
 
-const ModalStyleEnum = {
-  Modal: 'modal',
-  Offcanvas: 'offcanvas'
-} as const
-
-type ModalStyleEnum = typeof ModalStyleEnum[keyof typeof ModalStyleEnum]
-
+type ModalStyleEnum = 'modal' | 'offcanvas'
 
 interface ModalProps {
   children: React.ReactNode,
@@ -35,13 +29,13 @@ export function Modal({
   
   const { closeModal, refsObj } = useContext(ModalContext)
 
-  const backdropClick = useCallback((currentTarget: { target: object }) => {
-    currentTarget.target === refsObj[refName] && closeModal(refsObj[refName])
-  }, [closeModal, refName, refsObj])
-
   const dialogRef = useCallback((node: HTMLDialogElement) => {
     refsObj[refName] = node
   }, [refName, refsObj])
+
+  const backdropClick = useCallback((currentTarget: { target: object }) => {
+    currentTarget.target === refsObj[refName] && closeModal(refsObj[refName])
+  }, [closeModal, refName, refsObj])
   
   return (
     <dialog

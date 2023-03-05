@@ -1,3 +1,3 @@
-.nav:hover {
-  border-bottom: 2px solid var(--primary-color);
-}
+.nav { color: var(--primary-color); }
+
+.nav:hover { border-bottom: 2px solid var(--primary-color); }

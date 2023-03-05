@@ -1,13 +1,7 @@
 import style from './box.module.css'
 
 
-const BoxRoleEnum = {
-  Container: 'container',
-  Wrap: 'wrap'
-} as const
-
-type BoxRoleEnum = typeof BoxRoleEnum[keyof typeof BoxRoleEnum]
-
+type BoxRoleEnum = 'container' | 'wrap'
 
 interface BoxProps {
   children: React.ReactNode,

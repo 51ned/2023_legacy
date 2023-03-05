@@ -1,25 +1,11 @@
-import React, { useMemo } from 'react'
+import { LinkProps, ListProps } from '@/components/.'
 
-import {
-  CustomLink as Link, LinkProps,
-  List, ListProps,
-  Text,
-  TextHeader as Header,
-} from '@/components/.'
+import { RenderCard } from '@/utils/render'
 
 import style from './card.module.css'
 
 
-const CardStyleEnum = {
-  Accordion: 'accordion',
-  Dialog: 'dialog',
-  Regular: 'regular',
-  Stripped: 'stripped',
-  Tab: 'tab'
-} as const
-
-type CardStyleEnum = typeof CardStyleEnum[keyof typeof CardStyleEnum]
-
+type CardStyleEnum = 'accordion' | 'dialog' | 'regular' | 'tab'
 
 interface CardTextProps {
   list?: ListProps,
@@ -76,44 +62,6 @@ export function Card({
   if (isActive && direction) {
     cardStyles += ` ${style[`slide_${direction}`]}`
   }
-
-  const renderCardData = useMemo(() => {
-    let arr: React.ReactNode[] = []
-
-    if (cardData) {
-      for (let key of Object.keys(cardData)) {
-        if (cardData.header && key === 'header') {
-          arr.push(<Header level='3' withPadding>{ cardData.header }</Header>)
-        }
-  
-        if (cardData.text && key === 'text') {
-          for (let item of cardData.text) {
-            item.paragraph && arr.push(<Text withPadding>{ item.paragraph }</Text>)
-            item.list && arr.push(<List items={item.list.items} withPadding withType={item.list.withType} />)
-          }
-        }
-        
-        if (cardData.link && key === 'link') {
-          arr.push(
-            <Link
-              title={cardData.link.title}
-              url={cardData.link.url}
-            >
-              { cardData.link.children }
-            </Link>
-          )
-        }
-      }
-    }
-    
-    return arr.map((item, index) => {
-      return (
-        <React.Fragment key={index}>
-          { item }
-        </React.Fragment>
-      )
-    })
-  }, [cardData])
   
   return (
     <CardWrapTag
@@ -122,7 +70,7 @@ export function Card({
       id={cardID}
       {...otherCardOpts}
     >
-      { cardData ? renderCardData : children }
+      { cardData ? RenderCard(cardData) : children }
     </CardWrapTag>
   )
 }

@@ -18,28 +18,16 @@
 }
 
 
-/* Stripped */
-
-
-.stripped {
-  background-color: inherit;
-  height: auto;
-  padding: 0;
-  width: auto;
-}
-
-
 /* Tab */
 
 
 .tab {
-  background-color: var(--bg-white);
   border-left: 2px solid var(--decor-light-gray);
   grid-area: cards;
   padding:
-    var(--indent-12-8)
+    18px
     var(--indent-32-24)
-    var(--indent-12-8)
+    var(--indent-16-12)
     var(--indent-24-16);
 }
 
