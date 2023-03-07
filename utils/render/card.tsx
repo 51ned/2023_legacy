@@ -1,18 +1,18 @@
 import React, { useMemo } from 'react'
 
 import {
-  CardDataProps,
   CustomLink as Link,
   List,
   TextHeader as Header,
   Text
 } from '@/components/.'
+import type { CardDataProps } from '@/components/article/interface'
 
 
 export function RenderCard(cardData: CardDataProps) {
   return useMemo(() => {
     let arr: React.ReactNode[] = []
-
+    
     for (let key of Object.keys(cardData)) {
       if (cardData.header && key === 'header') {
         arr.push(<Header level='3' withPadding>{ cardData.header }</Header>)

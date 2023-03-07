@@ -1,22 +1,9 @@
-import { LinkProps, ListProps } from '@/components/.'
+import type { CardStyleEnum, CardDataProps } from '@/components/article/interface'
 
 import { RenderCard } from '@/utils/render'
 
 import style from './card.module.css'
 
-
-type CardStyleEnum = 'accordion' | 'dialog' | 'regular' | 'tab'
-
-interface CardTextProps {
-  list?: ListProps,
-  paragraph?: string
-}
-
-export interface CardDataProps {
-  header?: string,
-  link?: LinkProps,
-  text: CardTextProps[] 
-}
 
 interface CardProps {
   cardData?: CardDataProps,

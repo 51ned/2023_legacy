@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 
-import { CustomLink as Link, LinkProps, Text } from '@/components/.'
+import { CustomLink as Link, Text } from '@/components/.'
+import type { LinkProps } from '@/components/article/interface'
 
 
 export function RenderList(items: string[] | LinkProps[]) {

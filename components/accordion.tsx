@@ -1,21 +1,14 @@
 import React, { useState } from 'react'
 
-import { Button, Card, CardDataProps } from '@/components/.'
+import { Button, Card } from '@/components/.'
+import type { ContentItemProps } from '@/components/article/interface'
 
 import style from './accordion.module.css'
 
 
-interface AccordionItemProps {
-  buttonID: string,
-  buttonText: string,
-  buttonTitle: string,
-  cardData: CardDataProps,
-  cardID: string
-}
-
 interface AccordionProps {
   accContainerTag?: keyof JSX.IntrinsicElements,
-  data: AccordionItemProps[],
+  data: ContentItemProps[],
   accWrapTag?: keyof JSX.IntrinsicElements,
   buttonWrapTag?: keyof JSX.IntrinsicElements,
   cardWrapTag?: keyof JSX.IntrinsicElements
@@ -29,7 +22,7 @@ export function Accordion({
   buttonWrapTag,
   cardWrapTag}: AccordionProps) {
   
-  const AccWrapTag = accWrapTag ?? 'div'
+  const AccWrapTag = accWrapTag ?? React.Fragment
   const AccContainerTag = accContainerTag ?? React.Fragment
 
   let accContainerOpts: {[key: string]: string} = {}

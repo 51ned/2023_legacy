@@ -1,21 +1,11 @@
-import { TextSizeEnum } from '@/components/text'
-
-
-type TextHeaderLevelEnum = '1' | '2' | '3'
-
-interface TextHeaderingProps {
-  children: React.ReactNode,
-  level: TextHeaderLevelEnum,
-  size?: TextSizeEnum,
-  withPadding?: boolean
-}
+import type { HeaderProps } from '@/components/article/interface'
 
 
 export function TextHeader({
   children,
   level,
   size,
-  withPadding}: TextHeaderingProps) {
+  withPadding}: HeaderProps) {
     
   const Tag: keyof JSX.IntrinsicElements = `h${level}`
 

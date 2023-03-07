@@ -1,22 +1,12 @@
 import React, { useState } from 'react'
 
-import { Button, Card, CardDataProps } from '@/components/.'
+import { Button, Card } from '@/components/.'
+import type { ContentProps } from '@/components/article/interface'
 
 import style from './tabs.module.css'
 
 
-interface TabItemProps {
-  buttonID: string,
-  buttonText: string,
-  buttonTitle: string,
-  cardData: CardDataProps,
-  cardID: string
-}
-
-interface TabsProps { data: TabItemProps[] }
-
-
-export function Tabs({data}: TabsProps) {
+export function Tabs({data}: ContentProps) {
   const [state, setState] = useState({
     activeIndex: 0,
     clickDirection: '',
@@ -40,7 +30,7 @@ export function Tabs({data}: TabsProps) {
   }
   
   return (
-    <div className={style.wrap}>
+    <>
       <div className={style.buttons}>
         <ul className={style.list} role='tablist'>
           {data.map((item, index) => (
@@ -73,6 +63,6 @@ export function Tabs({data}: TabsProps) {
           />
         </React.Fragment>
       ))}
-    </div>
+    </>
   )
 }

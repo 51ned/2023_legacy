@@ -1,7 +1,7 @@
-export type TextColorEnum = 'interactive' | 'primary' | 'regular'
-export type TextSizeEnum = 'smallest' | 'smaller' | 'regular' | 'subtitle'
+import type { TextColorEnum, TextSizeEnum} from '@/components/article/interface'
 
-export interface TextProps {
+
+interface TextProps {
   children: React.ReactNode,
   isBold?: boolean;
   tag?: keyof JSX.IntrinsicElements,

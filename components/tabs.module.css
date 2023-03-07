@@ -1,9 +1,3 @@
-.wrap {
-  display: grid;
-  grid-template-areas: 'buttons cards';
-  grid-template-columns: calc(100% / 12 * 3) auto;
-}
-
 .buttons {
   grid-area: buttons;
   height: 100%;

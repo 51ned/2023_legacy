@@ -1,18 +1,8 @@
-import { LinkProps } from '@/components/.'
+import { ListProps } from '@/components/article/interface'
 
 import { RenderList } from '@/utils/render'
 
 import style from './list.module.css'
-
-
-type ListTypeEnum = 'horisontal' | 'ordered' | 'unmarked' | 'unordered'
-
-
-export interface ListProps {
-  items: string[] | LinkProps[],
-  withPadding?: boolean,
-  withType: string | ListTypeEnum
-}
 
 
 export function List({
