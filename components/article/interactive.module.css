@@ -1,11 +1,18 @@
+/* .accordion,
 .tabs {
-  display: grid;
-  grid-template-areas: 'buttons cards';
-  grid-template-columns: calc(100% / 12 * 3) auto;
-}
+  background-color: var(--bg-white);
+  border-radius: var(--outer-radius);
+  padding: var(--indent-24-16) 0;
+} */
 
 .accordion {
   border-color: var(--decor-light-gray);
   border-style: solid;
   border-width: 2px 0;
+}
+
+.tabs {
+  display: grid;
+  grid-template-areas: 'buttons cards';
+  grid-template-columns: calc(100% / 12 * 3) auto;
 }

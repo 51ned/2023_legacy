@@ -10,7 +10,6 @@ export default function Home() {
     <OuterLayout>
       <InnerLayout>
         <Article data={articleData} />
-        <Article data={articleData} isStripped />
       </InnerLayout>
     </OuterLayout>
   )

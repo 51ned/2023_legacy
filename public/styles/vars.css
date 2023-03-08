@@ -35,6 +35,16 @@
     --indent-20-16: calc(var(--base) * 4);
     --indent-16-12: calc(var(--base) * 3);
     --indent-12-8: calc(var(--base) * 2);
-    --indent-8-4: calc(var(--base) * 1);
+    --indent-8-4: var(--base);
+
+    --offcanvas-width: 100vw;
   }
 }
+
+@media (min-width: 769px) and (max-width: 992px) {
+  :root { --offcanvas-width: 50vw; }
+} 
+
+@media (min-width: 993px) {
+  :root { --offcanvas-width: 25vw; }
+} 
