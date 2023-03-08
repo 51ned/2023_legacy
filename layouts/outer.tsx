@@ -25,6 +25,15 @@ export function OuterLayout({
         >
           <Nav />
         </Modal>
+        <Modal
+          controllingID='main-nav-open-button'
+          dialogID='main-nav-dialog'
+          refName='hui'
+          withStyle='offcanvas'
+          withTitle='Главное меню'
+        >
+          <Nav />
+        </Modal>
       </div>
 
       <Footer />

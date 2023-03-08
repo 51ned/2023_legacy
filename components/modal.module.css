@@ -3,11 +3,11 @@
   position: relative;
 }
 
-.wrap[open] { animation: slide .3s ease; }
-
 .wrap::backdrop { background-color: rgba(0, 0, 0, .8); }
 
-.wrap[open]::backdrop { animation: fade .2s ease; }
+.wrap[open]::backdrop { animation: fade-in .2s ease; }
+
+.close.wrap::backdrop { animation: fade-out 1s ease; }
 
 .container {
   display: flex;
@@ -34,18 +34,40 @@
   padding-top: var(--indent-24-16);
 }
 
+
+/* Offcanvas */
+
+
 .offcanvas {
   height: 100%;
   min-height: 100vh;
   min-width: var(--offcanvas-width);
 }
 
-@keyframes fade {
-  from { background-color: transparent; }
-  to { background-color: rgba(0, 0, 0, .8); }
+.wrap[open].offcanvas { animation: open-offcanvas .3s ease forwards; }
+
+.wrap.offcanvas.close {
+  animation: close-offcanvas 1s ease forwards;
 }
 
-@keyframes slide {
-  from { left: calc(var(--offcanvas-width) * -1); }
-  to { left: 0 }
+
+/* Keyframes */
+
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-out {
+  to { opacity: 0; }
+}
+
+@keyframes open-offcanvas {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes close-offcanvas {
+  to { transform: translateX(-100%); }
 }

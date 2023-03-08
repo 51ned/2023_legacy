@@ -54,6 +54,15 @@ export function Navbar() {
           withTitle='Навигация по сайту'
         />
 
+<Button
+          buttonID='main-nav-open-button'
+          controlledID='main-nav-dialog'
+          handleClick={() => openModal(refsObj.hui)}
+          withIcon='burger'
+          withStyle='stripped'
+          withTitle='Навигация по сайту'
+        />
+
         <div className={style.nav}>
           {isDesktop &&
             <List items={listData.items} withType={listData.withType} />

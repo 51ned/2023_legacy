@@ -1,5 +1,7 @@
 import React, { createContext } from 'react'
 
+import style from './modal.module.css'
+
 
 interface ModalContextProps {
   closeModal: (node: HTMLDialogElement) => void,
@@ -16,6 +18,7 @@ function ModalProvider({ children }: any) {
 
   const openModal = (node: HTMLDialogElement) => {
     node.showModal()
+    node.classList.remove(`${style.close}`)
 
     const documentWidth = document.documentElement.clientWidth
     const windowWidth = window.innerWidth
@@ -26,6 +29,8 @@ function ModalProvider({ children }: any) {
 
   const closeModal = (node: HTMLDialogElement) => {
     node.close()
+    node.classList.add(`${style.close}`)
+
     document.body.removeAttribute('style')
   }
 
