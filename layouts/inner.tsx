@@ -18,6 +18,8 @@ export function InnerLayout({
       <Head>
         <meta content='' name='description' />
         <title>| ЭКЦ «Вектор»</title>
+        <link rel='preload' href='fonts/montserrat-regular.woff2' as='font' type='font/woff2' crossOrigin='' />
+        <link rel='preload' href='fonts/montserrat-bold.woff2' as='font' type='font/woff2' crossOrigin='' />
       </Head>
 
       <Navbar />

@@ -1,5 +1,5 @@
 /* 1. Import optimized typefaces */
-@font-face {
+/* @font-face {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
@@ -13,7 +13,7 @@
   font-weight: 700;
   src: local('Montserrat'),
        url('../fonts/montserrat-bold.woff2') format('woff2');
-}
+} */
 
 
 /* 2. Add typefaces to selectors */
