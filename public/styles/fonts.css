@@ -1,30 +1,12 @@
-/* 1. Import optimized typefaces */
-/* @font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Montserrat'),
-       url('../fonts/montserrat-regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  font-style: bold;
-  font-weight: 700;
-  src: local('Montserrat'),
-       url('../fonts/montserrat-bold.woff2') format('woff2');
-} */
-
-
-/* 2. Add typefaces to selectors */
+/* 1. Add typefaces to selectors */
 * { font-family: 'Montserrat', sans-serif; }
 
 
-/* 3. Add styles to tags */
+/* 2. Add styles to tags */
 a { text-decoration: none; }
 
 
-/* 4. Define variables with sizes and line-spacings */
+/* 3. Define variables with sizes and line-spacings */
 :root {
   --smallest-font-size: 14px;
   --smallest-line-height: 20px;
@@ -68,7 +50,7 @@ a { text-decoration: none; }
 }
 
 
-/* 5. Define classes with fonts sizes only */
+/* 4. Define classes with fonts sizes only */
 .smallest-font-size { font-size: var(--smallest-font-size); }
 .smaller-font-size { font-size: var(--smaller-font-size); }
 .regular-font-size { font-size: var(--regular-font-size); }
@@ -82,7 +64,7 @@ a { text-decoration: none; }
 .h2-font-size { font-size: var(--h2-font-size); }
 .h3-font-size { font-size: var(--subtitle-font-size); }
 
-/* 6. Define classes with fonts sizes and line-spacings */
+/* 5. Define classes with fonts sizes and line-spacings */
 .smallest-font-style {
   font-size: var(--smallest-font-size);
   line-height: var(--smallest-line-height);
@@ -116,7 +98,7 @@ a { text-decoration: none; }
 }
 
 
-/* 7. Define variables with colors */
+/* 6. Define variables with colors */
 :root {
   --interactive-color: blue;
   --muted-color: hsl(240, 2%, 47%);
@@ -125,7 +107,7 @@ a { text-decoration: none; }
 }
 
 
-/* 8. Define styles with colors & all others */
+/* 7. Define styles with colors & all others */
 .bold { font-weight: 700; }
 
 .interactive-color { color: var(--interactive-color) }
