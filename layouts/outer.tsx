@@ -1,5 +1,6 @@
 import { Footer } from '@/components/screens'
-import { Modal, Nav } from '@/components/.'
+import { Modal } from '@/components/modal'
+import { Nav } from '@/components/.'
 
 
 interface OuterLayoutProps {
@@ -20,15 +21,6 @@ export function OuterLayout({
           controllingID='main-nav-open-button'
           dialogID='main-nav-dialog'
           refName='main_nav'
-          withStyle='offcanvas'
-          withTitle='Главное меню'
-        >
-          <Nav />
-        </Modal>
-        <Modal
-          controllingID='main-nav-open-button'
-          dialogID='main-nav-dialog'
-          refName='hui'
           withStyle='offcanvas'
           withTitle='Главное меню'
         >

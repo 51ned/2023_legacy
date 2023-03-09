@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 
-import { Box, Button, List, ModalContext, Phone } from '@/components/.'
+import { Box, Button, List, Phone } from '@/components/.'
+import { ModalContext } from '@/components/modal'
 
 import { useWindowSize } from '@/hooks/.'
 
@@ -49,15 +50,6 @@ export function Navbar() {
           buttonID='main-nav-open-button'
           controlledID='main-nav-dialog'
           handleClick={() => openModal(refsObj.main_nav)}
-          withIcon='burger'
-          withStyle='stripped'
-          withTitle='Навигация по сайту'
-        />
-
-<Button
-          buttonID='main-nav-open-button'
-          controlledID='main-nav-dialog'
-          handleClick={() => openModal(refsObj.hui)}
           withIcon='burger'
           withStyle='stripped'
           withTitle='Навигация по сайту'

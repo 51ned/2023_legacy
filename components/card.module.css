@@ -1,6 +1,10 @@
-.accordion {}
+.accordion {
+  height: 0;
+}
 
-.accordion:not([hidden]) {}
+.accordion:not([hidden]) {
+  animation: fade-in 1s ease forwards;
+}
 
 
 /* Regular */
@@ -24,6 +28,7 @@
 .tab {
   border-left: 2px solid var(--decor-light-gray);
   grid-area: cards;
+  height: auto;
   padding:
     18px
     var(--indent-32-24)
@@ -36,3 +41,14 @@
 .tab:not([hidden]).slide_down > * {}
 
 .tab:not([hidden]).slide_up > * {}
+
+
+@keyframes fade-in {
+  from {height: 0;}
+  to {height: auto}
+}
+
+@keyframes fade-out {
+  from {opacity: 1;}
+  to {opacity: 0}
+}
