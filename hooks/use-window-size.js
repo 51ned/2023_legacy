@@ -26,7 +26,7 @@ export function useWindowSize() {
 
   let isDesktop = true
 
-  if (windowSize.width <= 1240) {
+  if (windowSize.width < 992) {
     isDesktop = false
   }
 
