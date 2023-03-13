@@ -3,8 +3,6 @@ import dynamic from 'next/dynamic'
 import { TextHeader as Header, Text } from '@/components/.'
 import type { ContentProps, ContentItemProps } from '@/components/article/interface'
 
-import style from './article.module.css'
-
 
 interface ArticleProps {
   data: {

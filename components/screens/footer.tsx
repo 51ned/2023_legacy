@@ -14,7 +14,7 @@ import { CroppedLogo as Logo} from '@/components/icons'
 
 import { useWindowSize } from '@/hooks/.'
 
-import { footerData } from '@/lib/data'
+import { commonData, footerData } from '@/lib/data'
 
 import style from './footer.module.css'
 
@@ -64,7 +64,14 @@ export function Footer() {
 
         <div className={style.address_container}>
           <Text withStyle='smallest'>
-            101000, Россия, гор. Москва, Армянский пер., д. 9, стр. 1,{isDesktop ? <br/> : ' '}+7 495 507-86-49, mail@ekc-vector.ru
+            {commonData.address.index},{' '}
+            {commonData.address.city},{' '}
+            {commonData.address.street},{' '}
+            {commonData.address.house},{' '}
+            {commonData.address.office},{isDesktop ? <br/> : ' '}
+            {commonData.phone.code}{' '}
+            {commonData.phone.number},{' '}
+            {commonData.email}
           </Text>
         </div>
       </Box>

@@ -1,3 +1,5 @@
+import cn from 'classnames'
+
 import Link from 'next/link'
 
 import type { LinkProps } from '@/components/article/interface'
@@ -15,15 +17,15 @@ export function CustomLink ({
   withSize = 'smaller'
 }: LinkProps) {
 
-  const linkExtraStyle = extraStyle ? style[extraStyle] : ''
-
-  const linkColor = !linkExtraStyle ? `${withColor}-color` : ''
-  const linkStyle = !linkExtraStyle ? `${withSize}-font-style` : ''
-  
+  const className = cn({
+    [`${extraStyle}`]: extraStyle,
+    [`${withColor}-color`]: withColor,
+    [`${withSize}-font-style`]: withSize
+  })
   
   return (
     <Link
-      className={`${linkColor} ${linkStyle} ${linkExtraStyle}`}
+      className={className}
       href={url}
       title={title}
     >

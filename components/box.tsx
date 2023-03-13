@@ -1,3 +1,5 @@
+import cn from 'classnames'
+
 import style from './box.module.css'
 
 
@@ -18,8 +20,12 @@ export function Box({
   withTag: BoxTag
 }: BoxProps) {
 
+  const className = cn(style[withRole], {
+    [`${withStyle}`]: withStyle
+  })
+
   return (
-    <BoxTag className={`${style[withRole]} ${withStyle ?? ''}`}>
+    <BoxTag className={className}>
       { children }
     </BoxTag>
   )

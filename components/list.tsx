@@ -1,3 +1,5 @@
+import cn from 'classnames'
+
 import { ListProps } from '@/components/article/interface'
 
 import { RenderList } from '@/utils/render'
@@ -11,11 +13,14 @@ export function List({
   withType
 }: ListProps) {
 
-  const listPadding = withPadding ? 'paragraph' : ''
   const ListTag = withType === 'ordered' ? 'ol' : 'ul'
 
+  const className = cn(style[withType], {
+    ['paragraph']: withPadding
+  })
+
   return (
-    <ListTag className={`${style[withType]} ${listPadding}`}>
+    <ListTag className={className}>
       { RenderList(items) }
     </ListTag>
   )

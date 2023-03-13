@@ -1,3 +1,5 @@
+import cn from 'classnames'
+
 import type { TextColorEnum, TextSizeEnum} from '@/components/article/interface'
 
 
@@ -20,14 +22,17 @@ export function Text({
   withPadding,
   withSize,
   withStyle = 'regular'}: TextProps) {
-    
-  const textColor = `${withColor}-color`
-  const textPadding = withPadding ? 'paragraph' : ''
+  
   const textStyle = withSize ? `${withSize}-font-size` : `${withStyle}-font-style`
-  const textWeight = isBold ? 'bold' : ''
+
+  const className = cn(textStyle, {
+    [`${withColor}-color`]: withColor,
+    ['bold']: isBold,
+    ['paragraph']: withPadding
+  })  
 
   return (
-    <Tag className={`${textColor} ${textPadding} ${textStyle} ${textWeight}`}>
+    <Tag className={className}>
       { children }
     </Tag>
   )  
