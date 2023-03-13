@@ -1,0 +1,16 @@
+.row {
+  border-radius: var(--inner-radius);
+  display: table-row;
+}
+
+.row:hover { background-color: #fff; }
+
+@media screen and (max-width: 768px) {
+  .row {
+    background-color: var(--bg-white);
+    display: grid;
+    padding: var(--indent-24-16);
+    /* min-width: calc(100vw - calc(var(--base) * 12)); */
+    scroll-snap-align: start;
+  }
+}

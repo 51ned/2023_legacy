@@ -1,9 +1,9 @@
-/* .accordion,
+.accordion,
 .tabs {
   background-color: var(--bg-white);
   border-radius: var(--outer-radius);
   padding: var(--indent-24-16) 0;
-} */
+}
 
 .accordion {
   border-color: var(--decor-light-gray);

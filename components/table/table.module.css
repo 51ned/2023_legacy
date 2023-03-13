@@ -1,0 +1,10 @@
+.table {
+  border-collapse: separate;
+  border-spacing: 0 var(--indent-12-8);
+  display: table;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .table { display: block; }
+}

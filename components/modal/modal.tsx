@@ -36,16 +36,13 @@ export function Modal({
   const backdropClick = useCallback((currentTarget: { target: object }) => {
     currentTarget.target === refsObj[refName] && closeModal(refsObj[refName])
   }, [closeModal, refName, refsObj])
-  const handleAnimation = (e: any) => {
-    console.log(e.nativeEvent.animationName);
-  };
+  
   return (
     <dialog
       aria-labelledby={controllingID}
       className={`${style.wrap} ${style[withStyle]}`}
       id={dialogID}
       onClick={backdropClick}
-      onAnimationEnd={(e) => handleAnimation(e)}
       ref={dialogRef}
     >
       <section className={style.container}>

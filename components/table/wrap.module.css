@@ -1,0 +1,12 @@
+.wrap {
+  background-color: var(--bg-white);
+  border-radius: var(--outer-radius);
+  padding: var(--indent-24-16);
+}
+
+
+@media screen and (max-width: 768px) {
+  .wrap {
+    padding: 0;
+  }
+}

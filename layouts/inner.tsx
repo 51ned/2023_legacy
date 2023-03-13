@@ -1,7 +1,6 @@
 import Head from 'next/head'
 
-import { Box } from '@/components/.'
-import { Header, Navbar } from '@/components/screens'
+import { Contacts, Header, Main, Navbar, Prices } from '@/components/screens'
 
 
 interface InnerLayoutProps {
@@ -24,11 +23,13 @@ export function InnerLayout({
 
       <Header />
 
-      <Box withRole='wrap' withTag='main'>
-        <Box withRole='container' withTag='div'>
-          { children }
-        </Box>
-      </Box>
+      <Main>
+        { children }
+
+        <Prices />
+
+        <Contacts />
+      </Main>
     </>
   )
 }

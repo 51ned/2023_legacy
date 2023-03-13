@@ -1,7 +1,7 @@
-import { useWindowSize } from '@/hooks/.'
-
 import { Accordion, Tabs } from '@/components/.'
 import type { ContentProps } from '@/components/article/interface'
+
+import { useWindowSize } from '@/hooks/.'
 
 import style from './interactive.module.css'
 

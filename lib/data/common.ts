@@ -10,5 +10,6 @@ export const commonData = {
     street: 'Армянский пер.',
     house: 'д. 9, стр. 1',
     office: 'офис 312'
-  }
+  },
+  email: 'mail@ekc-vector.ru'
 }

@@ -60,7 +60,7 @@ export function Navbar() {
             <List items={listData.items} withType={listData.withType} />
           }
 
-          <Phone />
+          <Phone withStyle='primary' />
         </div>
       </Box>
     </Box>
