@@ -1,6 +1,6 @@
 export const commonData = {
   phone: {
-    code: '+7 495',
+    code: '+7 495 ',
     number: '507-86-49',
     allTogether: '+74955078649'
   },

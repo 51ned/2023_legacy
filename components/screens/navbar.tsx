@@ -1,9 +1,13 @@
 import { useContext } from 'react'
 
-import { Box, Button, List, Phone } from '@/components/.'
+import Link from 'next/link'
+
+import { Box, Button, List } from '@/components/.'
 import { ModalContext } from '@/components/modal'
 
 import { useWindowSize } from '@/hooks/.'
+
+import { commonData } from '@/lib/data'
 
 import style from './navbar.module.css'
 
@@ -60,7 +64,13 @@ export function Navbar() {
             <List items={listData.items} withType={listData.withType} />
           }
 
-          <Phone withStyle='primary' />
+            <Link
+              href={`tel:${commonData.phone.allTogether}`}
+              title='Позвонить в ЭКЦ «Вектор»'
+            >
+              { commonData.phone.code}
+              { commonData.phone.number}
+            </Link>
         </div>
       </Box>
     </Box>

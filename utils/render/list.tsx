@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react'
 
-import { CustomLink as Link, Text } from '@/components/.'
+import Link from 'next/link'
+
+import { Text } from '@/components/.'
 import type { LinkProps } from '@/components/article/interface'
 
 
@@ -20,12 +22,9 @@ export function RenderList(items: string[] | LinkProps[]) {
       return (
         <React.Fragment key={index}>
           <Text tag='li' withStyle='smaller'>
-            <Link
-              extraStyle={item.extraStyle}
-              text={item.text}
-              title={item.title}
-              url={item.url}
-            />
+            <Link href={item.url} title={item.title}>
+              { item.text }
+            </Link>
           </Text>
         </React.Fragment>
       )

@@ -1,10 +1,10 @@
+import Link from 'next/link'
+
 import {
   Card,
   CardList,
-  CustomLink as Link,
   Text,
-  TextHeader as Header,
-  Phone 
+  TextHeader as Header 
 } from '@/components/.'
 
 import { commonData } from '@/lib/data'
@@ -34,15 +34,20 @@ export function Contacts() {
 
           <Text withPadding>
             <span>Телефон офиса:</span><br/>
-            <Phone withStyle='regular' />
+            <Link
+              href={`tel:${commonData.phone.allTogether}`}
+              title='Позвонить в ЭКЦ «Вектор»'
+            >
+              { commonData.phone.code}
+              { commonData.phone.number}
+            </Link>
           </Text>
 
           <Text withPadding>
             <span>Электронная почта:</span><br/>
             <Link
+              href={`mailto:mail@${commonData.email}`}
               title='Написать в ЭКЦ «Вектор»'
-              url={`mailto:mail@${commonData.email}`}
-              withSize='regular'
             >
               { commonData.email }
             </Link>

@@ -16,13 +16,9 @@ interface HeaderProps {
 }
 
 interface LinkProps {
-  children?: React.ReactNode,
-  extraStyle?: string
-  text?: React.ReactNode
+  text: React.ReactNode
   title: string,
   url: string,
-  withColor?: TextColorEnum,
-  withSize?: TextSizeEnum,
 }
 
 interface ListProps {

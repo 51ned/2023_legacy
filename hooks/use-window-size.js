@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useLayoutEffect } from 'react'
 
 
 export function useWindowSize() {
@@ -7,21 +7,19 @@ export function useWindowSize() {
     height: undefined,
   })
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      function handleResize() {
-        setWindowSize({
-          width: window.innerWidth,
-          height: window.innerHeight,
-        })
-      }
-    
-      window.addEventListener('resize', handleResize)
-     
-      handleResize()
-    
-      return () => window.removeEventListener('resize', handleResize)
+  useLayoutEffect(() => {
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      })
     }
+  
+    window.addEventListener('resize', handleResize)
+   
+    handleResize()
+  
+    return () => window.removeEventListener('resize', handleResize)
   }, [])
 
   let isDesktop = true

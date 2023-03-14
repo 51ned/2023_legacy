@@ -1,7 +1,8 @@
 import React, { useMemo } from 'react'
 
+import Link from 'next/link'
+
 import {
-  CustomLink as Link,
   List,
   TextHeader as Header,
   Text
@@ -28,10 +29,10 @@ export function RenderCard(cardData: CardDataProps) {
       if (cardData.link && key === 'link') {
         arr.push(
           <Link
+            href={cardData.link.url}
             title={cardData.link.title}
-            url={cardData.link.url}
           >
-            { cardData.link.children }
+            { cardData.link.text }
           </Link>
         )
       }
