@@ -10,11 +10,13 @@ export function Burger() {
       viewBox='0 0 24 20'
     >
       <rect
+        className={style.line}
         height='4'
         width='24'
       />
 
       <rect
+        className={style.line}
         height='4'
         width='16'
         x='8'
@@ -22,6 +24,7 @@ export function Burger() {
       />
 
       <rect
+        className={style.line}
         height='4'
         width='20'
         x='4'

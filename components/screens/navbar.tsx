@@ -69,7 +69,10 @@ export function Navbar() {
               title='Позвонить в ЭКЦ «Вектор»'
             >
               { commonData.phone.code}
-              { commonData.phone.number}
+              
+              <span className={style.number}>
+                { commonData.phone.number}
+              </span>
             </Link>
         </div>
       </Box>

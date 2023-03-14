@@ -11,7 +11,7 @@ export function TextHeader({
     
   const Tag: keyof JSX.IntrinsicElements = `h${level}`
 
-  const textHeaderStyle = size ? `${size}_font_style` : `h${level}_font_style`
+  const textHeaderStyle = size ? `${size}-font-style` : `h${level}-font-style`
 
   const className = cn(textHeaderStyle, {
     ['paragraph']: withPadding

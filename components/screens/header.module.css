@@ -1,0 +1,16 @@
+.header {
+  background-color: var(--bg-blue);
+}
+
+.header_container {
+  color: var(--white-color);
+  display: grid;
+  gap: var(--indent-24-16);
+  grid-template-columns: 1fr 1fr;
+  padding: var(--indent-24-16) 0;
+}
+
+.content_container {
+  display: grid;
+  gap: var(--indent-24-16);
+}

@@ -121,7 +121,8 @@ a { text-decoration: none; }
   --interactive-color: blue;
   --muted-color: hsl(240, 2%, 47%);
   --primary-color: hsl(0, 0%, 0%);
-  --regular-color: hsl(0, 0%, 20%);
+  --regular-color: hsl(210, 9%, 13%);;
+  --white-color: hsl(0, 0%, 100%);
 }
 
 
