@@ -5,8 +5,9 @@ import Link from 'next/link'
 import { Box, Button, List } from '@/components/.'
 import { ModalContext } from '@/components/modal'
 
-import { useWindowSize } from '@/hooks/.'
+import { useMediaQuery } from '@/hooks/.'
 
+import { BREAKPOINTS } from '@/lib/.'
 import { commonData } from '@/lib/data'
 
 import style from './navbar.module.css'
@@ -14,7 +15,7 @@ import style from './navbar.module.css'
 
 export function Navbar() {
   const { openModal, refsObj } = useContext(ModalContext)
-  const isDesktop = useWindowSize()
+  const isTablet = useMediaQuery(BREAKPOINTS.MD)
 
   // temp
   const listData = {
@@ -60,7 +61,7 @@ export function Navbar() {
         />
 
         <div className={style.nav}>
-          {isDesktop &&
+          {isTablet &&
             <List items={listData.items} withType={listData.withType} />
           }
 

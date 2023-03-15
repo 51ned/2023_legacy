@@ -3,7 +3,6 @@ import React from 'react'
 import {
   Accordion,
   Box,
-  Card,
   List,
   CardList,
   Text,
@@ -12,22 +11,23 @@ import {
 
 import { CroppedLogo as Logo} from '@/components/icons'
 
-import { useWindowSize } from '@/hooks/.'
+import { useMediaQuery } from '@/hooks/.'
 
+import { BREAKPOINTS } from '@/lib/.'
 import { commonData, footerData } from '@/lib/data'
 
 import style from './footer.module.css'
 
 
 export function Footer() {
-  const isDesktop = useWindowSize()
+  const isTablet = useMediaQuery(BREAKPOINTS.MD)
 
   return (
     <Box withRole='wrap' withStyle={style.wrap} withTag='footer'>
       <Box withRole='container' withStyle={style.a_floor} withTag='section'>
         <Header level='2' withPadding>Экспертизы</Header>
 
-        {isDesktop &&
+        {isTablet &&
           <CardList>
             {footerData.menu.map((item, index) => {
               return (
@@ -46,7 +46,7 @@ export function Footer() {
           </CardList>
         }
 
-        {!isDesktop && <Accordion data={footerData.menu} />}
+        {!isTablet && <Accordion data={footerData.menu} />}
       </Box>
 
       <Box withRole='container' withStyle={style.b_floor} withTag='div'>
@@ -68,7 +68,7 @@ export function Footer() {
             {commonData.address.city},{' '}
             {commonData.address.street},{' '}
             {commonData.address.house},{' '}
-            {commonData.address.office},{isDesktop ? <br/> : ' '}
+            {commonData.address.office},{isTablet ? <br/> : ' '}
             {commonData.phone.code}{' '}
             {commonData.phone.number},{' '}
             {commonData.email}

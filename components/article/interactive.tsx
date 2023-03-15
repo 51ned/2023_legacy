@@ -1,22 +1,24 @@
 import { Accordion, Tabs } from '@/components/.'
 import type { ContentProps } from '@/components/article/interface'
 
-import { useWindowSize } from '@/hooks/.'
+import { useMediaQuery } from '@/hooks/.'
+
+import { BREAKPOINTS } from '@/lib/.'
 
 import style from './interactive.module.css'
 
 
 export function Interactive({ data }: ContentProps) {
-  const isDesktop = useWindowSize()
+  const isTablet = useMediaQuery(BREAKPOINTS.MD)
 
-  const styles = isDesktop
+  const styles = isTablet
     ? `${style.tabs}`
     : `${style.accordion}`
 
   return (
     <div className={styles}>
       {
-        isDesktop
+        isTablet
           ? <Tabs data={data} />
           : <Accordion data={data} />
       }
