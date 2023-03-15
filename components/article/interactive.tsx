@@ -1,4 +1,5 @@
-import { Accordion, Tabs } from '@/components/.'
+import dynamic from 'next/dynamic'
+
 import type { ContentProps } from '@/components/article/interface'
 
 import { useMediaQuery } from '@/hooks/.'
@@ -15,13 +16,13 @@ export function Interactive({ data }: ContentProps) {
     ? `${style.tabs}`
     : `${style.accordion}`
 
+  const Component = isTablet
+    ? dynamic<ContentProps>(() => import('@/components/.').then((m) => m.Tabs))
+    : dynamic<ContentProps>(() => import('@/components/.').then((m) => m.Accordion))
+
   return (
     <div className={styles}>
-      {
-        isTablet
-          ? <Tabs data={data} />
-          : <Accordion data={data} />
-      }
+      <Component data={data} />
     </div>
   )
 }
