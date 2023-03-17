@@ -25,11 +25,11 @@ export function Accordion({
   const AccWrapTag = accWrapTag ?? React.Fragment
   const AccContainerTag = accContainerTag ?? React.Fragment
 
-  let accWrapOpts: {[key: string]: string} = {}
   let accContainerOpts: {[key: string]: string} = {}
 
-  accWrapTag && (accWrapOpts['className'] = `${style.wrap}`)
-  accContainerTag && (accContainerOpts['className'] = `${style.container}`)
+  if (accContainerTag) {
+    accContainerOpts['className'] = `${style.container}`
+  }
   
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   
@@ -38,7 +38,7 @@ export function Accordion({
   }
   
   return (
-    <AccWrapTag {...accWrapOpts}>
+    <AccWrapTag className={style.wrap}>
       {data.map((item, index) => (
         <AccContainerTag key={index} {...accContainerOpts}>
           <Button

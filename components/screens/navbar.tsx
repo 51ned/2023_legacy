@@ -57,7 +57,7 @@ export function Navbar() {
           handleClick={() => openModal(refsObj.main_nav)}
           withIcon='burger'
           withStyle='stripped'
-          withTitle='Навигация по сайту'
+          withTitle='Открыть главное меню'
         />
 
         <div className={style.nav}>
