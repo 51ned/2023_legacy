@@ -1,4 +1,4 @@
-.wrap { border: none; }
+.wrap { border: none; z-index: 9; }
 
 .wrap::backdrop {
   background-color: rgba(0, 0, 0, .5);

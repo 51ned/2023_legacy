@@ -1,3 +1,5 @@
+import cn from 'classnames'
+
 import { useCallback, useContext } from 'react'
 
 import { ModalContext } from '@/components/modal'
@@ -33,6 +35,8 @@ export function Modal({
     refsObj[refName] = node
   }, [refName, refsObj])
 
+  const dialogClasses = cn(style.wrap, style[withStyle], {})  
+
   const backdropClick = useCallback((currentTarget: { target: object }) => {
     currentTarget.target === refsObj[refName] && closeModal(refsObj[refName])
   }, [closeModal, refName, refsObj])
@@ -40,8 +44,9 @@ export function Modal({
   return (
     <dialog
       aria-labelledby={controllingID}
-      className={`${style.wrap} ${style[withStyle]}`}
+      className={dialogClasses}
       id={dialogID}
+      onCancel={() => closeModal(refsObj[refName])}
       onClick={backdropClick}
       ref={dialogRef}
     >
