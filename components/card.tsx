@@ -1,3 +1,5 @@
+import cn from 'classnames'
+
 import type { CardStyleEnum, CardDataProps } from '@/components/article/interface'
 
 import { RenderCard } from '@/utils/render'
@@ -44,11 +46,9 @@ export function Card({
       break
   }
 
-  let cardStyles = `${style[withStyle]}`
-
-  if (isActive && direction) {
-    cardStyles += ` ${style[`slide_${direction}`]}`
-  }
+  const cardStyles = cn(style[withStyle], {
+    [style[`slide_${direction}`]]: isActive && direction
+  })
   
   return (
     <CardWrapTag
