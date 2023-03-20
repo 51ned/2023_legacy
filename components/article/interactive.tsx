@@ -16,13 +16,16 @@ export function Interactive({ data }: ContentProps) {
     ? `${style.tabs}`
     : `${style.accordion}`
 
-  const Component = isTablet
-    ? dynamic<ContentProps>(() => import('@/components/.').then((m) => m.Tabs))
-    : dynamic<ContentProps>(() => import('@/components/.').then((m) => m.Accordion))
+  const Tabs = dynamic<ContentProps>(() => import('@/components/.').then((m) => m.Tabs))
+  const Accordion = dynamic<any>(() => import('@/components/.').then((m) => m.Accordion))
 
   return (
     <div className={styles}>
-      <Component data={data} />
+      {
+        isTablet
+          ? <Tabs data={data} />
+          : <Accordion cardWrapTag='section' data={data} />
+      }
     </div>
   )
 }
